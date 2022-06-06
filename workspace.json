@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
-  "projects": {}
+  "projects": {
+    "toctive-dashboard-dashboard-frontend": "apps/toctive-dashboard/dashboard-frontend",
+    "toctive-dashboard-dashboard-frontend-e2e": "apps/toctive-dashboard/dashboard-frontend-e2e"
+  }
 }
