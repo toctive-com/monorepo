@@ -1,0 +1,52 @@
+{
+  "$schema": "..\\..\\..\\node_modules\\nx\\schemas\\project-schema.json",
+  "sourceRoot": "apps/toctive-dashboard/backend/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/toctive-dashboard/backend",
+        "main": "apps/toctive-dashboard/backend/src/main.ts",
+        "tsConfig": "apps/toctive-dashboard/backend/tsconfig.app.json",
+        "assets": ["apps/toctive-dashboard/backend/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/toctive-dashboard/backend/src/environments/environment.ts",
+              "with": "apps/toctive-dashboard/backend/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "toctive-dashboard-backend:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/toctive-dashboard/backend/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/toctive-dashboard/backend"],
+      "options": {
+        "jestConfig": "apps/toctive-dashboard/backend/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["backend", "express", "dashboard", "toctive-project"]
+}
