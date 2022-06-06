@@ -1,7 +1,7 @@
 {
   "name": "toctive",
   "version": "0.0.0",
-  "description": "A monorepo conatins all Toctive private projects",
+  "description": "A monorepo contains all Toctive private projects",
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
