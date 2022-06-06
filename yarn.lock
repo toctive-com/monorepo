@@ -1611,7 +1611,7 @@
 
 "@nrwl/nx-cloud@^14.0.5":
   version "14.0.5"
-  resolved "https://registry.npmjs.org/@nrwl/nx-cloud/-/nx-cloud-14.0.5.tgz"
+  resolved "https://registry.yarnpkg.com/@nrwl/nx-cloud/-/nx-cloud-14.0.5.tgz#43ee0ddd2dc494689ecd2b10fdd1c2855d59b6c1"
   integrity sha512-ADLGWiorW7sHT9hJw1OrxCG9JE9ALYfzNtXWJbvn4ulERul3hSsj+7P+uyUBtflpCrG1bmw5SxkQ77EH/DkY5A==
   dependencies:
     axios "^0.21.1"
