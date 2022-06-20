@@ -22,6 +22,7 @@
   "devDependencies": {
     "@nrwl/cli": "14.1.9",
     "@nrwl/cypress": "^14.1.9",
+    "@nrwl/devkit": "14.1.9",
     "@nrwl/eslint-plugin-nx": "^14.1.9",
     "@nrwl/express": "^14.1.9",
     "@nrwl/jest": "^14.1.9",
