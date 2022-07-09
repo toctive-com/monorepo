@@ -5,7 +5,7 @@
 
 import * as express from 'express';
 
-import { makeUser } from '@toctive/ums';
+import { makeUser } from '@toctive/iam';
 const user = makeUser({
   firstName: 'John',
   lastName: 'Doe',

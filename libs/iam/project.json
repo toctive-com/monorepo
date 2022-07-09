@@ -1,16 +1,16 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/ums/src",
+  "sourceRoot": "libs/iam/src",
   "projectType": "library",
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/ums",
-        "main": "libs/ums/src/index.ts",
-        "tsConfig": "libs/ums/tsconfig.lib.json",
-        "assets": ["libs/ums/*.md"]
+        "outputPath": "dist/libs/iam",
+        "main": "libs/iam/src/index.ts",
+        "tsConfig": "libs/iam/tsconfig.lib.json",
+        "assets": ["libs/iam/*.md"]
       }
     },
     "publish": {
@@ -29,14 +29,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/ums/**/*.ts"]
+        "lintFilePatterns": ["libs/iam/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/ums"],
+      "outputs": ["coverage/libs/iam"],
       "options": {
-        "jestConfig": "libs/ums/jest.config.ts",
+        "jestConfig": "libs/iam/jest.config.ts",
         "passWithNoTests": true
       }
     }

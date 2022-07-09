@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@toctive/ums": ["libs/ums/src/index.ts"]
+      "@toctive/iam": ["libs/iam/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

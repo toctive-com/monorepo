@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'ums',
+  displayName: 'iam',
   preset: '../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,5 +11,5 @@ export default {
     '^.+\\.[tj]s$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/libs/ums',
+  coverageDirectory: '../../coverage/libs/iam',
 };
