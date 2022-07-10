@@ -10,6 +10,11 @@
   },
   "private": true,
   "dependencies": {
+    "@capacitor/android": "^3.6.0",
+    "@capacitor/cli": "^3.6.0",
+    "@capacitor/core": "^3.6.0",
+    "@capacitor/ios": "^3.6.0",
+    "@ionic/react": "^6.1.13",
     "@nrwl/next": "14.1.9",
     "core-js": "^3.6.5",
     "express": "4.17.2",
@@ -21,6 +26,7 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@ionic/cli": "^6.20.1",
     "@nrwl/cli": "14.1.9",
     "@nrwl/cypress": "^14.1.9",
     "@nrwl/eslint-plugin-nx": "^14.1.9",
