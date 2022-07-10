@@ -1,2 +1,2 @@
 export * from './lib/core/entities/user';
-export * from './lib/ums';
+export * from './lib/iam';

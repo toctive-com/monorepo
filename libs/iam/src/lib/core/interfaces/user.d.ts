@@ -18,8 +18,11 @@ export interface UserI {
   coverImage?: string | null;
   bioDescription?: string | null;
 
-  // TODO: add address 1 and address 2
-  // TODO: add markedDeleted property
+  address?: string | null;
+  city?: string | null;
+  zip?: string | null;
+  state?: string | null;
+  country?: string | null;
 
   activeStatus?: boolean | null; // like messenger => true=online, false=offline, null=(not showing)
 
@@ -28,4 +31,7 @@ export interface UserI {
 
   createdAt?: Date;
   updatedAt?: Date;
+
+  markedDeleted?: boolean; // soft delete to mark the user as deleted
+  deletedAt?: Date | null; // date when the user was deleted (marked as deleted (soft delete))
 }

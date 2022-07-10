@@ -1,4 +1,4 @@
 export interface IdI {
-  isValidId: (id: string) => boolean;
+  isValid: (id: string) => boolean;
   makeId: () => string;
 }
