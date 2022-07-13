@@ -11,7 +11,7 @@ export function PageHeader({ className, text, isBack = true }: PageHeaderI) {
   const navigate = useNavigate();
   return (
     <div
-      className={`flex items-center gap-5 rounded-xl px-8 py-3 shadow-lg ${className}`}
+      className={`flex w-full items-center gap-5 rounded-xl px-8 py-3 shadow-sm ${className}`}
     >
       {isBack ? (
         <IoMdArrowBack

@@ -15,7 +15,7 @@ export const ClosestTransitStationsScreen = () => {
         ticketPrice={10}
         elderlyTicketPrice={5}
         tripTime={380}
-        mainColor="red-500"
+        mainColor="red"
         color={'red-500'}
       />
 

@@ -107,13 +107,13 @@ export function StationsSelector({
   }, [fromStation, toStation, onChange]);
 
   return (
-    <div className={`flex flex-col justify-center  ${className}`}>
+    <div className={`flex flex-col justify-center ${className}`}>
       <div
-        className={`flex justify-evenly rounded-xl  bg-[#60a5fa]  p-5 ${
+        className={`flex justify-evenly rounded-xl bg-[#60a5fa] p-5 ${
           isFromTo ? 'rounded-b-none' : ''
         } `}
       >
-        <span className=" w-1/4 self-center text-xl text-white">From</span>
+        <span className="w-1/4 self-center text-xl text-white">From</span>
 
         <Select
           className="w-3/4"
@@ -130,7 +130,7 @@ export function StationsSelector({
 
       {isFromTo && (
         <div
-          className={`flex justify-evenly rounded-xl  rounded-t-none bg-[#60a5fa] p-5`}
+          className={`flex justify-evenly rounded-xl rounded-t-none bg-[#60a5fa] p-5`}
         >
           <span className="w-1/4 self-center text-xl text-white">To</span>
           <Select

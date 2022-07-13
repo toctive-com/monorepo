@@ -8,5 +8,11 @@ import React from 'react';
  * and the children passed in as props.
  */
 export const Page = ({ children }: { children: React.ReactNode }) => {
-  return <div className="overflow-x-hidden bg-gray-50 p-8">{children}</div>;
+  return (
+    <div className="max-w-screen h-screen overflow-x-hidden bg-gray-50 p-4">
+      {children}
+    </div>
+  );
 };
+
+export default Page;

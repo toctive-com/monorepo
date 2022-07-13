@@ -1,5 +1,14 @@
+export const ticketColors = {
+  blue: 'bg-blue-500',
+  green: 'bg-green-500',
+  red: 'bg-red-500',
+  yellow: 'bg-yellow-300',
+};
+
+export type TicketColor = 'blue' | 'green' | 'red' | 'yellow';
+
 interface TicketI {
-  mainColor: string;
+  mainColor: TicketColor;
   className?: string;
 }
 
@@ -14,8 +23,8 @@ interface TicketI {
 export function Ticket({ mainColor, className }: TicketI) {
   return (
     <div
-      className={`flex h-[116px] w-3/4 items-center rounded-sm ${
-        mainColor ? `bg-${mainColor}` : 'bg-yellow-200'
+      className={`flex h-[116px] w-10/12 max-w-xs items-center rounded ${
+        mainColor ? ticketColors[mainColor] : 'bg-yellow-200'
       } ${className} `}
     >
       <div className="h-8 w-full bg-black"></div>
