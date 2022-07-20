@@ -1,0 +1,26 @@
+{
+  "home-screen": {
+    "title": "الرئيسية",
+    "start-trip": "أبدأ رحلة",
+    "station-services": "خدمات المحطات",
+    "transit-stations": "المحطات التبادلية",
+    "safety-instructions": "تعليمات الأمان",
+    "metro-schedules": "جدول المترو",
+    "violations-and-fines": "المخالفات والغرامات",
+    "closest-transit": "أقرب محطة تبادلية",
+    "subscription-information": "معلومات الإشتراك"
+  },
+  "bottom-nav": {
+    "map": "الخريطة",
+    "home": "الرئيسية",
+    "settings": "الإعدادات"
+  },
+  "side-menu": {
+    "home": "الرئيسية",
+    "settings": "الإعدادات",
+    "map": "الخريطة",
+    "contact-metro": "تواصل مع هيئة المترو",
+    "contact-us": "تواصل معنا",
+    "about-us": "من نحن"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "home-screen": {
+    "title": "Home",
+    "start-trip": "Start Trip",
+    "station-services": "Station Services",
+    "transit-stations": "Transit Stations",
+    "safety-instructions": "Safety Instructions",
+    "metro-schedules": "Metro Schedules",
+    "violations-and-fines": "Violations And Fines",
+    "closest-transit": "Closest Transit",
+    "subscription-information": "Subscription Information"
+  },
+  "bottom-nav": {
+    "map": "map",
+    "home": "home",
+    "settings": "settings"
+  },
+  "side-menu": {
+    "home": "Home",
+    "settings": "Settings",
+    "map": "Map",
+    "contact-metro": "Contact Metro",
+    "contact-us": "Contact Us",
+    "about-us": "About Us"
+  },
+  "map-screen": {
+    "title": "Map"
+  }
+}
