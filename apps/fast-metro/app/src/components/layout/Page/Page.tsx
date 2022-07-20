@@ -9,7 +9,7 @@ import React from 'react';
  */
 export const Page = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="max-w-screen h-screen overflow-x-hidden bg-gray-50 p-4">
+    <div className="max-w-screen h-screen overflow-x-hidden bg-gray-50 p-4 pb-28">
       {children}
     </div>
   );
