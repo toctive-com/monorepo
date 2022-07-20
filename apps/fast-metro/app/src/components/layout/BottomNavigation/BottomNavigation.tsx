@@ -2,11 +2,13 @@ import { IonIcon } from '@ionic/react';
 import { gsap } from 'gsap';
 import { useLayoutEffect, useRef } from 'react';
 import { useLocation, Link } from 'react-router-dom';
+
 interface INavigationItem {
   label: string;
   icon: any;
   href?: string;
 }
+
 /**
  * It renders a navigation item with an icon and a label
  *
@@ -25,7 +27,9 @@ const NavigationItem = ({ label, icon, href = '/' }: INavigationItem) => {
       >
         <IonIcon
           icon={icon}
-          className={location.pathname === href ? 'text-xl' : 'text-2xl'}
+          className={
+            location.pathname === href ? 'text-xl' : 'opacity-85 text-2xl'
+          }
         />
         {location.pathname === href && <span className="text-sm">{label}</span>}
       </div>
@@ -33,7 +37,7 @@ const NavigationItem = ({ label, icon, href = '/' }: INavigationItem) => {
   );
 };
 
-const BottomNavigation = ({ items }: { items: INavigationItem[] }) => {
+export const BottomNavigation = ({ items }: { items: INavigationItem[] }) => {
   /* This is a useLayoutEffect hook that is animating the navbar on page load. */
   const navRef = useRef<HTMLDivElement>(null);
   useLayoutEffect(() => {
@@ -41,7 +45,6 @@ const BottomNavigation = ({ items }: { items: INavigationItem[] }) => {
     if (navRef.current) {
       transition = gsap.from(navRef.current, {
         y: 100,
-        x: -20,
         opacity: 0.5,
       });
     }
