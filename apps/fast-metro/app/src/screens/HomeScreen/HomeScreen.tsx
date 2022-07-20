@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Features from '../../components/layout/Features/Features';
 import Page from '../../components/layout/Page/Page';
 
@@ -13,16 +11,22 @@ export const HomeScreen = () => {
         <PageHeader text="Home" isBack={false} />
 
         <Features>
-          <Card text="Start Trip" to="/start-trip" />
-          <Card text="Station services" to="/station-services" />
-          <Card text="Transit Stations" to="/transit-stations" />
-          <Card text="Safety Instructions" to="/safety-instructions" />
-          <Card text="Metro Schedules" to="/metro-schedules" />
-          <Card text="Violations and Fines" to="/violations-and-fines" />
-          <Card text="Closest Transit" to="/closest-transit-stations" />
-          <Card text="Subscription Information" to="/subscription" />
+          {cards.map((item, i) => (
+            <Card text={item.label} to={item.href} />
+          ))}
         </Features>
       </div>
     </Page>
   );
 };
+
+const cards = [
+  { label: 'Start Trip', href: '/start-trip' },
+  { label: 'Station services', href: '/station-services' },
+  { label: 'Transit Stations', href: '/transit-stations' },
+  { label: 'Safety Instructions', href: '/safety-instructions' },
+  { label: 'Metro Schedules', href: '/metro-schedules' },
+  { label: 'Violations and Fines', href: '/violations-and-fines' },
+  { label: 'Closest Transit', href: '/closest-transit-stations' },
+  { label: 'Subscription Information', href: '/subscription' },
+];
