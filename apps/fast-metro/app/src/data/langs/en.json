@@ -25,5 +25,12 @@
   },
   "map-screen": {
     "title": "Map"
+  },
+  "error-screen": {
+    "not-found-screen": {
+      "title": "Page Not Found",
+      "subtitle": "Are you lost?",
+      "content": "You found our error page 404. This is not your fault. It is just a little bit mistakes. But don't worry, you can go back right now!"
+    }
   }
 }

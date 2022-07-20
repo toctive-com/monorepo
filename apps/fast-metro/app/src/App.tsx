@@ -28,6 +28,7 @@ import { SubscriptionScreen } from './screens/SubscriptionScreen';
 import { TransitStationsScreen } from './screens/TransitStationsScreen';
 import { ViolationsAndFinesScreen } from './screens/ViolationsAndFinesScreen';
 import { useTranslation } from 'react-i18next';
+import NotFoundScreen from './screens/ErrorsScreen/NotFoundScreen/NotFoundScreen';
 
 export function App() {
   const pageRef = useRef(null);
@@ -93,10 +94,12 @@ pages. */
           <Route path="/contact-metro" element={<ContactMetroScreen />} />
           <Route path="/contact-us" element={<ContactUsScreen />} />
           <Route path="/about-us" element={<AboutUsScreen />} />
+
           <Route path="/start-trip">
             <Route index element={<StartTripScreen />} />
             <Route path="see-all-stations" element={<SeeAllStations />} />
           </Route>
+
           <Route path="/trip-stations" element={<TripStationsScreen />} />
           <Route
             path="/closest-transit-stations"
@@ -114,7 +117,7 @@ pages. */
             path="/violations-and-fines"
             element={<ViolationsAndFinesScreen />}
           />
-          <Route path="*" element={<p>404</p>} />
+          <Route path="*" element={<NotFoundScreen />} />
         </Routes>
       </main>
 

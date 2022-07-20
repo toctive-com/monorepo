@@ -1,7 +1,7 @@
 type ButtonSize = 'sm' | 'md' | 'lg';
 interface PrimaryButtonI {
   className?: string;
-  text?: string;
+  text?: string | React.ReactNode;
   size?: ButtonSize;
   onClick?: () => void;
 }
