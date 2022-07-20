@@ -11,7 +11,7 @@ export default function SettingCard(props: any) {
       className={`rounded-sm bg-gray-100 p-4 ${className} flex justify-between`}
     >
       <div className={`flex flex-col `}>
-        <span className="text-xl">{title}</span>
+        <span className="text-lg">{title}</span>
         <span className="text-sm text-gray-400 ">{text}</span>
       </div>
 
