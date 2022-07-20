@@ -6,6 +6,7 @@ import {
   useLayoutEffect,
   useRef,
 } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import MenuButton from '../../shared/MenuButton/MenuButton';
 
@@ -43,6 +44,16 @@ export const SideMenu = ({ sideMenuIsOpened, setter }: Props) => {
     setter(false);
   }, [location.pathname, setter]);
 
+  const { t } = useTranslation();
+  const menuLinks = [
+    { label: t`side-menu.home`, href: '/home' },
+    { label: t`side-menu.settings`, href: '/settings' },
+    { label: t`side-menu.map`, href: '/map' },
+    { label: t`side-menu.contact-metro`, href: '/contact-metro' },
+    { label: t`side-menu.contact-us`, href: '/contact-us' },
+    { label: t`side-menu.about-us`, href: '/about-us' },
+  ];
+
   return (
     <>
       <div
@@ -53,14 +64,12 @@ export const SideMenu = ({ sideMenuIsOpened, setter }: Props) => {
         ref={overlayRef}
       ></div>
       <aside
-        className="absolute bottom-0 z-50 flex h-full w-full max-w-xs flex-col gap-4 bg-white p-4 opacity-0 shadow-lg"
+        className="absolute bottom-0 z-50 flex h-full w-full max-w-xs flex-col gap-3  bg-white p-4 opacity-0 shadow-lg"
         ref={sideMenuRef}
       >
-        <MenuButton text="Home" href="/home" />
-        <MenuButton text="Settings" href="/settings" />
-        <MenuButton text="Map" href="/map" />
-        <MenuButton text="Settings" href="/settings" />
-        <MenuButton text="Settings" href="/settings" />
+        {menuLinks.map((item, index) => (
+          <MenuButton text={item.label} href={item.href} key={index} />
+        ))}
       </aside>
     </>
   );
