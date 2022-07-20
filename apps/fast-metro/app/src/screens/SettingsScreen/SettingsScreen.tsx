@@ -21,9 +21,9 @@ export const SettingsScreen = () => {
               <Switch IsDark={setIsDark} />
             </SettingCard>
 
-            <SettingCard title="Font Size" text="increase or derease" />
+            <SettingCard title="Font Size" text="increase or decrease" />
 
-            <SettingCard text="change the display language" title="Languges" />
+            <SettingCard text="change the display language" title="Languages" />
           </SettingsSection>
           <SettingsSection title="Cache">
             <SettingCard title="Reset Settings" text="Reset all settings" />
