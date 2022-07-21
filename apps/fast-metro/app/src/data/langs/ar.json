@@ -22,5 +22,54 @@
     "contact-metro": "تواصل مع هيئة المترو",
     "contact-us": "تواصل معنا",
     "about-us": "من نحن"
+  },
+  "settings-screen": {
+    "title": "الإعدادات",
+    "languages": {
+      "title": "اللغة",
+      "subtitle": "غير لغة التطبيق",
+      "arabic": "العربية",
+      "english": "الإنجليزية"
+    },
+    "appearance": {
+      "title": "المظهر",
+      "subtitle": ""
+    },
+    "dark-mode": {
+      "title": "الوضع المظلم",
+      "subtitle": "غير مظهر التطبيق إلى الوضع المظلم أو الأبيض"
+    },
+    "font-size": {
+      "title": "حجم الخط",
+      "subtitle": "كبير أو صغر حجم الخط"
+    },
+    "cache": {
+      "title": "الملفات المؤقتة",
+      "subtitle": ""
+    },
+    "reset-settings": {
+      "title": "إعادة ضبط الإعدادات",
+      "subtitle": "إرجاع كل الإعدادات إلى وضعها الإفتراضي"
+    },
+    "clear-cache": {
+      "title": "حذف الملف المؤقتة",
+      "subtitle": "إعادة ضبط الممصنع بالكامل"
+    },
+    "other": {
+      "title": "أخرى",
+      "subtitle": ""
+    },
+    "share": {
+      "title": "شارك هذا التطبيق",
+      "subtitle": "شارك هذا التطبيق مع أصدقائك"
+    },
+    "disclaimer": {
+      "title": "الشروط",
+      "subtitle": "الحقوق وشروط الإستخدام"
+    },
+    "about": {
+      "title": "عنا",
+      "subtitle": "موقعنا وصفحات الميديا الخاصة بنا"
+    }
   }
 }

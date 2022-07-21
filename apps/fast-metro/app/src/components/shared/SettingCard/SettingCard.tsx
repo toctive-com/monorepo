@@ -1,14 +1,18 @@
 import React from 'react';
 
-export default function SettingCard(props: any) {
-  const {
-    className,
-    title,
-    text,
-  }: { className?: string; title: string; text: string } = props;
+interface ISettingCard {
+  className?: string;
+  title: string;
+  text: string;
+  onClick?: () => void;
+}
+
+export function SettingCard(props: any) {
+  const { className, title, text, onClick }: ISettingCard = props;
   return (
     <div
       className={`rounded-sm bg-gray-100 p-4 ${className} flex justify-between`}
+      onClick={onClick}
     >
       <div className={`flex flex-col `}>
         <span className="text-lg">{title}</span>
@@ -19,3 +23,4 @@ export default function SettingCard(props: any) {
     </div>
   );
 }
+export default SettingCard;

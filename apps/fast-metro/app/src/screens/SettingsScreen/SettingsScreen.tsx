@@ -1,47 +1,126 @@
+import i18next from 'i18next';
 import React, { useState } from 'react';
 
 import Page from '../../components/layout/Page/Page';
 import SettingsSection from '../../components/layout/SettingsSection/SettingsSection';
 
 import PageHeader from '../../components/shared/PageHeader/PageHeader';
-import SettingCard from '../../components/shared/SettingCard/SettingCard';
+import { SettingCard } from '../../components/shared/SettingCard/SettingCard';
 import Switch from '../../components/shared/Switch/Switch';
+import { Alert } from '../../components/shared/Alert/Alert';
+import { Option } from '../../components/shared/Alert/Option';
+import { useTranslation } from 'react-i18next';
+import { setDirection, DirectionType } from '../../assets/js/appDirection';
 
 export const SettingsScreen = () => {
   const [isDark, setIsDark] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <Page>
       <div className={`flex flex-col gap-12`}>
-        <PageHeader text="Settings" isBack={false} />
-        <div className="body flex flex-col gap-5">
-          <SettingsSection title="Appearance">
-            <SettingCard text="increase or decrease" title="Dark Mode">
-              {/* <BsToggleOn className='self-center' size={44} /> */}
+        <PageHeader text={t`settings-screen.title`} isBack={false} />
+
+        <div className="body flex flex-col gap-12">
+          <SettingsSection title={t`settings-screen.appearance.title`}>
+            <SettingCard
+              title={t`settings-screen.dark-mode.title`}
+              text={t`settings-screen.dark-mode.subtitle`}
+            >
               <Switch IsDark={setIsDark} />
             </SettingCard>
-
-            <SettingCard title="Font Size" text="increase or decrease" />
-
-            <SettingCard text="change the display language" title="Languages" />
-          </SettingsSection>
-          <SettingsSection title="Cache">
-            <SettingCard title="Reset Settings" text="Reset all settings" />
-            <SettingCard title="Clear Cache" text="Remove all Cache" />
-          </SettingsSection>
-          <SettingsSection title="Other">
             <SettingCard
-              title="Share This App"
-              text="Share this app with your friends"
+              title={t`settings-screen.font-size.title`}
+              text={t`settings-screen.font-size.subtitle`}
+            />
+            <LanguageCard />
+          </SettingsSection>
+
+          <SettingsSection title={t`settings-screen.cache.title`}>
+            <SettingCard
+              title={t`settings-screen.reset-settings.title`}
+              text={t`settings-screen.reset-settings.subtitle`}
             />
             <SettingCard
-              title="Disclaimer"
-              text="Delimit The scope of rights"
+              title={t`settings-screen.clear-cache.title`}
+              text={t`settings-screen.clear-cache.subtitle`}
             />
-            <SettingCard title="About" text="Our social media and technical" />
+          </SettingsSection>
+
+          <SettingsSection title={t`settings-screen.other.title`}>
+            <SettingCard
+              title={t`settings-screen.share.title`}
+              text={t`settings-screen.share.subtitle`}
+            />
+            <SettingCard
+              title={t`settings-screen.disclaimer.title`}
+              text={t`settings-screen.disclaimer.subtitle`}
+            />
+            <SettingCard
+              title={t`settings-screen.about.title`}
+              text={t`settings-screen.about.subtitle`}
+            />
           </SettingsSection>
         </div>
       </div>
     </Page>
   );
 };
+
+/* A function that is used to change the language of the app. */
+function LanguageCard() {
+  const [languagesAlert, setLanguagesAlert] = useState(false);
+  const [language, setLanguage] = useState<string>(
+    i18next.resolvedLanguage as string
+  );
+  const { t } = useTranslation();
+  const languages = [
+    {
+      label: t`settings-screen.languages.arabic` + ' (العربية)',
+      value: 'ar',
+      dir: 'rtl',
+    },
+    {
+      label: t`settings-screen.languages.english` + ' (English)',
+      value: 'en',
+      dir: 'ltr',
+    },
+  ];
+  return (
+    <>
+      <SettingCard
+        title={t`settings-screen.languages.title`}
+        text={t`settings-screen.languages.subtitle`}
+        onClick={() => {
+          setLanguagesAlert(true);
+        }}
+      />
+      {languagesAlert && (
+        <Alert
+          onSave={() => {
+            i18next.changeLanguage(language);
+            setLanguagesAlert(false);
+            setDirection(
+              languages.filter((lang) => lang.value === language)[0][
+                'dir'
+              ] as DirectionType
+            );
+          }}
+          onCancel={() => setLanguagesAlert(false)}
+        >
+          {languages.map((item, index) => (
+            <Option
+              key={index}
+              text={item.label}
+              value={item.value}
+              selectedValue={language}
+              setValue={(value: string) => {
+                setLanguage(value);
+              }}
+            />
+          ))}
+        </Alert>
+      )}
+    </>
+  );
+}

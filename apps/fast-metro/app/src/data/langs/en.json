@@ -26,6 +26,55 @@
   "map-screen": {
     "title": "Map"
   },
+  "settings-screen": {
+    "title": "Settings",
+    "languages": {
+      "title": "Language",
+      "subtitle": "Change app language",
+      "arabic": "Arabic",
+      "english": "English"
+    },
+    "appearance": {
+      "title": "Appearance",
+      "subtitle": ""
+    },
+    "dark-mode": {
+      "title": "Dark Mode",
+      "subtitle": "Change app theme to dark or light theme"
+    },
+    "font-size": {
+      "title": "Font Size",
+      "subtitle": "increase or decrease font size"
+    },
+    "cache": {
+      "title": "Cache",
+      "subtitle": ""
+    },
+    "reset-settings": {
+      "title": "Reset Settings",
+      "subtitle": "Reset all settings"
+    },
+    "clear-cache": {
+      "title": "Clear Cache",
+      "subtitle": "Remove all Cache"
+    },
+    "other": {
+      "title": "Other",
+      "subtitle": ""
+    },
+    "share": {
+      "title": "Share This App",
+      "subtitle": "Share this app with your friends"
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "subtitle": "Delimit The scope of rights"
+    },
+    "about": {
+      "title": "About",
+      "subtitle": "Our social media and technical"
+    }
+  },
   "error-screen": {
     "not-found-screen": {
       "title": "Page Not Found",

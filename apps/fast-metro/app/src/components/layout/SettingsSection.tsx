@@ -1,6 +1,6 @@
 import React from 'react';
 import PrimaryButton from '../shared/PrimaryButton/PrimaryButton';
-import SettingCard from '../shared/SettingCard/SettingCard';
+import { SettingCard } from '../shared/SettingCard/SettingCard';
 
 import { BsToggleOn } from 'react-icons/bs';
 
