@@ -29,6 +29,7 @@ import { TransitStationsScreen } from './screens/TransitStationsScreen';
 import { ViolationsAndFinesScreen } from './screens/ViolationsAndFinesScreen';
 import { useTranslation } from 'react-i18next';
 import NotFoundScreen from './screens/ErrorsScreen/NotFoundScreen/NotFoundScreen';
+import { isRTL } from './assets/js/appDirection';
 
 export function App() {
   const pageRef = useRef(null);
@@ -44,7 +45,7 @@ pages. */
     let transition: gsap.core.Tween;
     if (pageRef.current) {
       transition = gsap.from(pageRef.current, {
-        x: 30,
+        x: 30 * (isRTL() ? -1 : 1),
         opacity: 0,
       });
     }
