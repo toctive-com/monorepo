@@ -8,6 +8,7 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
+import { isRTL } from '../../../assets/js/appDirection';
 import MenuButton from '../../shared/MenuButton/MenuButton';
 
 interface Props {
@@ -24,14 +25,21 @@ export const SideMenu = ({ sideMenuIsOpened, setter }: Props) => {
     const duration = 0.3;
     if (sideMenuRef && overlayRef) {
       if (sideMenuIsOpened === true) {
-        gsap.to(sideMenuRef.current, { duration, x: 0, opacity: 1 });
+        gsap.to(sideMenuRef.current, {
+          duration,
+          x: 0,
+          opacity: 1,
+          display: 'flex',
+        });
         gsap.to(overlayRef.current, { duration, opacity: 0.3 });
       } else {
         gsap.to(sideMenuRef.current, {
           duration,
           opacity: 0,
           x:
-            (sideMenuRef.current?.getBoundingClientRect().width as number) * -1,
+            (sideMenuRef.current?.getBoundingClientRect().width as number) *
+            (isRTL() ? 1 : -1),
+          display: 'none',
         });
         gsap.to(overlayRef.current, { duration, opacity: 0 });
       }
