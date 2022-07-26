@@ -160,12 +160,12 @@
   },
   "contact-us-screen": {
     "title": "Contact us",
-    "app-name": "Metro App",
+    "app-name": "Fast Metro App",
     "email": "info@toctive.com",
     "contact-form": {
-      "name-holder": "Your Name",
-      "email-holder": "example@mail.com",
-      "massage-holder": "I want to"
+      "name": "Your Name",
+      "email": "example@mail.com",
+      "massage": "I want to ..."
     }
   },
   "contact-metro-screen": {

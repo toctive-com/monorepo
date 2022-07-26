@@ -160,12 +160,11 @@
   },
   "contact-us-screen": {
     "title": "تواصل معنا",
-    "app-name": "Metro App",
-    "email": "info@toctive.com",
+    "app-name": "تطبيق فاست مترو",
     "contact-form": {
-      "name-holder": "أسمك",
-      "email-holder": "example@mail.com",
-      "massage-holder": "أريد ان"
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "massage": "أريد ان ..."
     }
   },
   "contact-metro-screen": {
