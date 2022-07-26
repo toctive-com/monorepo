@@ -112,11 +112,11 @@
           "subtitle": "Ends at {{time}} AM"
         },
         "time-between-stations-peek-time": {
-          "title": "Time between station (Peek time)",
+          "title": "Time between stations (Peek time)",
           "subtitle": "{{time}}{{timebysec}}"
         },
         "time-between-stations-non-peek-time": {
-          "title": "Time between station (Non-Peek time)",
+          "title": "Time between stations (Non-Peek time)",
           "subtitle": "{{time}}{{timebysec}}"
         },
         "number-trains": {
@@ -134,7 +134,9 @@
     }
   },
   "get-started": {
-    "text": "{{content}}"
+    "slide-one": "{{content}}",
+    "slide-two": "{{content}}",
+    "slide-three": "{{content}}"
   },
   "closet-transit": {
     "title": "Closet Transit",
@@ -172,19 +174,19 @@
       "title": " Transit Stations",
       "transit-one": {
         "title": "{{transitOne}}",
-        "subtitle": "{{Line}} - {{Line}}"
+        "subtitle": "{{Line1}} - {{Line2}}"
       },
       "transit-two": {
         "title": "{{transitTwo}}",
-        "subtitle": "{{Line}} - {{Line}}"
+        "subtitle": "{{Line1}} - {{Line2}}"
       },
       "transit-three": {
         "title": "{{transitThree}}",
-        "subtitle": "{{Line}} - {{Line}}"
+        "subtitle": "{{Line1}} - {{Line2}}"
       },
       "transit-four": {
         "title": "{{transitFour}}",
-        "subtitle": "{{Line}} - {{Line}}"
+        "subtitle": "{{Line1}} - {{Line2}}"
       }
     }
   },
@@ -193,34 +195,83 @@
     "do": {
       "title": "Do",
       "subtitle": "What should you do on Metro",
-      "content": {
-        "1": "Follow the signs and pay attention to hear notices and alerts from public address.",
-        "2": "Take care and assisting the elderly, women, children and people with special needs (allowing them to pass first through the ticket gates, escalators, elevators, entering in the train and giving them priority to sit).",
-        "3": " Keep the stations and the trains clean and throwing trash into rubbish bins.",
-        "4": " In case of suspicion of anything at the station or train, please call the officials",
-        "5": "Notify the station official of any observations, whether in the station or in the train.",
-        "6": " Using safety and emergency equipment (fire extinguishers or emergency buttons inside the train) only in emergency in order to not be subjected to legal accountability",
-        "7": " Use the ticket or contactless card during crossing the ticket gates.",
-        "8": "Calling the officials when you face any faults in ticket gates",
-        "9": "When using escalators please hold the handrail and stand on the ladder in the direction of going up or down.",
-        "10": " Stand behind the yellow line while waiting the train on the platform.",
-        "11": "Allow passengers to get off first from the train and then enter.",
-        "12": "Stay away from the doors after getting in the train"
-      }
+      "content": [
+         "Follow the signs and pay attention to hear notices and alerts from public address.",
+         "Take care and assisting the elderly, women, children and people with special needs (allowing them to pass first through the ticket gates, escalators, elevators, entering in the train and giving them priority to sit).",
+         " Keep the stations and the trains clean and throwing trash into rubbish bins.",
+         " In case of suspicion of anything at the station or train, please call the officials",
+         "Notify the station official of any observations, whether in the station or in the train.",
+         " Using safety and emergency equipment (fire extinguishers or emergency buttons inside the train) only in emergency in order to not be subjected to legal accountability",
+         " Use the ticket or contactless card during crossing the ticket gates.",
+         "Calling the officials when you face any faults in ticket gates",
+         "When using escalators please hold the handrail and stand on the ladder in the direction of going up or down.",
+         " Stand behind the yellow line while waiting the train on the platform.",
+         "Allow passengers to get off first from the train and then enter.",
+         "Stay away from the doors after getting in the train"
+      ]
     },
     "dont": {
       "title": "Don't",
       "subtitle": "What should you Not do on Metro",
-      "content":{
-        "1":"Smoking inside the metro.",
-        "2":"Carrying flammable or dangerous chemicals.",
-        "3":"Taking the animals within the metro.",
-        "4":"Tampering or trying to sabotage the station or train or ticket gates in order to not expose yourself to legal accountability.",
-        "5":"Jumping over ticket gates to cross in order to not expose yourself to fine.",
-        "6":"Crossing by force or in groups the ticket gates.",
-        "7":"Running, sitting or playing while going upstairs or downstairs on escalators.","8":"Allowing children to use escalators alone.","9":"Scrambling, playing or running on the train platform.",
-        "10":"Crossing the rails to pick up property that falls on the train track, immediately go to the station officials for help.","11":"Opening or closing the train door with your hand.","12":"entering the train after starting the door closing alert.","13":"Sitting on the train floor."
-      }
+      "content": [
+         "Smoking inside the metro.",
+         "Carrying flammable or dangerous chemicals.",
+         "Taking the animals within the metro.",
+         "Tampering or trying to sabotage the station or train or ticket gates in order to not expose yourself to legal accountability.",
+         "Jumping over ticket gates to cross in order to not expose yourself to fine.",
+         "Crossing by force or in groups the ticket gates.",
+         "Running, sitting or playing while going upstairs or downstairs on escalators.",
+         "Allowing children to use escalators alone.",
+         "Scrambling, playing or running on the train platform.",
+         "Crossing the rails to pick up property that falls on the train track, immediately go to the station officials for help.",
+         "Opening or closing the train door with your hand.",
+         "entering the train after starting the door closing alert.",
+         "Sitting on the train floor."
+      ]
     }
+  },
+  "violations-fines": {
+    "title": "Violations and Fines",
+    "30": {
+      "who-collected-fines": "A police fine issued by metro police.",
+      "violations": [
+        "Smoking into stations and trains",
+        "Existence men into women’ cars",
+        "Throwing wastes inside stations and trains"
+      ]
+    },
+    "50": {
+      "who-collected-fines": "Passenger fine which issued by members of metro company: supervisors & inspectors.",
+      "violations": [
+        "Riding without ticket",
+        "Not using the ticket during passing the gates",
+        "Using a secondhand ticket",
+        "Using undeserved discount ticket",
+        "Passing the subscription zone"
+      ]
+    },
+    "100": {
+      "who-collected-fines": "Passenger fine which issued by members of metro company: supervisors & inspectors.",
+      "violations": [
+        "Selling at stations and trains without a permission",
+        "Begging at stations and trains",
+        "Posting advertisements or posters in stations and trains without permission",
+        "Crossing metro tracks",
+        "Abusing and tampering with tools, equipment and devices of stations and trains",
+        "misusing any tools or equipment",
+        "Do not obstruct the train doors during closing"
+      ]
+    },
+    "fine-delaying-trains": {
+      "title":"Fine of delaying trains",
+      "violations": [
+        "A fine of delaying train because of violating a passenger is estimated by LE 300 per minute. This fine is considered as a means of deterring the offending passenger and not to repeat the violation that leads to delay of trains.",
+        "A fine for delaying train because of violating a company is estimated by LE 400 per minute. In addition to the damages caused by the delay of trains."
+      ]
+    },
+    "notes": [
+      "That’s all in order to not be subjected to the prescribed fine for each item",
+      "The metro is a civilized project which is yours. Preserve it."
+    ]
   }
-}  
+}
