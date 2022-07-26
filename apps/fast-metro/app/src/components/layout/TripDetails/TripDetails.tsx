@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { formatTime } from '../../../utils/formatTime';
 import PrimaryButton from '../../shared/PrimaryButton/PrimaryButton';
@@ -33,33 +34,36 @@ const ticketDetails = (stationsNumber: number) => {
 };
 
 export function TripDetails({ tripStations, className }: TripDetailsI) {
+  const { t } = useTranslation();
+
   return (
     <div className={`flex flex-col gap-10 ${className}`}>
       <div className="station-number flex items-center justify-between">
         <span className="text-xl text-gray-500">
-          Number of stations:{' '}
+          {t('trip-details.number-of-stations')}:{' '}
           <span className="text-xl font-bold text-black">
             {tripStations.length}
           </span>
         </span>
         <Link
+          // we must use english name of stations as identifiers
           to={`/start-trip/see-all-stations?start=${
             tripStations[0].name.en
           }&end=${tripStations.at(-1).name.en}`}
         >
-          <PrimaryButton size="sm" text="see all stations" />
+          <PrimaryButton size="sm" text={t('trip-details.see-all-stations')} />
         </Link>
       </div>
 
       <div className="flex flex-row items-center justify-between">
         <span className="ticket-price text-xl text-gray-500">
-          Ticket Price:
+          {t('trip-details.ticket-price')}:{' '}
           <span className="text-xl font-bold text-red-400">
             {ticketDetails(tripStations.length).price} L.E
           </span>
         </span>
         <span className="text-base text-gray-500">
-          For Elderly:{' '}
+          {t('trip-details.for-elderly')}:{' '}
           <span className="text-xl font-bold text-red-400">
             {ticketDetails(tripStations.length).priceForElderly} L.E{' '}
           </span>
@@ -72,9 +76,9 @@ export function TripDetails({ tripStations, className }: TripDetailsI) {
       />
 
       <span className="trip-time self-center text-xl text-gray-500">
-        Estimated trip time:{' '}
-        <span className="text-xl font-bold text-black">
-          {formatTime(tripStations.length * 180)}
+        {t('trip-details.estimated-trip-time')}:{' '}
+        <span dir="auto" className="text-xl font-bold text-black">
+          {formatTime(tripStations.length * 60 * 6)}
         </span>
       </span>
     </div>

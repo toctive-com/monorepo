@@ -84,15 +84,24 @@
   },
   "start-trip-screen": {
     "title": "أبدأ الرحلة",
-    "from-to": {
-      "from": "من",
-      "from-holder": "أختار المحطة",
-      "to": "ألي",
-      "to-holder": "أختار المحطة"
-    },
     "stations-number": "عدد المحطات {{number}}",
     "ticket-price": "سعر التذكرة : {{number}} جنية",
     "elderly": "كبار السن : {{number}} جنية"
+  },
+  "stations-selector": {
+    "from": "من",
+    "to": "إلى",
+    "select-station": "اختر محطة",
+    "line-one": "الخط الأول",
+    "line-two": "الخط الثاني",
+    "line-three": "الخط الثالث"
+  },
+  "trip-details": {
+    "number-of-stations": "عدد المحطات",
+    "see-all-stations": "شاهد كل المحطات",
+    "for-elderly": "للكبار السنين",
+    "estimated-trip-time": "الوقت المتوقع للرحلة",
+    "ticket-price": "سعر التذكرة"
   },
   "metro-schedules-screen": {
     "title": "مواعيد المترو",

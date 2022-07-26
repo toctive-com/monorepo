@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Page from '../../components/layout/Page/Page';
 import TripDetails from '../../components/layout/TripDetails/TripDetails';
 
@@ -10,6 +11,7 @@ import { makeTrip, Station, allStations } from '../../data/Stations';
 
 export const StartTripScreen = () => {
   const [tripStations, setTripStations] = useState<Station[]>([]);
+  const { t } = useTranslation();
 
   const startTrip = (
     fromStation: stationOptionI,
@@ -30,7 +32,7 @@ export const StartTripScreen = () => {
   return (
     <Page>
       <div className="flex flex-col gap-10">
-        <PageHeader isBack={true} text="Start Trip" />
+        <PageHeader isBack={true} text={t('start-trip-screen.title')} />
         <StationsSelector
           isFromTo={true}
           onChange={(fromStation, toStation) =>

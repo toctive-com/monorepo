@@ -84,15 +84,24 @@
   },
   "start-trip-screen": {
     "title": "start trip",
-    "from-to": {
-      "from": "From",
-      "from-holder": "select station",
-      "to": "To",
-      "to-holder": "select station"
-    },
     "stations-number": "Number of stations {{number}}",
     "ticket-price": "Ticket Price : {{number}} LE",
     "elderly": "For Elderly : {{number}} LE"
+  },
+  "stations-selector": {
+    "from": "From",
+    "to": "To",
+    "select-station": "Select a Station",
+    "line-one": "Line One",
+    "line-two": "Line Two",
+    "line-three": "Line Three"
+  },
+  "trip-details": {
+    "number-of-stations": "Number of Stations",
+    "see-all-stations": "See All Stations",
+    "for-elderly": "For Elderly",
+    "estimated-trip-time": "Estimated trip time",
+    "ticket-price": "Ticket Price"
   },
   "metro-schedules-screen": {
     "title": "Metro Schedules",

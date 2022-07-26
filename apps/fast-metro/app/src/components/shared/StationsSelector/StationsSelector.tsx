@@ -87,21 +87,21 @@ export function StationsSelector({
   const [fromStation, setFromStation] = useState<stationOptionI>(emptyStation);
   const [toStation, setToStation] = useState<stationOptionI>(emptyStation);
 
-  const { i18n } = useTranslation('home');
+  const { t, i18n } = useTranslation();
 
   const [stations, setStations] = useState<stationOptionI[]>([]);
   useEffect(() => {
     const stationsForSelector = [];
     const lineOne: any = {
-      label: 'Line One',
+      label: t('stations-selector.line-one'),
       options: [],
     };
     const lineTwo: any = {
-      label: 'Line Two',
+      label: t('stations-selector.line-two'),
       options: [],
     };
     const lineThree: any = {
-      label: 'Line Three',
+      label: t('stations-selector.line-three'),
       options: [],
     };
     for (const station of allStations) {
@@ -126,7 +126,7 @@ export function StationsSelector({
     stationsForSelector.push(lineTwo);
     stationsForSelector.push(lineThree);
     setStations(stationsForSelector);
-  }, [i18n.language]);
+  }, [i18n.language, t]);
 
   /* If fromStation and toStation are selected, call onChange function. */
   useEffect(() => {
@@ -149,11 +149,13 @@ export function StationsSelector({
           isFromTo ? 'rounded-b-none' : ''
         } `}
       >
-        <span className="w-1/4 self-center text-xl text-white">From</span>
+        <span className="w-1/4 self-center text-xl text-white">
+          {t('stations-selector.from')}
+        </span>
 
         <Select
           className="w-3/4"
-          placeholder={'select station'}
+          placeholder={t('stations-selector.select-station')}
           options={stations}
           isClearable={true}
           styles={customStyles}
@@ -168,10 +170,12 @@ export function StationsSelector({
         <div
           className={`flex justify-evenly rounded-xl rounded-t-none bg-[#60a5fa] p-5`}
         >
-          <span className="w-1/4 self-center text-xl text-white">To</span>
+          <span className="w-1/4 self-center text-xl text-white">
+            {t('stations-selector.to')}
+          </span>
           <Select
             className="w-3/4"
-            placeholder={'select station'}
+            placeholder={t('stations-selector.select-station')}
             options={stations}
             isClearable={true}
             styles={customStyles}
