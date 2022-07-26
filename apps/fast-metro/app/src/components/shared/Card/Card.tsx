@@ -20,7 +20,7 @@ export function Card({ className, image, text, to = '/home' }: Card) {
       <div
         className={`flex w-full flex-col flex-wrap items-center gap-2 ${className}`}
       >
-        <div className="h-40 w-40 rounded-3xl border-4 border-gray-500">
+        <div className="flex h-40 w-40 items-center justify-center rounded-3xl border border-gray-100 text-gray-600">
           {image}
         </div>
         <span className="text-center text-lg">{text}</span>

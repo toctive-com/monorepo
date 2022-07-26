@@ -9,15 +9,14 @@ interface dotI {
  * It creates a component that renders 5 dots.
  *
  * @param {dotI}  - dotI
- * @returns A div with 5 spans inside of it.
+ * @returns A div with 5 dots inside of it.
  */
 const Dots = ({ checked, className }: dotI) => {
   return (
     <div className={`${className} flex flex-col gap-2`}>
       {Array.from({ length: 5 }, () => (
         <span
-          className={` 
-      h-2 w-2 rounded-full
+          className={`h-2 w-2 rounded-full
        ${checked ? 'bg-blue-500' : 'bg-gray-300 '}
        `}
         ></span>

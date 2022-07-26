@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import Select, { OnChangeValue, ActionMeta, StylesConfig } from 'react-select';
+import { allStations } from '../../../data/Stations';
 
 interface StationsSelectorI {
   isFromTo: boolean;
@@ -7,24 +9,10 @@ interface StationsSelectorI {
   onChange?: (fromStation: stationOptionI, toStation: stationOptionI) => void;
 }
 
-interface stationOptionI {
+export interface stationOptionI {
   label: string | null;
   value: string | null;
 }
-
-const stations = [
-  {
-    label: 'LineOne',
-    options: [
-      { label: 'El Giza', value: 'El Giza' },
-      { label: 'Faisal', value: 'Faisal' },
-      { label: 'El Bohoth', value: 'El Bohoth' },
-      { label: 'Dokki', value: 'Dokki' },
-      { label: 'Opera', value: 'Opera' },
-      { label: 'Sadat', value: 'Sadat' },
-    ],
-  },
-];
 
 /* A custom style for the react-select component. */
 const customStyles: StylesConfig = {
@@ -99,12 +87,60 @@ export function StationsSelector({
   const [fromStation, setFromStation] = useState<stationOptionI>(emptyStation);
   const [toStation, setToStation] = useState<stationOptionI>(emptyStation);
 
+  const { i18n } = useTranslation('home');
+
+  const [stations, setStations] = useState<stationOptionI[]>([]);
+  useEffect(() => {
+    const stationsForSelector = [];
+    const lineOne: any = {
+      label: 'Line One',
+      options: [],
+    };
+    const lineTwo: any = {
+      label: 'Line Two',
+      options: [],
+    };
+    const lineThree: any = {
+      label: 'Line Three',
+      options: [],
+    };
+    for (const station of allStations) {
+      if (station.lines.some((line) => line.lineNumber === 1)) {
+        lineOne.options.push({
+          value: station.name.en,
+          label: station.name[i18n.language as 'en' | 'ar'],
+        });
+      } else if (station.lines.some((line) => line.lineNumber === 2)) {
+        lineTwo.options.push({
+          value: station.name.en,
+          label: station.name[i18n.language as 'en' | 'ar'],
+        });
+      } else if (station.lines.some((line) => line.lineNumber === 3)) {
+        lineThree.options.push({
+          value: station.name.en,
+          label: station.name[i18n.language as 'en' | 'ar'],
+        });
+      }
+    }
+    stationsForSelector.push(lineOne);
+    stationsForSelector.push(lineTwo);
+    stationsForSelector.push(lineThree);
+    setStations(stationsForSelector);
+  }, []);
+
   /* If fromStation and toStation are selected, call onChange function. */
   useEffect(() => {
-    if (fromStation.value && toStation.value && onChange) {
-      onChange(fromStation, toStation);
+    if (isFromTo) {
+      if (fromStation.value && toStation.value && onChange) {
+        onChange(fromStation, toStation);
+      }
+    } else {
+      if (fromStation.value && onChange) {
+        onChange(fromStation, toStation);
+      }
     }
-  }, [fromStation, toStation, onChange]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fromStation, toStation]);
 
   return (
     <div className={`flex flex-col justify-center ${className}`}>
