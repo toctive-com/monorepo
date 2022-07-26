@@ -14,8 +14,9 @@ interface dotI {
 const Dots = ({ checked, className }: dotI) => {
   return (
     <div className={`${className} flex flex-col gap-2`}>
-      {Array.from({ length: 5 }, () => (
+      {Array.from({ length: 5 }, (v, index) => (
         <span
+          key={'dot' + index}
           className={`h-2 w-2 rounded-full
        ${checked ? 'bg-blue-500' : 'bg-gray-300 '}
        `}

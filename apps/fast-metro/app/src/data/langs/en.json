@@ -26,6 +26,11 @@
   "map-screen": {
     "title": "Map"
   },
+  "lines-colors": {
+    "line-1": "For line 1",
+    "line-2": "For line 2",
+    "line-3": "For line 3"
+  },
   "settings-screen": {
     "title": "Settings",
     "languages": {
@@ -83,10 +88,7 @@
     }
   },
   "start-trip-screen": {
-    "title": "start trip",
-    "stations-number": "Number of stations {{number}}",
-    "ticket-price": "Ticket Price : {{number}} LE",
-    "elderly": "For Elderly : {{number}} LE"
+    "title": "start trip"
   },
   "stations-selector": {
     "from": "From",
@@ -180,6 +182,9 @@
     "title": "Station Services",
     "services-by-station": "Services by Station",
     "Search-for-Services": "Search for Services"
+  },
+  "see-all-stations-screen": {
+    "title": "Trip Stations"
   },
   "transit-stations-screen": {
     "title": {

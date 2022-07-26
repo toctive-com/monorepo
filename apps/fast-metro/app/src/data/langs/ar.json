@@ -23,6 +23,11 @@
     "contact-us": "تواصل معنا",
     "about-us": "من نحن"
   },
+  "lines-colors": {
+    "line-1": "الخط الأول",
+    "line-2": "الخط الثاني",
+    "line-3": "الخط الثالث"
+  },
   "settings-screen": {
     "title": "الإعدادات",
     "languages": {
@@ -180,6 +185,9 @@
     "title": "خدمات المحطات",
     "services-by-station": "أبحث بواسطة المحطة",
     "Search-for-Services": "أبحث بواسطةالخدمة"
+  },
+  "see-all-stations-screen": {
+    "title": "محطات الرحلة"
   },
   "transit-stations-screen": {
     "title": {
