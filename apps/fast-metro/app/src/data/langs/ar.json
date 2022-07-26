@@ -167,6 +167,11 @@
       "massage": "أريد ان ..."
     }
   },
+  "about-us-screen": {
+    "title": "عنا",
+    "app-name": "تطبيق فاست مترو",
+    "version": "الإصدار"
+  },
   "contact-metro-screen": {
     "title": "تواصل مع هيئة المترو",
     "cairo-metro": "مترو القاهرة"
