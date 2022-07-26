@@ -82,7 +82,7 @@
       "content": "ظهور صفحة 404. ليس خطأك. انه خطأ صغير. ولكن لا تقلق, يمكنك العودة الأن!"
     }
   },
-  "start-trip": {
+  "start-trip-screen": {
     "title": "أبدأ الرحلة",
     "from-to": {
       "from": "من",
@@ -94,7 +94,7 @@
     "ticket-price": "سعر التذكرة : {{number}} جنية",
     "elderly": "كبار السن : {{number}} جنية"
   },
-  "metro-schedules": {
+  "metro-schedules-screen": {
     "title": "مواعيد المترو",
     "collapse-data": {
       "header": {
@@ -139,7 +139,7 @@
     "slide-3": "هذا النص هو نص بديل لوصف ميزة مهمة موجودة في التطبيق.",
     "finish-button": "أبدأ الآن"
   },
-  "closet-transit": {
+  "closet-transit-screen": {
     "title": "اقرب محطة تبادلية",
     "from-to": {
       "from": "من",
@@ -149,7 +149,7 @@
     "ticket-price": "سعر التذكرة : {{number}} جنية",
     "elderly": "كبار السن : {{number}} جنية"
   },
-  "contact-us": {
+  "contact-us-screen": {
     "title": "تواصل معنا",
     "app-name": "Metro App",
     "email": "info@toctive.com",
@@ -159,18 +159,18 @@
       "massage-holder": "أريد ان"
     }
   },
-  "contact-metro": {
+  "contact-metro-screen": {
     "metro-name": "Cairo Metro",
     "title": "Contact Metro",
     "email": "metro@cairo.gov.eg",
     "metro-number": "+2 012 345 678 90"
   },
-  "station-services": {
+  "station-services-screen": {
     "title": "خدمات المحطات",
     "services-by-station": "أبحث بواسطة المحطة",
     "Search-for-Services": "أبحث بواسطةالخدمة"
   },
-  "transit-stations": {
+  "transit-stations-screen": {
     "title": {
       "title": " المحطات التبادلية",
       "transit-one": {
@@ -191,7 +191,7 @@
       }
     }
   },
-  "safety-instructions": {
+  "safety-instructions-screen": {
     "title": "Safety Instructions",
     "do": {
       "title": "Do",
@@ -231,7 +231,7 @@
       ]
     }
   },
-  "violations-fines": {
+  "violations-fines-screen": {
     "title": "المخالفات و الغرامات",
     "30": {
       "who-collected-fines": "غرامة شرطة تحصل بمعرفة افراد شرطة المترو",

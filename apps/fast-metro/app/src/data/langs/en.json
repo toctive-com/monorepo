@@ -82,7 +82,7 @@
       "content": "You found our error page 404. This is not your fault. It is just a little bit mistakes. But don't worry, you can go back right now!"
     }
   },
-  "start-trip": {
+  "start-trip-screen": {
     "title": "start trip",
     "from-to": {
       "from": "From",
@@ -94,7 +94,7 @@
     "ticket-price": "Ticket Price : {{number}} LE",
     "elderly": "For Elderly : {{number}} LE"
   },
-  "metro-schedules": {
+  "metro-schedules-screen": {
     "title": "Metro Schedules",
     "collapse-data": {
       "header": {
@@ -139,7 +139,7 @@
     "slide-3": "this is a test slide component test slide component test slide component test slide component test slide component",
     "finish-button": "Get Started"
   },
-  "closet-transit": {
+  "closet-transit-screen": {
     "title": "Closet Transit",
     "from-to": {
       "from": "From",
@@ -149,7 +149,7 @@
     "ticket-price": "Ticket Price : {{number}} LE",
     "elderly": "For Elderly : {{number}} LE"
   },
-  "contact-us": {
+  "contact-us-screen": {
     "title": "Contact us",
     "app-name": "Metro App",
     "email": "info@toctive.com",
@@ -159,18 +159,18 @@
       "massage-holder": "I want to"
     }
   },
-  "contact-metro": {
+  "contact-metro-screen": {
     "metro-name": "Cairo Metro",
     "title": "Contact Metro",
     "email": "metro@cairo.gov.eg",
     "metro-number": "+2 012 345 678 90"
   },
-  "station-services": {
+  "station-services-screen": {
     "title": "Station Services",
     "services-by-station": "Services by Station",
     "Search-for-Services": "Search for Services"
   },
-  "transit-stations": {
+  "transit-stations-screen": {
     "title": {
       "title": " Transit Stations",
       "transit-one": {
@@ -191,7 +191,7 @@
       }
     }
   },
-  "safety-instructions": {
+  "safety-instructions-screen": {
     "title": "Safety Instructions",
     "do": {
       "title": "Do",
@@ -231,7 +231,7 @@
       ]
     }
   },
-  "violations-fines": {
+  "violations-fines-screen": {
     "title": "Violations and Fines",
     "30": {
       "who-collected-fines": "A police fine issued by metro police.",
