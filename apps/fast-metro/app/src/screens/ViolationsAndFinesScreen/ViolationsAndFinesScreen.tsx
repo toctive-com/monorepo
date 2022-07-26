@@ -1,9 +1,8 @@
-import React, { useEffect, useId, useRef, useState } from 'react';
+import { useId, useState } from 'react';
 
 import Page from '../../components/layout/Page/Page';
 
 import PageHeader from '../../components/shared/PageHeader/PageHeader';
-import { gsap } from 'gsap';
 
 export const ViolationsAndFinesScreen = () => {
   const options = [
@@ -20,7 +19,7 @@ export const ViolationsAndFinesScreen = () => {
 
         <div className="flex flex-col gap-4">
           {options.map((option, index) => (
-            <div className="flex gap-2" key={`index-optionId`}>
+            <div className="flex gap-2" key={`index-${optionId}`}>
               <input
                 value={option.value}
                 type="checkbox"

@@ -1,5 +1,5 @@
 import i18next from 'i18next';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Page from '../../components/layout/Page/Page';
 import SettingsSection from '../../components/layout/SettingsSection/SettingsSection';
@@ -14,6 +14,10 @@ import { setDirection, DirectionType } from '../../assets/js/appDirection';
 
 export const SettingsScreen = () => {
   const [isDark, setIsDark] = useState(false);
+  useEffect(() => {
+    handleDarkMode(isDark);
+  }, [isDark]);
+
   const { t } = useTranslation();
 
   return (
@@ -123,4 +127,7 @@ function LanguageCard() {
       )}
     </>
   );
+}
+function handleDarkMode(isDark: boolean) {
+  // TODO: dark mode handler Function not implemented.
 }

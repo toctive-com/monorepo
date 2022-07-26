@@ -1,16 +1,14 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
-import Page from '../../components/layout/Page/Page';
 import metroMap from '../../assets/images/metro-map.jpg';
+import Page from '../../components/layout/Page/Page';
 import PageHeader from '../../components/shared/PageHeader/PageHeader';
-import { IonSlide, IonSlides } from '@ionic/react';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
 import '@ionic/react/css/ionic-swiper.css';
 import { Scrollbar, Zoom } from 'swiper';
-import 'swiper/css/zoom';
+import 'swiper/css';
 import 'swiper/css/scrollbar';
+import 'swiper/css/zoom';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 export const MapScreen = () => {
   const { t } = useTranslation();

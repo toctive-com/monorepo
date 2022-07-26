@@ -126,7 +126,7 @@ export function StationsSelector({
     stationsForSelector.push(lineTwo);
     stationsForSelector.push(lineThree);
     setStations(stationsForSelector);
-  }, []);
+  }, [i18n.language]);
 
   /* If fromStation and toStation are selected, call onChange function. */
   useEffect(() => {
