@@ -133,10 +133,11 @@
       }
     }
   },
-  "get-started": {
-    "slide-one": "{{content}}",
-    "slide-two": "{{content}}",
-    "slide-three": "{{content}}"
+  "get-started-screen": {
+    "slide-1": "this is a test slide component test slide component test slide component test slide component test slide component",
+    "slide-2": "this is a test slide component test slide component test slide component test slide component test slide component",
+    "slide-3": "this is a test slide component test slide component test slide component test slide component test slide component",
+    "finish-button": "Get Started"
   },
   "closet-transit": {
     "title": "Closet Transit",
@@ -196,37 +197,37 @@
       "title": "Do",
       "subtitle": "What should you do on Metro",
       "content": [
-         "Follow the signs and pay attention to hear notices and alerts from public address.",
-         "Take care and assisting the elderly, women, children and people with special needs (allowing them to pass first through the ticket gates, escalators, elevators, entering in the train and giving them priority to sit).",
-         " Keep the stations and the trains clean and throwing trash into rubbish bins.",
-         " In case of suspicion of anything at the station or train, please call the officials",
-         "Notify the station official of any observations, whether in the station or in the train.",
-         " Using safety and emergency equipment (fire extinguishers or emergency buttons inside the train) only in emergency in order to not be subjected to legal accountability",
-         " Use the ticket or contactless card during crossing the ticket gates.",
-         "Calling the officials when you face any faults in ticket gates",
-         "When using escalators please hold the handrail and stand on the ladder in the direction of going up or down.",
-         " Stand behind the yellow line while waiting the train on the platform.",
-         "Allow passengers to get off first from the train and then enter.",
-         "Stay away from the doors after getting in the train"
+        "Follow the signs and pay attention to hear notices and alerts from public address.",
+        "Take care and assisting the elderly, women, children and people with special needs (allowing them to pass first through the ticket gates, escalators, elevators, entering in the train and giving them priority to sit).",
+        " Keep the stations and the trains clean and throwing trash into rubbish bins.",
+        " In case of suspicion of anything at the station or train, please call the officials",
+        "Notify the station official of any observations, whether in the station or in the train.",
+        " Using safety and emergency equipment (fire extinguishers or emergency buttons inside the train) only in emergency in order to not be subjected to legal accountability",
+        " Use the ticket or contactless card during crossing the ticket gates.",
+        "Calling the officials when you face any faults in ticket gates",
+        "When using escalators please hold the handrail and stand on the ladder in the direction of going up or down.",
+        " Stand behind the yellow line while waiting the train on the platform.",
+        "Allow passengers to get off first from the train and then enter.",
+        "Stay away from the doors after getting in the train"
       ]
     },
     "dont": {
       "title": "Don't",
       "subtitle": "What should you Not do on Metro",
       "content": [
-         "Smoking inside the metro.",
-         "Carrying flammable or dangerous chemicals.",
-         "Taking the animals within the metro.",
-         "Tampering or trying to sabotage the station or train or ticket gates in order to not expose yourself to legal accountability.",
-         "Jumping over ticket gates to cross in order to not expose yourself to fine.",
-         "Crossing by force or in groups the ticket gates.",
-         "Running, sitting or playing while going upstairs or downstairs on escalators.",
-         "Allowing children to use escalators alone.",
-         "Scrambling, playing or running on the train platform.",
-         "Crossing the rails to pick up property that falls on the train track, immediately go to the station officials for help.",
-         "Opening or closing the train door with your hand.",
-         "entering the train after starting the door closing alert.",
-         "Sitting on the train floor."
+        "Smoking inside the metro.",
+        "Carrying flammable or dangerous chemicals.",
+        "Taking the animals within the metro.",
+        "Tampering or trying to sabotage the station or train or ticket gates in order to not expose yourself to legal accountability.",
+        "Jumping over ticket gates to cross in order to not expose yourself to fine.",
+        "Crossing by force or in groups the ticket gates.",
+        "Running, sitting or playing while going upstairs or downstairs on escalators.",
+        "Allowing children to use escalators alone.",
+        "Scrambling, playing or running on the train platform.",
+        "Crossing the rails to pick up property that falls on the train track, immediately go to the station officials for help.",
+        "Opening or closing the train door with your hand.",
+        "entering the train after starting the door closing alert.",
+        "Sitting on the train floor."
       ]
     }
   },
@@ -263,7 +264,7 @@
       ]
     },
     "fine-delaying-trains": {
-      "title":"Fine of delaying trains",
+      "title": "Fine of delaying trains",
       "violations": [
         "A fine of delaying train because of violating a passenger is estimated by LE 300 per minute. This fine is considered as a means of deterring the offending passenger and not to repeat the violation that leads to delay of trains.",
         "A fine for delaying train because of violating a company is estimated by LE 400 per minute. In addition to the damages caused by the delay of trains."

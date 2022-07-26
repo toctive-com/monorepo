@@ -7,9 +7,12 @@ import 'swiper/css/pagination';
 
 import PrimaryButton from '../PrimaryButton/PrimaryButton';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export default function Slider() {
   const paginationRef = useRef(null);
+  const { t } = useTranslation();
+  console.log(t('testing', { returnObjects: true }));
 
   return (
     <Swiper
@@ -29,25 +32,25 @@ export default function Slider() {
     >
       <SwiperSlide className="w-full">
         <Slide
-          text="this is a test slide component test slide component test slide component test slide component test slide component"
+          text={t('get-started-screen.slide-1')}
           image={<img alt="" src="./assets/images/1.jpg" />}
         />
       </SwiperSlide>
       <SwiperSlide className="w-full">
         <Slide
-          text="this is a test slide component test slide component test slide component test slide component test slide component"
+          text={t('get-started-screen.slide-2')}
           image={<img alt="" src="./assets/images/2.jpg" />}
         />
       </SwiperSlide>
       <SwiperSlide className="w-full">
         <Slide
-          text="this is a test slide component test slide component test slide component test slide component test slide component"
+          text={t('get-started-screen.slide-3')}
           image={<img alt="" src="./assets/images/3.jpg" />}
         >
           <Link to="/home">
             <PrimaryButton
               size="md"
-              text="Get Started"
+              text={t('get-started-screen.finish-button')}
               className="w-full text-center"
             />
           </Link>
