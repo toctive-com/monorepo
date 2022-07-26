@@ -51,7 +51,8 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "fast-metro-app:build",
-        "hmr": true
+        "hmr": true,
+        "proxyConfig": "apps/fast-metro/app/proxy.conf.json"
       },
       "configurations": {
         "development": {

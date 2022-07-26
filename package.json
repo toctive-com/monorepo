@@ -22,6 +22,7 @@
     "gsap": "^3.10.4",
     "i18next": "^21.8.14",
     "i18next-browser-languagedetector": "^6.1.4",
+    "mongoose": "^6.4.6",
     "next": "12.1.5",
     "react": "18.1.0",
     "react-dom": "18.1.0",
