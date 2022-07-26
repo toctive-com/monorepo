@@ -17,7 +17,7 @@ interface Props {
 }
 
 export const SideMenu = ({ sideMenuIsOpened, setter }: Props) => {
-  const sideMenuRef = useRef<HTMLElement>(null);
+  const sideMenuRef = useRef<any>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
   /* Animate opening and closing the side menu component */
@@ -62,12 +62,24 @@ export const SideMenu = ({ sideMenuIsOpened, setter }: Props) => {
     { label: t`side-menu.about-us`, href: '/about-us' },
   ];
 
+  /* A hook that is used to animate the buttons in the menu. */
+  useEffect(() => {
+    if (sideMenuIsOpened) {
+      gsap.from(sideMenuRef.current?.children, {
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.05,
+        x: 60 * (isRTL() ? 1 : -1),
+      });
+    }
+  }, [sideMenuIsOpened]);
+
   return (
     <>
       <div
         className={`${
           sideMenuIsOpened ? 'fixed' : 'hidden'
-        } top-0 left-0 z-50 h-full w-full bg-black opacity-50`}
+        } top-0 left-0 right-0 z-50 h-full w-full bg-black opacity-50`}
         onClick={() => setter(!sideMenuIsOpened)}
         ref={overlayRef}
       ></div>
