@@ -169,10 +169,8 @@
     }
   },
   "contact-metro-screen": {
-    "metro-name": "Cairo Metro",
-    "title": "Contact Metro",
-    "email": "metro@cairo.gov.eg",
-    "metro-number": "+2 012 345 678 90"
+    "title": "تواصل مع هيئة المترو",
+    "cairo-metro": "مترو القاهرة"
   },
   "station-services-screen": {
     "title": "خدمات المحطات",

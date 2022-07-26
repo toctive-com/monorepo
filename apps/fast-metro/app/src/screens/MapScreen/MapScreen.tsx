@@ -31,7 +31,6 @@ export const MapScreen = () => {
                   alt="latest metro map (2020-9)"
                   className="!h-full object-cover"
                 />
-                {/* <img src="assets/img/{{ img }}.png" /> */}
               </div>
             </SwiperSlide>
           </Swiper>
