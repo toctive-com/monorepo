@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 import LinesColors from '../../components/shared/LinesColors/LinesColors';
@@ -8,6 +8,7 @@ import Station from '../../components/shared/Station/Station';
 import {
   allStations,
   makeTrip,
+  shortestPath,
   Station as StationI,
 } from '../../data/Stations';
 
@@ -20,7 +21,7 @@ export const SeeAllStations = () => {
 
   const [tripStations, setTripStations] = useState<StationI[]>([]);
 
-  useEffect(() => {
+  const handleStationChange = useCallback(async () => {
     const startStation = allStations.filter(
       (station) => station.name.en.toLowerCase() === start?.toLowerCase()
     )[0];
@@ -29,8 +30,12 @@ export const SeeAllStations = () => {
       (station) => station.name.en.toLowerCase() === end?.toLowerCase()
     )[0];
 
-    setTripStations(makeTrip(startStation, targetStation));
-  }, [start, end]);
+    setTripStations(shortestPath(makeTrip(startStation, targetStation)));
+  }, [end, start]);
+
+  useEffect(() => {
+    handleStationChange();
+  }, [start, end, handleStationChange]);
 
   return (
     <div className="flex flex-col justify-center bg-gray-50 p-8">

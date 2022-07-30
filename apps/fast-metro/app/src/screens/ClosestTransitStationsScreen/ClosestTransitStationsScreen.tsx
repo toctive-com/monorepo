@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Page from '../../components/layout/Page/Page';
 import TripDetails from '../../components/layout/TripDetails/TripDetails';
 import PageHeader from '../../components/shared/PageHeader/PageHeader';
@@ -10,7 +10,7 @@ export const ClosestTransitStationsScreen = () => {
   const [stations, setStations] = useState<any>([]);
 
   /* A React Hook that is called when the component is mounted and when the startStation state changes. */
-  useEffect(() => {
+  const handleStationChange = useCallback(async () => {
     if (!startStation) {
       return;
     }
@@ -26,7 +26,7 @@ export const ClosestTransitStationsScreen = () => {
       )[0];
 
       allStationsBetweenStartAndTransit.push(
-        makeTrip(startStationAsStationI, transitStation)
+        await makeTrip(startStationAsStationI, transitStation)
       );
     }
 
@@ -36,6 +36,10 @@ export const ClosestTransitStationsScreen = () => {
 
     setStations(closestTransit);
   }, [startStation]);
+
+  useEffect(() => {
+    handleStationChange();
+  }, [handleStationChange, startStation]);
 
   return (
     <Page>

@@ -47,6 +47,10 @@ export class Station {
   public get isTransitStation() {
     return this.lines.length > 1;
   }
+
+  public get allStations(): Station[] {
+    return [...this.nextStations, ...this.prevStations];
+  }
 }
 class Line {
   private _lineNumber;
@@ -421,17 +425,17 @@ al_sayeda_zeinab.nextStations = [el_malek_el_saleh];
 saad_zaghloul.prevStations = [sadat];
 saad_zaghloul.nextStations = [al_sayeda_zeinab];
 
-sadat.prevStations = [nasser]; // TODO: add mohammed_nageeb station to sadat prevStations
-sadat.nextStations = [saad_zaghloul]; // TODO: add obira station and mohammed_nageeb station to sadat nextStations
+sadat.prevStations = [nasser];
+sadat.nextStations = [saad_zaghloul, mohamed_naguib, opera];
 
 nasser.prevStations = [orabi, attaba];
-nasser.nextStations = [sadat, attaba, maspero];
+nasser.nextStations = [sadat, maspero];
 
 orabi.prevStations = [al_shohadaa];
 orabi.nextStations = [nasser];
 
-al_shohadaa.prevStations = [ghamra]; // TODO: add massara station to al_shohadaa prevStations
-al_shohadaa.nextStations = [orabi, attaba]; // TODO: add massara Station to al_shohadaa nextStations
+al_shohadaa.prevStations = [ghamra, masarra];
+al_shohadaa.nextStations = [orabi, attaba];
 
 ghamra.prevStations = [el_demerdash];
 ghamra.nextStations = [al_shohadaa];
@@ -487,11 +491,13 @@ omm_el_masryeen.nextStations = [sakiat_mekky];
 el_giza.prevStations = [faisal];
 el_giza.nextStations = [omm_el_masryeen];
 
-faisal.prevStations = [el_bohoth];
+faisal.prevStations = [cairo_university];
 faisal.nextStations = [el_giza];
 
+// cairo_university
+
 el_bohoth.prevStations = [dokki];
-el_bohoth.nextStations = [faisal];
+el_bohoth.nextStations = [cairo_university];
 
 dokki.prevStations = [opera];
 dokki.nextStations = [el_bohoth];
@@ -510,19 +516,19 @@ mohamed_naguib.nextStations = [sadat];
 masarra.prevStations = [road_el_farag];
 masarra.nextStations = [al_shohadaa];
 
-road_el_farag.prevStations = [road_el_farag];
+road_el_farag.prevStations = [st_teresa];
 road_el_farag.nextStations = [masarra];
 
-st_teresa.prevStations = [st_teresa];
+st_teresa.prevStations = [khalafawy];
 st_teresa.nextStations = [road_el_farag];
 
-khalafawy.prevStations = [khalafawy];
+khalafawy.prevStations = [mezallat];
 khalafawy.nextStations = [st_teresa];
 
-mezallat.prevStations = [mezallat];
+mezallat.prevStations = [kolleyyet_el_zeraa];
 mezallat.nextStations = [khalafawy];
 
-kolleyyet_el_zeraa.prevStations = [kolleyyet_el_zeraa];
+kolleyyet_el_zeraa.prevStations = [shubra_el_kheima];
 kolleyyet_el_zeraa.nextStations = [mezallat];
 
 shubra_el_kheima.prevStations = []; // No prevStations for shubra_el_kheima station because it is the first station of the line
@@ -605,7 +611,7 @@ zamalek.nextStations = [kit_kat];
 kit_kat.prevStations = [zamalek];
 kit_kat.nextStations = [sudan_street, el_tawfikeya];
 
-sudan_street.prevStations = [imbaba];
+sudan_street.prevStations = [kit_kat];
 sudan_street.nextStations = [imbaba];
 
 imbaba.prevStations = [sudan_street];
@@ -636,41 +642,8 @@ gamaat_el_dowal_al_arabiya.nextStations = [bulaq_el_dakroor];
 bulaq_el_dakroor.prevStations = [gamaat_el_dowal_al_arabiya];
 bulaq_el_dakroor.nextStations = [cairo_university];
 
-cairo_university.prevStations = [bulaq_el_dakroor];
+cairo_university.prevStations = [bulaq_el_dakroor, el_bohoth];
 cairo_university.nextStations = [faisal];
-
-export function makeTrip(
-  startStation: Station,
-  targetStation: Station,
-  checkedStations: Station[] = []
-): Station[] {
-  const stations = [startStation];
-
-  const prevStations = startStation.prevStations.filter(
-    (station) => !checkedStations.includes(station)
-  );
-  const nextStations = startStation.nextStations.filter(
-    (station) => !checkedStations.includes(station)
-  );
-
-  const allStations = [...nextStations, ...prevStations];
-  for (const currentStation of allStations) {
-    if (currentStation === targetStation) {
-      stations.push(currentStation);
-      break;
-    } else {
-      checkedStations.push(currentStation);
-      stations.push(
-        ...makeTrip(currentStation, targetStation, checkedStations)
-      );
-    }
-  }
-
-  if (stations.at(-1) !== targetStation) {
-    return [];
-  }
-  return stations;
-}
 
 export const allStations = [
   helwan,
@@ -760,3 +733,46 @@ export const allStations = [
   bulaq_el_dakroor,
   cairo_university,
 ];
+
+export function makeTrip(
+  startStation: Station,
+  targetStation: Station,
+  checkedStations: Station[] = []
+): Station[][] {
+  let allStations = startStation.allStations;
+  allStations = allStations.filter(
+    (station) => !checkedStations.includes(station)
+  );
+
+  const finalResults = [];
+
+  if (allStations.includes(targetStation)) {
+    finalResults.push([startStation, targetStation]);
+    return finalResults;
+  }
+
+  for (const currentStation of allStations) {
+    const newResults = makeTrip(currentStation, targetStation, [
+      ...checkedStations,
+      startStation,
+    ]);
+
+    if (newResults && newResults.length > 0) {
+      for (const result of newResults) {
+        finalResults.push([startStation, ...result]);
+      }
+    }
+  }
+
+  return finalResults;
+}
+
+// shortest path between stations
+export function shortestPath(paths: Station[][]): Station[] {
+  // return shortest path
+  if (paths.length === 0) return [];
+
+  return paths.reduce((prev, next) =>
+    prev.length > next.length ? next : prev
+  );
+}

@@ -19,17 +19,17 @@ import { SeeAllStations } from './screens/SeeAllStations';
 import { StartTripScreen } from './screens/StartTripScreen';
 import { TripStationsScreen } from './screens/TripStationsScreen';
 
+import { useTranslation } from 'react-i18next';
+import { isRTL } from './assets/js/appDirection';
 import { BottomNavigation } from './components/layout/BottomNavigation/BottomNavigation';
 import { SideMenu } from './components/layout/SideMenu/SideMenu';
+import NotFoundScreen from './screens/ErrorsScreen/NotFoundScreen/NotFoundScreen';
 import { MetroSchedulesScreen } from './screens/MetroSchedulesScreen';
 import { SafetyInstructionsScreen } from './screens/SafetyInstructionsScreen';
 import { StationServicesScreen } from './screens/StationServicesScreen';
 import { SubscriptionScreen } from './screens/SubscriptionScreen';
 import { TransitStationsScreen } from './screens/TransitStationsScreen';
 import { ViolationsAndFinesScreen } from './screens/ViolationsAndFinesScreen';
-import { useTranslation } from 'react-i18next';
-import NotFoundScreen from './screens/ErrorsScreen/NotFoundScreen/NotFoundScreen';
-import { isRTL } from './assets/js/appDirection';
 
 export function App() {
   const pageRef = useRef(null);
