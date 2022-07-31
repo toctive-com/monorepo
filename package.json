@@ -14,6 +14,7 @@
     "@capacitor/cli": "^3.6.0",
     "@capacitor/core": "^3.6.0",
     "@capacitor/ios": "^3.6.0",
+    "@capacitor/share": "^4.0.1",
     "@ionic/react": "^6.1.13",
     "@ionic/react-router": "^6.1.13",
     "@nrwl/next": "14.1.9",
