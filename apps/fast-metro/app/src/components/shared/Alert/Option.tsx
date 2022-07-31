@@ -1,5 +1,9 @@
-import { OptionComponentI } from './Alert';
-
+export interface OptionComponentI {
+  text: string;
+  value: any;
+  setValue?: (value: any) => void;
+  selectedValue: string;
+}
 export function Option({
   text,
   value,
@@ -10,7 +14,7 @@ export function Option({
     <div
       className="flex cursor-pointer select-none items-center gap-4"
       onClick={() => {
-        setValue(value);
+        setValue && setValue(value);
       }}
     >
       <div

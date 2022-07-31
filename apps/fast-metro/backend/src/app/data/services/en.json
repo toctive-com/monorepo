@@ -8,5 +8,15 @@
       "name": "Bank Al-Ahly ATM",
       "notes": ""
     }
+  ],
+  "helwan": [
+    {
+      "name": "mosque",
+      "notes": ""
+    },
+    {
+      "name": "Bank Maser ATM",
+      "notes": ""
+    }
   ]
 }

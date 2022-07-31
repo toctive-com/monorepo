@@ -91,13 +91,6 @@ export function LanguagesAlert({
 
 export default Alert;
 
-export interface OptionComponentI {
-  text: string;
-  value: any;
-  setValue: any;
-  selectedValue: string;
-}
-
 function DoneAlert() {
   return (
     <div className="relative flex w-1/2 flex-col items-center justify-center rounded-lg px-20 pt-10 shadow-lg ">

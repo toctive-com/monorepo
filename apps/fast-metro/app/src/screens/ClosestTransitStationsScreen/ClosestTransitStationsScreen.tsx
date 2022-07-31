@@ -1,16 +1,17 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Page from '../../components/layout/Page/Page';
 import TripDetails from '../../components/layout/TripDetails/TripDetails';
 import PageHeader from '../../components/shared/PageHeader/PageHeader';
 import StationsSelector from '../../components/shared/StationsSelector/StationsSelector';
-import { allStations, makeTrip } from '../../data/Stations';
+import { allStations, makeTrip, shortestPath } from '../../data/Stations';
 
 export const ClosestTransitStationsScreen = () => {
   const [startStation, setStartStation] = useState<any>(null);
   const [stations, setStations] = useState<any>([]);
 
   /* A React Hook that is called when the component is mounted and when the startStation state changes. */
-  const handleStationChange = useCallback(async () => {
+  useEffect(() => {
     if (!startStation) {
       return;
     }
@@ -26,7 +27,7 @@ export const ClosestTransitStationsScreen = () => {
       )[0];
 
       allStationsBetweenStartAndTransit.push(
-        await makeTrip(startStationAsStationI, transitStation)
+        shortestPath(makeTrip(startStationAsStationI, transitStation))
       );
     }
 
@@ -37,21 +38,31 @@ export const ClosestTransitStationsScreen = () => {
     setStations(closestTransit);
   }, [startStation]);
 
-  useEffect(() => {
-    handleStationChange();
-  }, [handleStationChange, startStation]);
+  const { t } = useTranslation();
 
   return (
     <Page>
-      <div className="flex flex-col gap-5 bg-gray-50 px-5">
-        <PageHeader className="m-0" isBack={true} text="Closest Transit" />
+      <div className="flex flex-col gap-5">
+        <PageHeader
+          className="m-0"
+          isBack={true}
+          text={t('closest-transit-screen.title')}
+        />
         <StationsSelector
           isFromTo={false}
           onChange={(fromStation) => setStartStation(fromStation)}
         />
 
         {stations.length > 0 && (
-          <p>Closest Transit Station is: {stations.at(-1).name.en}</p>
+          <p>
+            {t('closest-transit-screen.closest-transit-station-is')}:{' '}
+            {t(
+              `stations.${stations
+                .at(-1)
+                .name.en.toLowerCase()
+                .replace(' ', '-')}`
+            )}
+          </p>
         )}
         {stations.length > 0 && <TripDetails tripStations={stations} />}
         {/* <TimerController time={735} /> */}

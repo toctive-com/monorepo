@@ -107,41 +107,34 @@
   },
   "metro-schedules-screen": {
     "title": "Metro Schedules",
-    "collapse-data": {
-      "header": {
-        "title": "Line 1",
-        "subtitle": "Total Time : {{time}} Min",
-        "right-subtitle": "{{name}} - {{name}}"
+    "line-1": "Line 1",
+    "line-2": "Line 2",
+    "line-3": "Line 3",
+    "header": {
+      "total-time": "Total Time",
+      "minute": "Minutes"
+    },
+    "body": {
+      "first-transfer": {
+        "title": "First Transfer"
       },
-      "body": {
-        "first-transfer": {
-          "title": "First Transfer",
-          "subtitle": "Starts from {{time}} AM"
-        },
-        "last-transfer": {
-          "title": "Last Transfer",
-          "subtitle": "Ends at {{time}} AM"
-        },
-        "time-between-stations-peek-time": {
-          "title": "Time between stations (Peek time)",
-          "subtitle": "{{time}}{{timebysec}}"
-        },
-        "time-between-stations-non-peek-time": {
-          "title": "Time between stations (Non-Peek time)",
-          "subtitle": "{{time}}{{timebysec}}"
-        },
-        "number-trains": {
-          "title": "Number Trains",
-          "regular-ventilation": {
-            "title": "Regular Ventilation",
-            "number": "{{number}}"
-          },
-          "air-conditioned": {
-            "title": "Air Conditioned",
-            "number": "{{number}}"
-          }
-        }
-      }
+      "last-transfer": {
+        "title": "Last Transfer"
+      },
+      "time-between-stations-peek-time": {
+        "title": "Time between stations (Peek time)"
+      },
+      "time-between-stations-non-peek-time": {
+        "title": "Time between stations (Non-Peek time)"
+      },
+      "number-trains": {
+        "title": "Number Trains",
+        "regular-ventilation": "Regular Ventilation",
+        "air-conditioned": "Air Conditioned"
+      },
+      "starts-from": "Starts from",
+      "ends-from": "Ends at",
+      "second": "sec"
     }
   },
   "get-started-screen": {
@@ -150,15 +143,9 @@
     "slide-3": "this is a test slide component test slide component test slide component test slide component test slide component",
     "finish-button": "Get Started"
   },
-  "closet-transit-screen": {
+  "closest-transit-screen": {
     "title": "Closet Transit",
-    "from-to": {
-      "from": "From",
-      "from-holder": "select station"
-    },
-    "stations-number": "Number of stations {{number}}",
-    "ticket-price": "Ticket Price : {{number}} LE",
-    "elderly": "For Elderly : {{number}} LE"
+    "closest-transit-station-is": "closest transit station is"
   },
   "contact-us-screen": {
     "title": "Contact us",
@@ -181,31 +168,21 @@
   "station-services-screen": {
     "title": "Station Services",
     "services-by-station": "Services by Station",
-    "Search-for-Services": "Search for Services"
+    "search-for-services": "Search for Services"
+  },
+  "search-for-services-screen": {
+    "title": "Search for Services",
+    "select-station": "Select a Station"
+  },
+  "services-by-station-screen": {
+    "title": "Services by Station"
   },
   "see-all-stations-screen": {
     "title": "Trip Stations"
   },
   "transit-stations-screen": {
-    "title": {
-      "title": " Transit Stations",
-      "transit-one": {
-        "title": "{{transitOne}}",
-        "subtitle": "{{Line1}} - {{Line2}}"
-      },
-      "transit-two": {
-        "title": "{{transitTwo}}",
-        "subtitle": "{{Line1}} - {{Line2}}"
-      },
-      "transit-three": {
-        "title": "{{transitThree}}",
-        "subtitle": "{{Line1}} - {{Line2}}"
-      },
-      "transit-four": {
-        "title": "{{transitFour}}",
-        "subtitle": "{{Line1}} - {{Line2}}"
-      }
-    }
+    "title": " Transit Stations",
+    "line": "Line"
   },
   "safety-instructions-screen": {
     "title": "Safety Instructions",
@@ -247,18 +224,20 @@
       ]
     }
   },
-  "violations-fines-screen": {
+  "violations-fins-screen": {
     "title": "Violations and Fines",
-    "30": {
-      "who-collected-fines": "A police fine issued by metro police.",
+    "30-egp-class": {
+      "title": "30 Egp Fins",
+      "who-can-collect-fins": "A police fine issued by metro police.",
       "violations": [
         "Smoking into stations and trains",
         "Existence men into women’ cars",
         "Throwing wastes inside stations and trains"
       ]
     },
-    "50": {
-      "who-collected-fines": "Passenger fine which issued by members of metro company: supervisors & inspectors.",
+    "50-egp-class": {
+      "title": "50 Egp Fins",
+      "who-can-collect-fins": "Passenger fine which issued by members of metro company: supervisors & inspectors.",
       "violations": [
         "Riding without ticket",
         "Not using the ticket during passing the gates",
@@ -267,8 +246,9 @@
         "Passing the subscription zone"
       ]
     },
-    "100": {
-      "who-collected-fines": "Passenger fine which issued by members of metro company: supervisors & inspectors.",
+    "other-fins": {
+      "title": "Other Fins",
+      "who-can-collect-fins": "Passenger fine which issued by members of metro company: supervisors & inspectors.",
       "violations": [
         "Selling at stations and trains without a permission",
         "Begging at stations and trains",
@@ -290,5 +270,15 @@
       "That’s all in order to not be subjected to the prescribed fine for each item",
       "The metro is a civilized project which is yours. Preserve it."
     ]
+  },
+  "stations": {
+    "ain shams": "Ain Shams",
+    "helwan": "Helwan",
+    "el-marg": "El Marg",
+    "sadat": "Sadat",
+    "nasser": "Nasser",
+    "al-shohadaa": "Al Shohadaa",
+    "attaba": "Attaba",
+    "cairo-university": "Cairo University"
   }
 }
