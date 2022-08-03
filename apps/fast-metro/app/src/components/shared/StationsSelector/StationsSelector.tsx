@@ -91,6 +91,8 @@ export function StationsSelector({
 
   const [stations, setStations] = useState<stationOptionI[]>([]);
   useEffect(() => {
+    const currentLanguage = (i18n.language as 'en' | 'ar').split('-')[0];
+
     const stationsForSelector = [];
     const lineOne: any = {
       label: t('stations-selector.line-one'),
@@ -108,17 +110,17 @@ export function StationsSelector({
       if (station.lines.some((line) => line.lineNumber === 1)) {
         lineOne.options.push({
           value: station.name.en,
-          label: station.name[i18n.language as 'en' | 'ar'],
+          label: station.name[currentLanguage as 'en' | 'ar'],
         });
       } else if (station.lines.some((line) => line.lineNumber === 2)) {
         lineTwo.options.push({
           value: station.name.en,
-          label: station.name[i18n.language as 'en' | 'ar'],
+          label: station.name[currentLanguage as 'en' | 'ar'],
         });
       } else if (station.lines.some((line) => line.lineNumber === 3)) {
         lineThree.options.push({
           value: station.name.en,
-          label: station.name[i18n.language as 'en' | 'ar'],
+          label: station.name[currentLanguage as 'en' | 'ar'],
         });
       }
     }
