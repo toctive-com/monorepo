@@ -1,59 +1,50 @@
-import React, { useRef } from 'react';
+import React from 'react';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import PrimaryButton from '../PrimaryButton/PrimaryButton';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { Pagination } from 'swiper';
+import PrimaryButton from '../PrimaryButton/PrimaryButton';
 
 export default function Slider() {
-  const paginationRef = useRef(null);
+  const { t } = useTranslation();
 
   return (
-    <Swiper
-      className="w-full"
-      // spaceBetween={50}
-      slidesPerView={1}
-      pagination={{
-        el: paginationRef.current,
-        clickable: true,
-        renderBullet: function (index, className) {
-          console.log(index, className);
-          return (
-            '<span className="' + className + '">' + (index + 1) + '</span>'
-          );
-        },
-      }}
-    >
-      <SwiperSlide className="w-full">
-        <Slide
-          text="this is a test slide component test slide component test slide component test slide component test slide component"
-          image={<img alt="" src="./assets/images/1.jpg" />}
-        />
-      </SwiperSlide>
-      <SwiperSlide className="w-full">
-        <Slide
-          text="this is a test slide component test slide component test slide component test slide component test slide component"
-          image={<img alt="" src="./assets/images/2.jpg" />}
-        />
-      </SwiperSlide>
-      <SwiperSlide className="w-full">
-        <Slide
-          text="this is a test slide component test slide component test slide component test slide component test slide component"
-          image={<img alt="" src="./assets/images/3.jpg" />}
-        >
-          <Link to="/home">
-            <PrimaryButton
-              size="md"
-              text="Get Started"
-              className="w-full text-center"
+    <>
+      <Swiper
+        className="h-full w-full"
+        modules={[Pagination]}
+        pagination={{
+          clickable: true,
+        }}
+      >
+        {Array.from({ length: 3 }).map((_, index) => (
+          <SwiperSlide key={'slide-' + index + 1}>
+            <Slide
+              text={t(`get-started-screen.slide-${index + 1}`)}
+              image={
+                <img
+                  alt={t(`get-started-screen.slide-${index + 1}`)}
+                  src={`./assets/images/${index + 1}.jpg`}
+                />
+              }
             />
-          </Link>
-        </Slide>
-      </SwiperSlide>
-    </Swiper>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      <Link to="/home">
+        <PrimaryButton
+          size="md"
+          text={t('get-started-screen.finish-button')}
+          className="w-full text-center"
+        />
+      </Link>
+    </>
   );
 }
 
@@ -63,11 +54,17 @@ interface Slide {
   children?: React.ReactNode;
 }
 
+/**
+ * Slide is a one slide that used in Get Started screen
+ *
+ * @param {Slide}  - text - the text to display in the slide
+ * @returns A React component that renders a slide with children
+ */
 function Slide({ text, image, children }: Slide) {
   return (
-    <div className="nx-auto mt-20 flex flex-col items-center gap-10">
-      <div className="h-40 w-60">{image}</div>
-      <span className="text-center text-xl"> {text} </span>
+    <div className="mt-20 flex flex-col items-center gap-10">
+      <div className="w-full">{image}</div>
+      <span className="text-center text-xl">{text}</span>
       {children && children}
     </div>
   );

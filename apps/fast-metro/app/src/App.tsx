@@ -19,17 +19,21 @@ import { SeeAllStations } from './screens/SeeAllStations';
 import { StartTripScreen } from './screens/StartTripScreen';
 import { TripStationsScreen } from './screens/TripStationsScreen';
 
+import { useTranslation } from 'react-i18next';
+import { isRTL } from './assets/js/appDirection';
 import { BottomNavigation } from './components/layout/BottomNavigation/BottomNavigation';
 import { SideMenu } from './components/layout/SideMenu/SideMenu';
+import NotFoundScreen from './screens/ErrorsScreen/NotFoundScreen/NotFoundScreen';
 import { MetroSchedulesScreen } from './screens/MetroSchedulesScreen';
 import { SafetyInstructionsScreen } from './screens/SafetyInstructionsScreen';
-import { StationServicesScreen } from './screens/StationServicesScreen';
+import {
+  SearchForServices,
+  ServicesByStation,
+  StationServicesScreen,
+} from './screens/StationServicesScreen';
 import { SubscriptionScreen } from './screens/SubscriptionScreen';
 import { TransitStationsScreen } from './screens/TransitStationsScreen';
-import { ViolationsAndFinesScreen } from './screens/ViolationsAndFinesScreen';
-import { useTranslation } from 'react-i18next';
-import NotFoundScreen from './screens/ErrorsScreen/NotFoundScreen/NotFoundScreen';
-import { isRTL } from './assets/js/appDirection';
+import { ViolationsAndFinsScreen } from './screens/ViolationsAndFinsScreen';
 
 export function App() {
   const pageRef = useRef(null);
@@ -111,12 +115,18 @@ pages. */
             path="/safety-instructions"
             element={<SafetyInstructionsScreen />}
           />
-          <Route path="/station-services" element={<StationServicesScreen />} />
+
+          <Route path="/station-services">
+            <Route index element={<StationServicesScreen />} />
+            <Route path="services-by-station" element={<ServicesByStation />} />
+            <Route path="search-for-services" element={<SearchForServices />} />
+          </Route>
+
           <Route path="/subscription" element={<SubscriptionScreen />} />
           <Route path="/transit-stations" element={<TransitStationsScreen />} />
           <Route
             path="/violations-and-fines"
-            element={<ViolationsAndFinesScreen />}
+            element={<ViolationsAndFinsScreen />}
           />
           <Route path="*" element={<NotFoundScreen />} />
         </Routes>

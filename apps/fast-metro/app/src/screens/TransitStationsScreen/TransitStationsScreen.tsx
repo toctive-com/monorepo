@@ -6,8 +6,11 @@ import PageHeader from '../../components/shared/PageHeader/PageHeader';
 import { allStations } from '../../data/Stations';
 import { gsap } from 'gsap';
 import { isRTL } from '../../assets/js/appDirection';
+import { useTranslation } from 'react-i18next';
 
 export const TransitStationsScreen = () => {
+  const { t } = useTranslation();
+
   const transitStations = allStations.filter(
     (station) => station.isTransitStation
   );
@@ -25,15 +28,20 @@ export const TransitStationsScreen = () => {
   return (
     <Page>
       <div className="flex flex-col gap-10">
-        <PageHeader text="Transit stations" />
+        <PageHeader text={t('transit-stations-screen.title')} />
 
         <div className="flex flex-col gap-4" ref={transitRef}>
           {transitStations.map((station) => (
             <Header
               text={station.lines
-                .map((line) => `Line ${line.lineNumber}`)
+                .map(
+                  (line) =>
+                    `${t('transit-stations-screen.line')} ${line.lineNumber}`
+                )
                 .join(' - ')}
-              title={station.name.en}
+              title={t(
+                `stations.${station.name.en.toLowerCase().replace(' ', '-')}`
+              )}
             />
           ))}
         </div>

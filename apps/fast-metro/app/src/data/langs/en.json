@@ -26,6 +26,11 @@
   "map-screen": {
     "title": "Map"
   },
+  "lines-colors": {
+    "line-1": "For line 1",
+    "line-2": "For line 2",
+    "line-3": "For line 3"
+  },
   "settings-screen": {
     "title": "Settings",
     "languages": {
@@ -82,166 +87,157 @@
       "content": "You found our error page 404. This is not your fault. It is just a little bit mistakes. But don't worry, you can go back right now!"
     }
   },
-  "start-trip": {
-    "title": "start trip",
-    "from-to": {
-      "from": "From",
-      "from-holder": "select station",
-      "to": "To",
-      "to-holder": "select station"
-    },
-    "stations-number": "Number of stations {{number}}",
-    "ticket-price": "Ticket Price : {{number}} LE",
-    "elderly": "For Elderly : {{number}} LE"
+  "start-trip-screen": {
+    "title": "start trip"
   },
-  "metro-schedules": {
+  "stations-selector": {
+    "from": "From",
+    "to": "To",
+    "select-station": "Select a Station",
+    "line-one": "Line One",
+    "line-two": "Line Two",
+    "line-three": "Line Three"
+  },
+  "trip-details": {
+    "number-of-stations": "Number of Stations",
+    "see-all-stations": "See All Stations",
+    "for-elderly": "For Elderly",
+    "estimated-trip-time": "Estimated trip time",
+    "ticket-price": "Ticket Price"
+  },
+  "metro-schedules-screen": {
     "title": "Metro Schedules",
-    "collapse-data": {
-      "header": {
-        "title": "Line 1",
-        "subtitle": "Total Time : {{time}} Min",
-        "right-subtitle": "{{name}} - {{name}}"
-      },
-      "body": {
-        "first-transfer": {
-          "title": "First Transfer",
-          "subtitle": "Starts from {{time}} AM"
-        },
-        "last-transfer": {
-          "title": "Last Transfer",
-          "subtitle": "Ends at {{time}} AM"
-        },
-        "time-between-stations-peek-time": {
-          "title": "Time between stations (Peek time)",
-          "subtitle": "{{time}}{{timebysec}}"
-        },
-        "time-between-stations-non-peek-time": {
-          "title": "Time between stations (Non-Peek time)",
-          "subtitle": "{{time}}{{timebysec}}"
-        },
-        "number-trains": {
-          "title": "Number Trains",
-          "regular-ventilation": {
-            "title": "Regular Ventilation",
-            "number": "{{number}}"
-          },
-          "air-conditioned": {
-            "title": "Air Conditioned",
-            "number": "{{number}}"
-          }
-        }
-      }
-    }
-  },
-  "get-started": {
-    "slide-one": "{{content}}",
-    "slide-two": "{{content}}",
-    "slide-three": "{{content}}"
-  },
-  "closet-transit": {
-    "title": "Closet Transit",
-    "from-to": {
-      "from": "From",
-      "from-holder": "select station"
+    "line-1": "Line 1",
+    "line-2": "Line 2",
+    "line-3": "Line 3",
+    "header": {
+      "total-time": "Total Time",
+      "minute": "Minutes"
     },
-    "stations-number": "Number of stations {{number}}",
-    "ticket-price": "Ticket Price : {{number}} LE",
-    "elderly": "For Elderly : {{number}} LE"
-  },
-  "contact-us": {
-    "title": "Contact us",
-    "app-name": "Metro App",
-    "email": "info@toctive.com",
-    "contact-form": {
-      "name-holder": "Your Name",
-      "email-holder": "example@mail.com",
-      "massage-holder": "I want to"
+    "body": {
+      "first-transfer": {
+        "title": "First Transfer"
+      },
+      "last-transfer": {
+        "title": "Last Transfer"
+      },
+      "time-between-stations-peek-time": {
+        "title": "Time between stations (Peek time)"
+      },
+      "time-between-stations-non-peek-time": {
+        "title": "Time between stations (Non-Peek time)"
+      },
+      "number-trains": {
+        "title": "Number Trains",
+        "regular-ventilation": "Regular Ventilation",
+        "air-conditioned": "Air Conditioned"
+      },
+      "starts-from": "Starts from",
+      "ends-from": "Ends at",
+      "second": "sec"
     }
   },
-  "contact-metro": {
-    "metro-name": "Cairo Metro",
-    "title": "Contact Metro",
-    "email": "metro@cairo.gov.eg",
-    "metro-number": "+2 012 345 678 90"
+  "get-started-screen": {
+    "slide-1": "this is a test slide component test slide component test slide component test slide component test slide component",
+    "slide-2": "this is a test slide component test slide component test slide component test slide component test slide component",
+    "slide-3": "this is a test slide component test slide component test slide component test slide component test slide component",
+    "finish-button": "Get Started"
   },
-  "station-services": {
+  "closest-transit-screen": {
+    "title": "Closet Transit",
+    "closest-transit-station-is": "closest transit station is"
+  },
+  "contact-us-screen": {
+    "title": "Contact us",
+    "app-name": "Fast Metro App",
+    "contact-form": {
+      "name": "Your Name",
+      "email": "example@mail.com",
+      "massage": "I want to ..."
+    }
+  },
+  "about-us-screen": {
+    "title": "About us",
+    "app-name": "Fast Metro App",
+    "version": "Version"
+  },
+  "contact-metro-screen": {
+    "title": "Contact Metro",
+    "cairo-metro": "Cairo Metro"
+  },
+  "station-services-screen": {
     "title": "Station Services",
     "services-by-station": "Services by Station",
-    "Search-for-Services": "Search for Services"
+    "search-for-services": "Search for Services"
   },
-  "transit-stations": {
-    "title": {
-      "title": " Transit Stations",
-      "transit-one": {
-        "title": "{{transitOne}}",
-        "subtitle": "{{Line1}} - {{Line2}}"
-      },
-      "transit-two": {
-        "title": "{{transitTwo}}",
-        "subtitle": "{{Line1}} - {{Line2}}"
-      },
-      "transit-three": {
-        "title": "{{transitThree}}",
-        "subtitle": "{{Line1}} - {{Line2}}"
-      },
-      "transit-four": {
-        "title": "{{transitFour}}",
-        "subtitle": "{{Line1}} - {{Line2}}"
-      }
-    }
+  "search-for-services-screen": {
+    "title": "Search for Services",
+    "select-station": "Select a Station"
   },
-  "safety-instructions": {
+  "services-by-station-screen": {
+    "title": "Services by Station"
+  },
+  "see-all-stations-screen": {
+    "title": "Trip Stations"
+  },
+  "transit-stations-screen": {
+    "title": " Transit Stations",
+    "line": "Line"
+  },
+  "safety-instructions-screen": {
     "title": "Safety Instructions",
     "do": {
       "title": "Do",
       "subtitle": "What should you do on Metro",
       "content": [
-         "Follow the signs and pay attention to hear notices and alerts from public address.",
-         "Take care and assisting the elderly, women, children and people with special needs (allowing them to pass first through the ticket gates, escalators, elevators, entering in the train and giving them priority to sit).",
-         " Keep the stations and the trains clean and throwing trash into rubbish bins.",
-         " In case of suspicion of anything at the station or train, please call the officials",
-         "Notify the station official of any observations, whether in the station or in the train.",
-         " Using safety and emergency equipment (fire extinguishers or emergency buttons inside the train) only in emergency in order to not be subjected to legal accountability",
-         " Use the ticket or contactless card during crossing the ticket gates.",
-         "Calling the officials when you face any faults in ticket gates",
-         "When using escalators please hold the handrail and stand on the ladder in the direction of going up or down.",
-         " Stand behind the yellow line while waiting the train on the platform.",
-         "Allow passengers to get off first from the train and then enter.",
-         "Stay away from the doors after getting in the train"
+        "Follow the signs and pay attention to hear notices and alerts from public address.",
+        "Take care and assisting the elderly, women, children and people with special needs (allowing them to pass first through the ticket gates, escalators, elevators, entering in the train and giving them priority to sit).",
+        " Keep the stations and the trains clean and throwing trash into rubbish bins.",
+        " In case of suspicion of anything at the station or train, please call the officials",
+        "Notify the station official of any observations, whether in the station or in the train.",
+        " Using safety and emergency equipment (fire extinguishers or emergency buttons inside the train) only in emergency in order to not be subjected to legal accountability",
+        " Use the ticket or contactless card during crossing the ticket gates.",
+        "Calling the officials when you face any faults in ticket gates",
+        "When using escalators please hold the handrail and stand on the ladder in the direction of going up or down.",
+        " Stand behind the yellow line while waiting the train on the platform.",
+        "Allow passengers to get off first from the train and then enter.",
+        "Stay away from the doors after getting in the train"
       ]
     },
     "dont": {
       "title": "Don't",
       "subtitle": "What should you Not do on Metro",
       "content": [
-         "Smoking inside the metro.",
-         "Carrying flammable or dangerous chemicals.",
-         "Taking the animals within the metro.",
-         "Tampering or trying to sabotage the station or train or ticket gates in order to not expose yourself to legal accountability.",
-         "Jumping over ticket gates to cross in order to not expose yourself to fine.",
-         "Crossing by force or in groups the ticket gates.",
-         "Running, sitting or playing while going upstairs or downstairs on escalators.",
-         "Allowing children to use escalators alone.",
-         "Scrambling, playing or running on the train platform.",
-         "Crossing the rails to pick up property that falls on the train track, immediately go to the station officials for help.",
-         "Opening or closing the train door with your hand.",
-         "entering the train after starting the door closing alert.",
-         "Sitting on the train floor."
+        "Smoking inside the metro.",
+        "Carrying flammable or dangerous chemicals.",
+        "Taking the animals within the metro.",
+        "Tampering or trying to sabotage the station or train or ticket gates in order to not expose yourself to legal accountability.",
+        "Jumping over ticket gates to cross in order to not expose yourself to fine.",
+        "Crossing by force or in groups the ticket gates.",
+        "Running, sitting or playing while going upstairs or downstairs on escalators.",
+        "Allowing children to use escalators alone.",
+        "Scrambling, playing or running on the train platform.",
+        "Crossing the rails to pick up property that falls on the train track, immediately go to the station officials for help.",
+        "Opening or closing the train door with your hand.",
+        "entering the train after starting the door closing alert.",
+        "Sitting on the train floor."
       ]
     }
   },
-  "violations-fines": {
+  "violations-fins-screen": {
     "title": "Violations and Fines",
-    "30": {
-      "who-collected-fines": "A police fine issued by metro police.",
+    "30-egp-class": {
+      "title": "30 Egp Fins",
+      "who-can-collect-fins": "A police fine issued by metro police.",
       "violations": [
         "Smoking into stations and trains",
         "Existence men into women’ cars",
         "Throwing wastes inside stations and trains"
       ]
     },
-    "50": {
-      "who-collected-fines": "Passenger fine which issued by members of metro company: supervisors & inspectors.",
+    "50-egp-class": {
+      "title": "50 Egp Fins",
+      "who-can-collect-fins": "Passenger fine which issued by members of metro company: supervisors & inspectors.",
       "violations": [
         "Riding without ticket",
         "Not using the ticket during passing the gates",
@@ -250,8 +246,9 @@
         "Passing the subscription zone"
       ]
     },
-    "100": {
-      "who-collected-fines": "Passenger fine which issued by members of metro company: supervisors & inspectors.",
+    "other-fins": {
+      "title": "Other Fins",
+      "who-can-collect-fins": "Passenger fine which issued by members of metro company: supervisors & inspectors.",
       "violations": [
         "Selling at stations and trains without a permission",
         "Begging at stations and trains",
@@ -263,7 +260,7 @@
       ]
     },
     "fine-delaying-trains": {
-      "title":"Fine of delaying trains",
+      "title": "Fine of delaying trains",
       "violations": [
         "A fine of delaying train because of violating a passenger is estimated by LE 300 per minute. This fine is considered as a means of deterring the offending passenger and not to repeat the violation that leads to delay of trains.",
         "A fine for delaying train because of violating a company is estimated by LE 400 per minute. In addition to the damages caused by the delay of trains."
@@ -273,5 +270,15 @@
       "That’s all in order to not be subjected to the prescribed fine for each item",
       "The metro is a civilized project which is yours. Preserve it."
     ]
+  },
+  "stations": {
+    "ain shams": "Ain Shams",
+    "helwan": "Helwan",
+    "el-marg": "El Marg",
+    "sadat": "Sadat",
+    "nasser": "Nasser",
+    "al-shohadaa": "Al Shohadaa",
+    "attaba": "Attaba",
+    "cairo-university": "Cairo University"
   }
 }

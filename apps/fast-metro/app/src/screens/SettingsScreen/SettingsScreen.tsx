@@ -1,5 +1,5 @@
 import i18next from 'i18next';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Page from '../../components/layout/Page/Page';
 import SettingsSection from '../../components/layout/SettingsSection/SettingsSection';
@@ -11,10 +11,18 @@ import { Alert } from '../../components/shared/Alert/Alert';
 import { Option } from '../../components/shared/Alert/Option';
 import { useTranslation } from 'react-i18next';
 import { setDirection, DirectionType } from '../../assets/js/appDirection';
+import { useNavigate } from 'react-router-dom';
+import { Share } from '@capacitor/share';
 
 export const SettingsScreen = () => {
   const [isDark, setIsDark] = useState(false);
+  useEffect(() => {
+    handleDarkMode(isDark);
+  }, [isDark]);
+
   const { t } = useTranslation();
+
+  const navigation = useNavigate();
 
   return (
     <Page>
@@ -29,10 +37,7 @@ export const SettingsScreen = () => {
             >
               <Switch IsDark={setIsDark} />
             </SettingCard>
-            <SettingCard
-              title={t`settings-screen.font-size.title`}
-              text={t`settings-screen.font-size.subtitle`}
-            />
+
             <LanguageCard />
           </SettingsSection>
 
@@ -51,6 +56,14 @@ export const SettingsScreen = () => {
             <SettingCard
               title={t`settings-screen.share.title`}
               text={t`settings-screen.share.subtitle`}
+              onClick={() => {
+                Share.share({
+                  title: 'Fast Metro App',
+                  text: 'Really awesome thing you need to see right now',
+                  url: 'http://toctive.com/',
+                  dialogTitle: 'Share with buddies',
+                });
+              }}
             />
             <SettingCard
               title={t`settings-screen.disclaimer.title`}
@@ -59,6 +72,9 @@ export const SettingsScreen = () => {
             <SettingCard
               title={t`settings-screen.about.title`}
               text={t`settings-screen.about.subtitle`}
+              onClick={() => {
+                navigation('/about-us');
+              }}
             />
           </SettingsSection>
         </div>
@@ -123,4 +139,7 @@ function LanguageCard() {
       )}
     </>
   );
+}
+function handleDarkMode(isDark: boolean) {
+  // TODO: dark mode handler Function not implemented.
 }
