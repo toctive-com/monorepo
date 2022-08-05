@@ -4,7 +4,7 @@ import { UserRepository } from '../../repositories/UserRepository';
 import { CrmRepository } from '../../repositories/CrmRepository';
 
 export default (UserRepository: UserRepository, CrmServices: CrmRepository) => {
-  const addUser = async (user: UserI) => {
+  const Execute = async (user: UserI) => {
     // making a new user and validating the user's information
     const User = makeUser(user);
 
@@ -23,7 +23,8 @@ export default (UserRepository: UserRepository, CrmServices: CrmRepository) => {
 
     return newUser;
   };
+
   return {
-    addUser,
+    Execute,
   };
 };
