@@ -1,4 +1,4 @@
-import { UserI, IdI, HashI, SanitizeI } from '../../interfaces';
+import { UserI, IdI, HashI, SanitizeI, validUserI } from '../../interfaces';
 import {
   verifyAddress,
   verifyDescription,
@@ -72,7 +72,7 @@ export default function buildMakeUser({
 
     markedDeleted = false,
     deletedAt = null,
-  }: UserI) {
+  }: UserI): Readonly<validUserI> {
     /* Throwing an error if the id is not valid. */
     verifyId(id, Id);
 

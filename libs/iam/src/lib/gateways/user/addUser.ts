@@ -14,7 +14,7 @@ export default (UserRepository: UserRepository, CrmServices: CrmRepository) => {
     }
 
     // add the user to the database
-    const newUser = await UserRepository.add(user);
+    const newUser = await UserRepository.add(User);
 
     // notify crm system
     await CrmServices?.notify(

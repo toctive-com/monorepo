@@ -35,3 +35,48 @@ export interface UserI {
   markedDeleted?: boolean; // soft delete to mark the user as deleted
   deletedAt?: Date | null; // date when the user was deleted (marked as deleted (soft delete))
 }
+
+export interface validUserI {
+  getId: () => string;
+
+  getFirstName: () => string;
+  getMiddleName: () => string | null;
+  getLastName: () => string;
+  getFullName: () => string;
+
+  getEmail: () => string;
+  getPasswordHash: () => string;
+
+  getBirthday: () => Date | null;
+  getAge?: () => number | null;
+  getGender: () => Gender | null;
+
+  getBioDescription: () => string | null;
+  getProfileImage: () => string | null;
+  getCoverImage: () => string | null;
+
+  getAddress: () => string | null;
+  getCity: () => string | null;
+  getZip: () => string | null;
+  getState: () => string | null;
+  getCountry: () => string | null;
+
+  getActiveStatus: () => boolean | null;
+
+  getActivated: () => boolean;
+  isActivated: () => boolean;
+  activate: () => void;
+  deactivate: () => void;
+
+  getVerified: () => boolean | null;
+  isVerify: () => boolean | null;
+  verify: () => void;
+  unverify: () => void;
+
+  getCreatedAt: () => Date;
+  getUpdatedAt: () => Date;
+
+  getMarkedDeleted: () => boolean;
+  getDeletedAt: () => Date | null;
+  markDeleted: () => void;
+}
