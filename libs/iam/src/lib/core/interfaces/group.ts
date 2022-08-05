@@ -18,5 +18,5 @@ export interface GroupI {
   markedDeleted?: boolean; // soft delete to mark the group as deleted
   deletedAt?: Date | null; // date when the group was deleted (marked as deleted (soft delete))
 
-  users: UserI[] | null;
+  users: UserI[];
 }

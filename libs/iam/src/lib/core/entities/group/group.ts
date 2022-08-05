@@ -1,13 +1,13 @@
-import { GroupI, IdI, SanitizeI } from '../../interfaces';
 import {
   verifyCoverImage,
   verifyDeleteAt,
+  verifyDescription,
   verifyId,
   verifyProfileImage,
   verifyTimestamps,
-  verifyDescription,
 } from '../../../helpers/verifiers';
 import { verifyTitle } from '../../../helpers/verifiers/verifyTitle';
+import { GroupI, IdI, SanitizeI } from '../../interfaces';
 
 export default function buildMakeGroup({
   Id,
@@ -20,7 +20,7 @@ export default function buildMakeGroup({
     id = Id.makeId(),
 
     title,
-    users = null,
+    users = [],
 
     profileImage = null,
     coverImage = null,
