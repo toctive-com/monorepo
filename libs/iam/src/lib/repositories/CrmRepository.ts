@@ -1,5 +1,5 @@
 export interface CrmRepository {
-  notify: (message: string) => Promise<void>;
+  notify: (options: { message: string; data?: any }) => Promise<void>;
 }
 
 export default CrmRepository;
