@@ -2,7 +2,7 @@ export type Gender = 'male' | 'female';
 
 /* Defining the interface of the User model. */
 export interface UserI {
-  id?: string;
+  hashId?: string;
 
   firstName: string;
   middleName?: string | null;
@@ -34,6 +34,8 @@ export interface UserI {
 
   markedDeleted?: boolean; // soft delete to mark the user as deleted
   deletedAt?: Date | null; // date when the user was deleted (marked as deleted (soft delete))
+
+  [otherOptions: string]: unknown;
 }
 
 export interface validUserI {

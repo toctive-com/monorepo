@@ -8,9 +8,9 @@ export interface UserRepository {
   add: (user: validUserI) => Promise<validUserI>;
   update: (user: validUserI) => Promise<validUserI>;
   delete: (user: validUserI) => Promise<validUserI>;
-  getById: (id: string) => Promise<validUserI>;
-  getByEmail: (email: string) => Promise<validUserI> | Promise<boolean>;
-  getAll: (user: validUserI) => Promise<validUserI[]>;
+  getById: (id: string) => Promise<validUserI | null>;
+  getByEmail: (email: string) => Promise<validUserI | null>;
+  getAll: () => Promise<validUserI[]>;
 }
 
 export default UserRepository;

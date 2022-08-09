@@ -3,7 +3,10 @@ import { UserI, validUserI } from '../../core/interfaces';
 import { UserRepository } from '../../repositories/UserRepository';
 import { CrmRepository } from '../../repositories/CrmRepository';
 
-export default (UserRepository: UserRepository, CrmServices: CrmRepository) => {
+export const addUserUseCase = (
+  UserRepository: UserRepository,
+  CrmServices: CrmRepository
+) => {
   const Execute = async (user: UserI) => {
     // making a new user and validating the user's information
     const User: validUserI = makeUser(user);
@@ -29,3 +32,5 @@ export default (UserRepository: UserRepository, CrmServices: CrmRepository) => {
     Execute,
   };
 };
+
+export default addUserUseCase;

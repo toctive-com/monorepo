@@ -9,7 +9,6 @@ import {
   verifyDeleteAt,
   verifyEmail,
   verifyFirstName,
-  verifyId,
   verifyLastName,
   verifyMiddleName,
   verifyPassword,
@@ -42,7 +41,7 @@ export default function buildMakeUser({
    * @returns An object that contains the user's information.
    */
   return function makeUser({
-    id = Id.makeId(),
+    hashId = Id.makeId(),
 
     firstName,
     middleName = null,
@@ -50,6 +49,7 @@ export default function buildMakeUser({
 
     email,
     password,
+    passwordIsHashed = false,
 
     birthday = null,
     gender = null,
@@ -73,9 +73,6 @@ export default function buildMakeUser({
     markedDeleted = false,
     deletedAt = null,
   }: UserI): Readonly<validUserI> {
-    /* Throwing an error if the id is not valid. */
-    verifyId(id, Id);
-
     /* Checking if the firstName is not empty, if it is a string, if it is less than 50 characters, and
     if it is more than 2 characters. */
     verifyFirstName(firstName, sanitize);
@@ -140,11 +137,14 @@ export default function buildMakeUser({
     verifyTimestamps(createdAt, updatedAt, deletedAt);
 
     /* Generating a hash of the password using bcrypt algorithm. */
-    const passwordHash = hash.generate(password);
+    let passwordHash: string;
+    if (!passwordIsHashed) {
+      passwordHash = hash.generate(password);
+    }
 
     /* Creating a user object with the given parameters. */
-    return Object.freeze({
-      getId: () => id,
+    return Object.freeze<validUserI>({
+      getId: () => hashId,
 
       getFirstName: () => firstName,
       getMiddleName: () => middleName,
