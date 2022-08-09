@@ -12,7 +12,9 @@
         "outputPath": "dist/apps/toctive-dashboard/frontend"
       },
       "configurations": {
-        "development": {},
+        "development": {
+          "outputPath": "apps/toctive-dashboard/frontend"
+        },
         "production": {}
       }
     },

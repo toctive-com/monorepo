@@ -4,9 +4,6 @@
   "affected": {
     "defaultBase": "main"
   },
-  "cli": {
-    "defaultCollection": "@nrwl/next"
-  },
   "implicitDependencies": {
     "package.json": {
       "dependencies": "*",
@@ -22,14 +19,6 @@
         "accessToken": "MDI1MDJiYzEtNTdmZi00ZTNhLWFkZjAtZjRkNTIwY2ZlOGZmfHJlYWQtd3JpdGU="
       }
     }
-  },
-  "targetDependencies": {
-    "build": [
-      {
-        "target": "build",
-        "projects": "dependencies"
-      }
-    ]
   },
   "generators": {
     "@nrwl/react": {
@@ -53,5 +42,10 @@
       }
     }
   },
-  "defaultProject": "toctive-dashboard-frontend"
+  "defaultProject": "toctive-dashboard-frontend",
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"]
+    }
+  }
 }

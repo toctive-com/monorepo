@@ -6,6 +6,7 @@
     "fast-metro-app-e2e": "apps/fast-metro/app-e2e",
     "fast-metro-backend": "apps/fast-metro/backend",
     "iam": "libs/iam",
+    "toctive-blog-frontend": "apps/toctive-blog/frontend",
     "toctive-dashboard-backend": "apps/toctive-dashboard/backend",
     "toctive-dashboard-frontend": "apps/toctive-dashboard/frontend",
     "toctive-dashboard-frontend-e2e": "apps/toctive-dashboard/frontend-e2e"
