@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Navbar from '../components/layout/navbar/navbar';
 
 const StyledPage = styled.div`
-  .page {
+  .container {
   }
 `;
 
@@ -15,8 +15,8 @@ export function Index() {
   return (
     <StyledPage>
       <div className="wrapper">
-        <div className="container">
-          <Navbar />
+        <div className="">
+          <Navbar transparent />
           <div id="welcome">
             <h1 className="text-3xl font-bold underline">Hello world!</h1>
           </div>
