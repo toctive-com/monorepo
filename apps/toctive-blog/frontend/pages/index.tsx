@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Navbar from '../components/layout/navbar/navbar';
 
 const StyledPage = styled.div`
   .page {
@@ -15,14 +16,12 @@ export function Index() {
     <StyledPage>
       <div className="wrapper">
         <div className="container">
+          <Navbar />
           <div id="welcome">
-            <h1>
-              <span> Hello there, </span>
-              Welcome frontend 👋
-            </h1>
+            <h1 className="text-3xl font-bold underline">Hello world!</h1>
           </div>
 
-          <div id="hero" className="rounded">
+          <div id="hero" className="rounded ">
             <div className="text-container">
               <h2>
                 <svg
