@@ -42,7 +42,7 @@ const Row = styled.div`
   align-items: center;
 `;
 
-const Brand = styled.a`
+const Brand = styled.span`
   text-decoration: none;
   font-size: 1.25rem;
   font-weight: bold;
@@ -62,9 +62,11 @@ export function Navbar(props: NavbarProps) {
         }`}
       >
         <Row className="flex-col md:flex-row">
-          <Brand className="text-gray-900 dark:text-gray-50">
-            Toctive Blog
-          </Brand>
+          <Link href="/">
+            <Brand className="text-gray-900 dark:text-gray-50">
+              Toctive Blog
+            </Brand>
+          </Link>
 
           <div id="nav-links" className="flex justify-evenly md:mx-8">
             <Link href="/tags/development">
