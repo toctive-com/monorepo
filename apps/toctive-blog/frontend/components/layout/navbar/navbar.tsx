@@ -4,6 +4,7 @@ import styled from 'styled-components';
 /* eslint-disable-next-line */
 export interface NavbarProps {
   transparent?: boolean;
+  shadow?: boolean;
 }
 
 const StyledNavbar = styled.div`
@@ -26,7 +27,7 @@ const AuthLink = styled.a`
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 `;
 
-const TagLink = styled.span`
+const TagLink = styled.a`
   cursor: pointer;
   padding: 1rem;
 
@@ -42,7 +43,7 @@ const Row = styled.div`
   align-items: center;
 `;
 
-const Brand = styled.span`
+const Brand = styled.a`
   text-decoration: none;
   font-size: 1.25rem;
   font-weight: bold;
@@ -54,32 +55,32 @@ export function Navbar(props: NavbarProps) {
   return (
     <div
       /* hide the shadow when the navbar is transparent*/
-      className={`${!props.transparent && 'shadow'}`}
+      className={`${props.shadow && 'shadow'}`}
     >
       <StyledNavbar
-        className={`container flex-col md:flex-row ${
-          props.transparent ? 'bg-transparent' : 'bg-white'
+        className={`container mx-auto flex-col md:flex-row ${
+          props.transparent ? 'bg-transparent' : 'bg-gray-50'
         }`}
       >
         <Row className="flex-col md:flex-row">
-          <Link href="/">
+          <Link href="/" passHref>
             <Brand className="text-gray-900 dark:text-gray-50">
               Toctive Blog
             </Brand>
           </Link>
 
           <div id="nav-links" className="flex justify-evenly md:mx-8">
-            <Link href="/tags/development">
+            <Link href="/tags/development" passHref>
               <TagLink className="text-gray-900 dark:text-gray-50">
                 Development
               </TagLink>
             </Link>
-            <Link href="/tags/freelancing">
+            <Link href="/tags/freelancing" passHref>
               <TagLink className="text-gray-900 dark:text-gray-50">
                 Freelancing
               </TagLink>
             </Link>
-            <Link href="/tags/design">
+            <Link href="/tags/design" passHref>
               <TagLink className="text-gray-900 dark:text-gray-50">
                 Design
               </TagLink>
