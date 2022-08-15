@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import styled from 'styled-components';
+import gsap from 'gsap';
+import { useEffect, useRef } from 'react';
 
-/* eslint-disable-next-line */
 export interface NavbarProps {
   transparent?: boolean;
   shadow?: boolean;
@@ -50,26 +51,46 @@ const Brand = styled.a`
   cursor: pointer;
 `;
 
-// TODO: add theme support (dark/light)
 export function Navbar(props: NavbarProps) {
+  const linksRef = useRef(null);
+  const brandRef = useRef(null);
+  const authButtonsRef = useRef(null);
+  useEffect(() => {
+    gsap.from(
+      [
+        brandRef.current,
+        ...linksRef.current.children,
+        ...authButtonsRef.current.children,
+      ],
+      {
+        duration: 1,
+        opacity: 0,
+        ease: 'power3.inOut',
+        stagger: 0.1,
+      }
+    );
+  }, []);
+
   return (
     <div
       /* hide the shadow when the navbar is transparent*/
-      className={`${props.shadow && 'shadow'}`}
+      className={`${props.shadow && 'shadow'} ${
+        props.transparent ? 'bg-transparent' : 'bg-gray-50 dark:bg-gray-900'
+      }`}
     >
-      <StyledNavbar
-        className={`container mx-auto flex-col md:flex-row ${
-          props.transparent ? 'bg-transparent' : 'bg-gray-50'
-        }`}
-      >
+      <StyledNavbar className={`container mx-auto flex-col md:flex-row`}>
         <Row className="flex-col md:flex-row">
           <Link href="/" passHref>
-            <Brand className="text-gray-900 dark:text-gray-50">
+            <Brand className="text-gray-900 dark:text-gray-50" ref={brandRef}>
               Toctive Blog
             </Brand>
           </Link>
 
-          <div id="nav-links" className="flex justify-evenly md:mx-8">
+          <div
+            id="nav-links"
+            className="flex justify-evenly md:mx-8"
+            ref={linksRef}
+          >
             <Link href="/tags/development" passHref>
               <TagLink className="text-gray-900 dark:text-gray-50">
                 Development
@@ -88,7 +109,7 @@ export function Navbar(props: NavbarProps) {
           </div>
         </Row>
 
-        <div id="auth-links" className="hidden md:block">
+        <div id="auth-links" className="hidden md:block" ref={authButtonsRef}>
           <AuthLink href="/login" className="text-gray-900 dark:text-gray-50">
             Login
           </AuthLink>
