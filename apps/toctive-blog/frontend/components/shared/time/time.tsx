@@ -34,11 +34,11 @@ export function Time(props: TimeProps) {
     <time
       ref={timeRef}
       dateTime={props.time.toDateString()}
-      // title={
-      //   !clicked
-      //     ? moment(props.time, 'YYYYMMDD').fromNow()
-      //     : moment(props.time, 'YYYYMMDD').format('MMMM Do YYYY')
-      // }
+      title={
+        clicked
+          ? moment(props.time, 'YYYYMMDD').fromNow()
+          : moment(props.time, 'YYYYMMDD').format('MMMM Do YYYY')
+      }
       onClick={() => setClicked(!clicked)}
       className="cursor-pointer select-none"
     >
