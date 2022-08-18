@@ -1,17 +1,28 @@
+import gsap from 'gsap';
 import moment from 'moment';
 import { useEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
 
 /* eslint-disable-next-line */
 export interface TimeProps {
   time: Date;
 }
 
-/* A React component that displays a time in a human readable format. */
+/**
+ * A React component that displays a time in a human readable format.
+ * if use clicked on the time it will change format:
+ * - "a few seconds ago"  to "August 18th 2022"
+ * - "August 18th 2022" to "a few seconds ago"
+ *
+ * @param {time: Date}. The time to display.
+ */
 export function Time(props: TimeProps) {
-  const [clicked, setClicked] = useState<boolean>(true);
+  // Used to change the time format.
+  const [isClicked, setIsClicked] = useState<boolean>(true);
+
+  // the time to display.
   const [time, setTime] = useState<string | Date>('');
 
+  // animate changing the time format.
   const timeRef = useRef<HTMLTimeElement>(null);
   useEffect(() => {
     if (!timeRef.current) return;
@@ -21,25 +32,27 @@ export function Time(props: TimeProps) {
       duration: 0.3,
       ease: 'power2.inOut',
     });
-  }, [clicked]);
+  }, [isClicked]);
 
   useEffect(() => {
-    const newTime = !clicked
+    const newTime = !isClicked
       ? moment(props.time, 'YYYYMMDD').local(true).fromNow()
       : moment(props.time, 'YYYYMMDD').local(true).format('MMMM Do YYYY');
     setTime(newTime);
-  }, [clicked, props.time]);
+  }, [isClicked, props.time]);
 
   return (
     <time
       ref={timeRef}
       dateTime={props.time.toDateString()}
+      // The title attribute is used by screen readers and on hover the time element.
+      // it should display the other time format.
       title={
-        clicked
+        isClicked
           ? moment(props.time, 'YYYYMMDD').fromNow()
           : moment(props.time, 'YYYYMMDD').format('MMMM Do YYYY')
       }
-      onClick={() => setClicked(!clicked)}
+      onClick={() => setIsClicked(!isClicked)}
       className="cursor-pointer select-none"
     >
       {time.toString()}
