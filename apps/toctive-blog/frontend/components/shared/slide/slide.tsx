@@ -58,10 +58,9 @@ export function Slide({
   image,
   onClick,
 }: SlideProps) {
-  const slideRef = useRef(null);
-  const titleRef = useRef(null);
-  const contentRef = useRef(null);
-  const containerRef = useRef(null);
+  const slideRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // to make sure the animation is only run once on first render
   const [firstRender, setFirstRender] = useState(true);
@@ -69,11 +68,17 @@ export function Slide({
   // animate the slide in
   useEffect(() => {
     const tl = gsap.timeline({
-      defaults: { duration: 1, ease: 'power2.inOut', delay: 0 },
+      defaults: { duration: 1, ease: 'power2.inOut' },
     });
 
     // scale the slide to full size if it's active
-    tl.to(slideRef.current, { scale: active ? 1 : 0.85 });
+    tl.to(slideRef.current, {
+      scale: active ? 1 : 0.85,
+
+      // if delay is zero, the animation won't run when navigate through the slides
+      // and it must be 0 at the first render to remove delay of the animation
+      delay: firstRender ? -1 : 0,
+    });
 
     // we need to animate the slides on the first render only
     // to make sure they're all in the right position
@@ -81,43 +86,57 @@ export function Slide({
     setFirstRender(false);
 
     // for the active slide, animate the title and content in
-    if (active) {
-      tl.to([contentRef.current, titleRef.current], {
-        opacity: 0,
-        duration: 0,
-        delay: -1,
-      });
+    if (
+      active &&
+      slideRef.current &&
+      titleRef.current &&
+      containerRef.current
+    ) {
+      try {
+        tl.from(slideRef.current, {
+          height: 0,
+          opacity: 0,
+          scale: 0.85,
+        })
 
-      tl.from(slideRef.current, {
-        height: 0,
-        opacity: 0,
-        scale: 0.85,
-      })
-        .fromTo(
-          containerRef.current,
-          {
-            opacity: 0,
-            y: 30,
-            height: 0,
-            delay: -1,
-            ease: 'power2.inOut',
-          },
-          { opacity: 1, y: 0, height: 'auto', delay: -1 }
-        )
-        .fromTo(
-          [titleRef.current, contentRef.current],
-          {
-            opacity: 0,
-            y: -30,
-            delay: -3,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            ease: 'none',
-            delay: 0,
-          }
-        );
+          // show the content container
+          .fromTo(
+            containerRef.current,
+            {
+              opacity: 0,
+              y: 30,
+              height: 0,
+              ease: 'power2.inOut',
+            },
+            { opacity: 1, y: 0, height: 'auto' },
+            '-=1'
+          )
+
+          // show the title
+          .fromTo(
+            [titleRef.current?.children],
+            {
+              opacity: 0,
+              yPercent: 100,
+            },
+            {
+              opacity: 1,
+              yPercent: 0,
+            },
+            '-=0.5'
+          )
+
+          .from(
+            [containerRef.current?.children],
+            {
+              opacity: 0,
+              duration: 1.5,
+            },
+            '-=1'
+          );
+      } catch (error) {
+        console.error(error);
+      }
     } else {
       tl.fromTo(
         slideRef.current,
@@ -138,17 +157,17 @@ export function Slide({
   return (
     <StyledSlide active={active} ref={slideRef} onClick={onClick && onClick}>
       <SlideContainer image={image} className={`border p-2 sm:p-4 md:p-16`}>
-        <h1
-          className="cursor-pointer text-5xl sm:text-6xl md:w-4/5 md:text-7xl lg:w-2/3 xl:w-1/2"
+        <div
+          className="cursor-pointer overflow-hidden text-5xl sm:text-6xl md:w-4/5 md:text-7xl lg:w-2/3 xl:w-1/2"
           ref={titleRef}
         >
-          {title}
-        </h1>
+          <h1>{title}</h1>
+        </div>
         <div
-          className="mt-8 inline-block cursor-default rounded-lg bg-white p-6 text-black md:max-w-[500px]"
+          className="mt-8 inline-block cursor-default overflow-hidden rounded-lg bg-white p-6 text-black md:max-w-[500px]"
           ref={containerRef}
         >
-          <div ref={contentRef}>{children && children}</div>
+          {children && children}
         </div>
       </SlideContainer>
     </StyledSlide>

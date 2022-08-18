@@ -1,7 +1,7 @@
+import gsap from 'gsap';
 import React, { useEffect, useRef, useState } from 'react';
 import { CgArrowLongLeft, CgArrowLongRight } from 'react-icons/cg';
 import styled from 'styled-components';
-import gsap from 'gsap';
 
 /* eslint-disable-next-line */
 export interface SliderProps {}
@@ -14,24 +14,34 @@ const SlideContainer = styled.div`
   display: flex;
   width: 100%;
   transform: translateX(
-    ${(props: { currentSlide: number }) => props.currentSlide * -100}%
+    ${(props: { currentSlide: number }) => {
+      return props.currentSlide * -100 + '%';
+    }}
   );
 `;
 
-export function Slider(props) {
-  const [currentSlide, setCurrentSlide] = useState<number>(1);
+export function Slider(props: { children: React.PropsWithChildren }) {
+  // set the default active slide the middle one (if there are three, choose the second one)
+  const [currentSlide, setCurrentSlide] = useState<number>(
+    Math.floor(React.Children.count(props.children) / 2)
+  );
+
   const slideContainerRef = useRef(null);
 
+  // animate the buttons
   const prevButtonRef = useRef(null);
   const nextButtonRef = useRef(null);
   useEffect(() => {
     gsap.fromTo(
       [prevButtonRef.current, nextButtonRef.current],
+      { opacity: 0, y: 15 },
       {
-        opacity: 0,
-        y: 15,
-      },
-      { opacity: 1, duration: 0.5, y: 0, delay: 2, ease: 'power2.inOut' }
+        opacity: 1,
+        duration: 0.5,
+        y: 0,
+        delay: 1,
+        ease: 'power2.inOut',
+      }
     );
   }, []);
 
@@ -44,18 +54,18 @@ export function Slider(props) {
    */
   const [touchStart, setTouchStart] = React.useState(0);
   const [touchEnd, setTouchEnd] = React.useState(0);
-  function handleTouchStart(e) {
+  function handleTouchStart(e: React.TouchEvent<HTMLDivElement>) {
     setTouchStart(e.nativeEvent.targetTouches[0].clientX);
   }
 
-  function handleTouchMove(e) {
+  function handleTouchMove(e: React.TouchEvent<HTMLDivElement>) {
     setTouchEnd(e.nativeEvent.targetTouches[0].clientX);
   }
 
   function handleTouchEnd() {
     if (
       touchStart - touchEnd > 150 &&
-      currentSlide < props.children.length - 1
+      currentSlide < React.Children.count(props.children) - 1
     ) {
       setCurrentSlide(currentSlide + 1);
     }
@@ -76,26 +86,34 @@ export function Slider(props) {
           currentSlide={currentSlide}
           className="transition-all duration-500"
         >
-          {React.Children.map(props.children, (child, index) => {
-            if (index === currentSlide) {
-              return {
-                ...child,
-                props: {
-                  ...child.props,
-                  active: true,
-                  onClick: () => setCurrentSlide(index),
-                },
-              };
-            }
-            return {
-              ...child,
-              props: {
-                ...child.props,
-                active: false,
-                onClick: () => setCurrentSlide(index),
-              },
-            };
-          })}
+          {
+            React.Children.map(
+              props.children,
+              (child: { children?: React.ReactNode; props?: [] }, index) => {
+                // if the current slide is the same as the index,
+                // then pass `active=true` to the child
+                if (index === currentSlide) {
+                  return {
+                    ...child,
+                    props: {
+                      ...child?.props,
+                      active: true,
+                      onClick: () => setCurrentSlide(index),
+                    },
+                  };
+                }
+
+                return {
+                  ...child,
+                  props: {
+                    ...child.props,
+                    active: false,
+                    onClick: () => setCurrentSlide(index),
+                  },
+                };
+              }
+            ) as React.ReactNode
+          }
         </SlideContainer>
 
         <div className="mt-8 flex items-center justify-between">
