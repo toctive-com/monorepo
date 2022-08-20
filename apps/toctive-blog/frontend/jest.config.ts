@@ -8,4 +8,5 @@ export default {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../../coverage/apps/toctive-blog/frontend',
+  setupFilesAfterEnv: ['./specs/jest.setup.js'],
 };
