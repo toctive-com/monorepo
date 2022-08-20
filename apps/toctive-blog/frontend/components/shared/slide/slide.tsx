@@ -1,5 +1,5 @@
 import gsap from 'gsap';
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 /* eslint-disable-next-line */
@@ -34,8 +34,10 @@ const SlideContainer = styled.div`
   min-width: 100%;
   height: 800px;
   max-height: 80vh;
+  padding: 0.5rem /* 8px */;
 
   border-radius: 1rem /* 16px */;
+  border-width: 1px;
 
   color: white;
 
@@ -92,51 +94,47 @@ export function Slide({
       titleRef.current &&
       containerRef.current
     ) {
-      try {
-        tl.from(slideRef.current, {
-          height: 0,
-          opacity: 0,
-          scale: 0.85,
-        })
+      tl.from(slideRef.current, {
+        height: 0,
+        opacity: 0,
+        scale: 0.85,
+      })
 
-          // show the content container
-          .fromTo(
-            containerRef.current,
-            {
-              opacity: 0,
-              y: 30,
-              height: 0,
-              ease: 'power2.inOut',
-            },
-            { opacity: 1, y: 0, height: 'auto' },
-            '-=1'
-          )
+        // show the content container
+        .fromTo(
+          containerRef.current,
+          {
+            opacity: 0,
+            y: 30,
+            height: 0,
+            ease: 'power2.inOut',
+          },
+          { opacity: 1, y: 0, height: 'auto' },
+          '-=1'
+        )
 
-          // show the title
-          .fromTo(
-            [titleRef.current?.children],
-            {
-              opacity: 0,
-              yPercent: 100,
-            },
-            {
-              opacity: 1,
-              yPercent: 0,
-            },
-            '-=0.5'
-          )
+        // show the title
+        .fromTo(
+          HTMLCollectionToArray(titleRef.current?.children),
+          {
+            opacity: 0,
+            yPercent: 100,
+          },
+          {
+            opacity: 1,
+            yPercent: 0,
+          },
+          '-=0.5'
+        )
 
-          .from(
-            [containerRef.current?.children],
-            {
-              opacity: 0,
-              duration: 1.5,
-            },
-            '-=1'
-          );
-      } catch (error) {
-        console.error(error);
-      }
+        .from(
+          HTMLCollectionToArray(containerRef.current?.children),
+          {
+            opacity: 0,
+            duration: 1.5,
+          },
+          '-=1'
+        );
     } else {
       tl.fromTo(
         slideRef.current,
@@ -156,7 +154,7 @@ export function Slide({
 
   return (
     <StyledSlide active={active} ref={slideRef} onClick={onClick && onClick}>
-      <SlideContainer image={image} className={`border p-2 sm:p-4 md:p-16`}>
+      <SlideContainer image={image} className={`sm:p-4 md:p-16`}>
         <div
           className="cursor-pointer overflow-hidden text-5xl sm:text-6xl md:w-4/5 md:text-7xl lg:w-2/3 xl:w-1/2"
           ref={titleRef}
@@ -175,3 +173,22 @@ export function Slide({
 }
 
 export default Slide;
+
+/**
+ * If the HTMLCollection has a length, return an array of the HTMLCollection, otherwise return an array
+ * with a single div element.
+ *
+ * jest shows an error when trying to access the children of the title
+ * and gsap doesn't work with HTMLCollection (ref.current.children's type)
+ * so we need to use Array.from to convert it to an array
+ * then check if there are any children and animate them or create a new div
+ * to prevent the error
+ *
+ * @param {HTMLCollection} children - HTMLCollection
+ * @returns [document.createElement('div')]
+ */
+function HTMLCollectionToArray(children: HTMLCollection): Element[] {
+  return Array.from(children).length
+    ? Array.from(children)
+    : [document.createElement('div')];
+}
