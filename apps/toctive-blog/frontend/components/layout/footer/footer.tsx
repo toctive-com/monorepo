@@ -13,7 +13,6 @@ const StyledFooter = styled.div`
   align-items: center;
 
   @media (max-width: 1024px) {
-    /* display: grid; */
     flex-direction: column;
     gap: 1rem;
   }
@@ -54,19 +53,19 @@ export function Footer(props: FooterProps) {
         className="mx-auto grid w-full flex-1 grid-cols-2 justify-center gap-y-4 sm:grid-cols-3 md:flex lg:justify-start"
         ref={linksRef}
       >
-        <Link href="toctive.com/legal/privacy-policy">
+        <Link href="http://toctive.com/legal/privacy-policy">
           <a className="whitespace-nowrap hover:underline">Privacy Policy</a>
         </Link>
         <span className="mx-4 hidden text-gray-400 md:block"> &middot; </span>
-        <Link href="toctive.com/legal/terms-of-service">
+        <Link href="http://toctive.com/legal/terms-of-service">
           <a className="whitespace-nowrap hover:underline">Terms of Service</a>
         </Link>
         <span className="mx-4 hidden text-gray-400 md:block"> &middot; </span>
-        <Link href="toctive.com/legal/terms-of-service">
+        <Link href="http://toctive.com/legal/terms-of-service">
           <a className="whitespace-nowrap hover:underline">Terms of Service</a>
         </Link>
         <span className="mx-4 hidden text-gray-400 md:block"> &middot; </span>
-        <Link href="toctive.com/legal/terms-of-service">
+        <Link href="http://toctive.com/legal/terms-of-service">
           <a className="whitespace-nowrap hover:underline">Terms of Service</a>
         </Link>
       </div>
