@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { CgArrowLongRight } from 'react-icons/cg';
 import styled from 'styled-components';
+import Footer from '../components/layout/footer/footer';
 import Navbar from '../components/layout/navbar/navbar';
 import Posts from '../components/layout/posts/posts';
 import SectionHeader from '../components/layout/section-header/section-header';
@@ -87,7 +88,7 @@ export function Index() {
             </Slide>
           </Slider>
 
-          <div id="hero" className="mt-32">
+          <div className="mt-32">
             <SectionHeader title="The Latest Posts">
               If you want to read articles from specific category got to{' '}
               <Link href={'/categories'} passHref>
@@ -101,10 +102,31 @@ export function Index() {
             </SectionHeader>
 
             <Posts posts={posts} />
-            <NavButton title="Show All Articles">Show All Articles</NavButton>
+            <NavButton title="Show All Articles" href="/posts">
+              Show All Articles
+            </NavButton>
           </div>
 
-          <div className="h-96"></div>
+          <div className="mt-32">
+            <SectionHeader title="The Latest Posts">
+              If you want to read articles from specific category got to{' '}
+              <Link href={'/categories'} passHref>
+                <a>/categories</a>
+              </Link>
+              <br />
+              To read all articles go to{' '}
+              <Link href={'/posts'} passHref>
+                <a>/posts</a>
+              </Link>
+            </SectionHeader>
+
+            <Posts posts={posts} />
+            <NavButton title="Show All Articles" href="/posts">
+              Show All Articles
+            </NavButton>
+          </div>
+
+          <Footer />
         </div>
       </div>
     </StyledPage>
