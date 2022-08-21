@@ -2,6 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
+import { HTMLCollectionToArray } from '../../../assets/js/HTMLCollectionToArray';
 
 export interface NavbarProps {
   transparent?: boolean;
@@ -52,15 +53,19 @@ const Brand = styled.a`
 `;
 
 export function Navbar(props: NavbarProps) {
-  const linksRef = useRef(null);
-  const brandRef = useRef(null);
-  const authButtonsRef = useRef(null);
+  const linksRef = useRef<HTMLDivElement>(null);
+  const brandRef = useRef<HTMLDivElement>(null);
+  const authButtonsRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
+    if (!linksRef.current || !brandRef.current || !authButtonsRef.current) {
+      return;
+    }
+
     gsap.from(
       [
         brandRef.current,
-        ...linksRef.current.children,
-        ...authButtonsRef.current.children,
+        ...HTMLCollectionToArray(linksRef.current.children),
+        ...HTMLCollectionToArray(authButtonsRef.current.children),
       ],
       {
         duration: 1,
