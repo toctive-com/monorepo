@@ -44,7 +44,7 @@ export function Time(props: TimeProps) {
   return (
     <time
       ref={timeRef}
-      dateTime={props.time.toDateString()}
+      dateTime={props.time.toString()}
       // The title attribute is used by screen readers and on hover the time element.
       // it should display the other time format.
       title={
