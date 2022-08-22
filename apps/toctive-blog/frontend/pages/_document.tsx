@@ -6,11 +6,11 @@ import { ServerStyleSheet } from 'styled-components';
 export default class CustomDocument extends Document<{
   styleTags: ReactElement[];
 }> {
-  static getInitialProps({ renderPage }) {
+  static getInitialProps({ renderPage }: any) {
     const sheet = new ServerStyleSheet();
 
     const page = renderPage(
-      (App) => (props) => sheet.collectStyles(<App {...props} />)
+      (App: any) => (props: any) => sheet.collectStyles(<App {...props} />)
     );
 
     const styleTags = sheet.getStyleElement();

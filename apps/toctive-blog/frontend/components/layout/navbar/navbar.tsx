@@ -45,7 +45,7 @@ const Row = styled.div`
   align-items: center;
 `;
 
-const Brand = styled.a`
+const Brand: any = styled.a`
   text-decoration: none;
   font-size: 1.25rem;
   font-weight: bold;
