@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@toctive/iam": ["libs/iam/src/index.ts"]
+      "@toctive/iam": ["libs/iam/src/index.ts"],
+      "@toctive/toctive-blog": ["libs/toctive-blog/src/index.ts"]
     },
     "resolveJsonModule": true,
     "esModuleInterop": true
