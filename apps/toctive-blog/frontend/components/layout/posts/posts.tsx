@@ -1,7 +1,8 @@
 import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import Post, { PostI } from '../../shared/post/post';
+import Post from '../../shared/post/post';
+import { PostI } from '@toctive/toctive-blog';
 
 const StyledPosts = styled.div`
   display: flex;

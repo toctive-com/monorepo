@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { PostI } from '../../shared/post/post';
+import { PostI } from '@toctive/toctive-blog';
 import Posts from './posts';
 
 const posts: PostI[] = [

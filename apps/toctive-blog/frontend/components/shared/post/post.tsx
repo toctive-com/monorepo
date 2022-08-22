@@ -4,15 +4,7 @@ import { BsArrowRight } from 'react-icons/bs';
 import styled from 'styled-components';
 import Time from '../time/time';
 import gsap from 'gsap';
-
-export interface PostI {
-  id?: string;
-  title: string;
-  content: string;
-  author: string;
-  thumbnail?: string;
-  createdAt: Date;
-}
+import { PostI } from '@toctive/toctive-blog';
 
 const StyledPost = styled.div`
   position: relative;
@@ -36,7 +28,7 @@ export function Post({ post }: { post: PostI }) {
 
   return (
     <StyledPost className="w-full p-8 md:w-1/2">
-      <Link href={'/'} passHref>
+      <Link href={`/posts/${post.id}`} passHref>
         <a>
           <div className="overflow-hidden ">
             {/* eslint-disable-next-line */}
@@ -55,7 +47,7 @@ export function Post({ post }: { post: PostI }) {
         <strong>{post.author}</strong>
       </div>
 
-      <Link href={'/'} passHref>
+      <Link href={`/posts/${post.id}`} passHref>
         <a>
           <h2 className="mt-4 text-2xl font-bold capitalize">
             {post.title.toLowerCase()}
@@ -68,7 +60,7 @@ export function Post({ post }: { post: PostI }) {
       </p>
 
       <div className="my-8 font-medium uppercase">
-        <Link href={'/'} passHref>
+        <Link href={`/posts/${post.id}`} passHref>
           <a className="group flex items-center gap-4 underline-offset-8 transition-all hover:gap-8 hover:underline">
             Read Article{' '}
             <BsArrowRight className="opacity-0 transition-all group-hover:opacity-100" />
