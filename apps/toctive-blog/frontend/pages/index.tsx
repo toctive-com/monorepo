@@ -7,48 +7,14 @@ import Posts from '../components/layout/posts/posts';
 import SectionHeader from '../components/layout/section-header/section-header';
 import Slider from '../components/layout/slider/slider';
 import NavButton from '../components/shared/nav-button/nav-button';
-import { PostI } from '../components/shared/post/post';
+import { PostI } from '@toctive/toctive-blog';
 import Slide from '../components/shared/slide/slide';
+import { getLatestPosts } from '../data/getLatestPosts';
 
 const StyledPage = styled.div``;
 
-const posts: PostI[] = [
-  {
-    id: 'a',
-    title: 'First Post',
-    content: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. ',
-    author: 'Sameh Ashraf',
-    thumbnail: 'https://s3.envato.com/files/380533636/01_Preview.png',
-    createdAt: new Date(1660683048713),
-  },
-  {
-    id: 'b',
-    title: 'Second Post',
-    content:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta praesentium dolorem amet ratione suscipit repellat, ipsam consectetur debitis, est accusantium ad nihil modi necessitatibus voluptatibus? Illum commodi id similique rerum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta praesentium dolorem amet ratione suscipit repellat, ipsam consectetur debitis, est accusantium ad nihil modi necessitatibus voluptatibus? Illum commodi id similique rerum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta praesentium dolorem amet ratione suscipit repellat, ipsam consectetur debitis, est accusantium ad nihil modi necessitatibus voluptatibus? Illum commodi id similique rerum!',
-
-    author: 'Sameh Ashraf',
-    thumbnail: 'https://s3.envato.com/files/380533636/01_Preview.png',
-    createdAt: new Date(1660183908713),
-  },
-  {
-    id: 'c',
-    title: 'third Post',
-    content:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta praesentium dolorem amet ratione suscipit repellat, ipsam consectetur debitis, est accusantium ad nihil modi necessitatibus voluptatibus? Illum commodi id similique rerum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta praesentium dolorem amet ratione suscipit repellat, ipsam consectetur debitis, est accusantium ad nihil modi necessitatibus voluptatibus? Illum commodi id similique rerum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta praesentium dolorem amet ratione suscipit repellat, ipsam consectetur debitis, est accusantium ad nihil modi necessitatibus voluptatibus? Illum commodi id similique rerum!',
-
-    author: 'Sameh Ashraf',
-    thumbnail: 'https://s3.envato.com/files/380533636/01_Preview.png',
-    createdAt: new Date(1660611048713),
-  },
-];
-
-export function Index() {
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./index.styled-components file.
-   */
+export function Index({ latestPosts }: { latestPosts: PostI[] }) {
+  console.log('🚀 ~ latestPosts', latestPosts);
   return (
     <StyledPage>
       <div className="wrapper">
@@ -88,6 +54,29 @@ export function Index() {
             </Slide>
           </Slider>
 
+          {latestPosts && (
+            <>
+              <div className="mt-32">
+                <SectionHeader title="The Latest Posts">
+                  If you want to read articles from specific category got to{' '}
+                  <Link href={'/categories'} passHref>
+                    <a>/categories</a>
+                  </Link>
+                  <br />
+                  To read all articles go to{' '}
+                  <Link href={'/posts'} passHref>
+                    <a>/posts</a>
+                  </Link>
+                </SectionHeader>
+
+                <Posts posts={latestPosts} />
+                <NavButton title="Show All Articles" href="/posts">
+                  Show All Articles
+                </NavButton>
+              </div>
+            </>
+          )}
+
           <div className="mt-32">
             <SectionHeader title="The Latest Posts">
               If you want to read articles from specific category got to{' '}
@@ -101,26 +90,7 @@ export function Index() {
               </Link>
             </SectionHeader>
 
-            <Posts posts={posts} />
-            <NavButton title="Show All Articles" href="/posts">
-              Show All Articles
-            </NavButton>
-          </div>
-
-          <div className="mt-32">
-            <SectionHeader title="The Latest Posts">
-              If you want to read articles from specific category got to{' '}
-              <Link href={'/categories'} passHref>
-                <a>/categories</a>
-              </Link>
-              <br />
-              To read all articles go to{' '}
-              <Link href={'/posts'} passHref>
-                <a>/posts</a>
-              </Link>
-            </SectionHeader>
-
-            <Posts posts={posts} />
+            <Posts posts={latestPosts} />
             <NavButton title="Show All Articles" href="/posts">
               Show All Articles
             </NavButton>
@@ -134,3 +104,19 @@ export function Index() {
 }
 
 export default Index;
+
+export const getServerSideProps = async () => {
+  let latestPosts: PostI[] = [];
+  await Promise.all([
+    getLatestPosts({}).then((res) => {
+      latestPosts = res;
+      return res;
+    }),
+  ]);
+
+  return {
+    props: {
+      latestPosts,
+    },
+  };
+};
