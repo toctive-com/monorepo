@@ -27,17 +27,18 @@ const posts: PostI[] = [
   },
   {
     id: 'c',
-    title: 'third Post',
+    title: 'Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit',
     content:
       'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta praesentium dolorem amet ratione suscipit repellat, ipsam consectetur debitis, est accusantium ad nihil modi necessitatibus voluptatibus? Illum commodi id similique rerum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta praesentium dolorem amet ratione suscipit repellat, ipsam consectetur debitis, est accusantium ad nihil modi necessitatibus voluptatibus? Illum commodi id similique rerum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta praesentium dolorem amet ratione suscipit repellat, ipsam consectetur debitis, est accusantium ad nihil modi necessitatibus voluptatibus? Illum commodi id similique rerum!',
 
     author: 'Sameh Ashraf',
-    thumbnail: 'https://s3.envato.com/files/380533636/01_Preview.png',
+    thumbnail:
+      'https://mir-s3-cdn-cf.behance.net/project_modules/fs/b2036d41871883.57b760570e4cb.png',
     createdAt: new Date(1660611048713),
   },
   {
     id: 'D',
-    title: 'third Post',
+    title: 'Lorem',
     content:
       'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta praesentium dolorem amet ratione suscipit repellat, ipsam consectetur debitis, est accusantium ad nihil modi necessitatibus voluptatibus? Illum commodi id similique rerum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta praesentium dolorem amet ratione suscipit repellat, ipsam consectetur debitis, est accusantium ad nihil modi necessitatibus voluptatibus? Illum commodi id similique rerum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta praesentium dolorem amet ratione suscipit repellat, ipsam consectetur debitis, est accusantium ad nihil modi necessitatibus voluptatibus? Illum commodi id similique rerum!',
 

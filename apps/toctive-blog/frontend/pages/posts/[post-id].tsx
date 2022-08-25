@@ -1,11 +1,14 @@
 import { PostI } from '@toctive/toctive-blog';
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
+import Image from 'next/future/image';
+import Head from 'next/head';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next/types';
 import styled from 'styled-components';
 
 import Footer from '../../components/layout/footer/footer';
 import Navbar from '../../components/layout/navbar/navbar';
+import Time from '../../components/shared/time/time';
 
 import { getPostById } from '../../data/getPostById';
 
@@ -43,20 +46,41 @@ const StyledCover = styled.div`
 
 export function PostId({ post, mdxSource }: PostIdProps) {
   return (
-    <StyledPostPage>
-      <div className="wrapper">
-        <div className="relative mb-8 h-[32rem] w-full overflow-hidden">
-          <Navbar shadow />
-          <StyledCover src={post.thumbnail || ''} />
-        </div>
+    <>
+      <Head>
+        <title>{post.title}</title>
+        {post.summary && <meta name="description" content={post.summary} />}
+      </Head>
+      <StyledPostPage>
+        <div className="wrapper">
+          <div className="relative mb-8 h-[32rem] w-full overflow-hidden">
+            <Navbar shadow />
+            <StyledCover src={post.thumbnail || ''} />
+          </div>
 
-        <div className="container mx-auto min-h-screen">
-          <h1 className="text-center text-3xl font-semibold">{post.title}</h1>
-          {mdxSource && <MDXRemote {...mdxSource} />}
+          <div className="container mx-auto min-h-screen max-w-5xl">
+            <div className="text-center">
+              Published <Time time={post.createdAt}></Time>
+            </div>
+            <h1 className="my-8 text-center text-3xl font-semibold">
+              {post.title}
+            </h1>
+            {post.summary && (
+              <div className="my-4 text-center">{post.summary}</div>
+            )}
+
+            {post.thumbnail && (
+              <div className="relative my-8 h-96 w-full rounded">
+                <Image src={post.thumbnail} alt={post.title} layout="fill" />
+              </div>
+            )}
+
+            {mdxSource && <MDXRemote {...mdxSource} />}
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
-    </StyledPostPage>
+      </StyledPostPage>
+    </>
   );
 }
 

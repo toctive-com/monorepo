@@ -15,7 +15,8 @@ const nextConfig = {
     styledComponents: true
   },
   images: {
-    domains: ['s3.envato.com'],
+    // domains: ['s3.envato.com', 'mir-s3-cdn-cf.behance.net'],
+    allowFutureImage: true,
   }
 };
 

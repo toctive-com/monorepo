@@ -4,5 +4,7 @@ export interface PostI {
   content: string;
   author: string;
   thumbnail?: string;
+  summary?: string;
   createdAt: Date;
+  updatedAt?: Date;
 }
