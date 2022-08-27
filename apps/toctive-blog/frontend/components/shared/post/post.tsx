@@ -1,14 +1,13 @@
-import Link from 'next/link';
-import { useEffect, useRef } from 'react';
-import { BsArrowRight } from 'react-icons/bs';
-import styled from 'styled-components';
-import Time from '../time/time';
-import gsap from 'gsap';
 import { PostI } from '@toctive/toctive-blog';
+import gsap from 'gsap';
+import { useTranslation } from 'next-i18next';
+import { useEffect, useRef } from 'react';
+import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 
-const StyledPost = styled.div`
-  position: relative;
-`;
+// Components
+import { useDirection } from '@toctive/react-utils';
+import Link from 'next/link';
+import Time from '../time/time';
 
 export function Post({ post }: { post: PostI }) {
   // Animate the posts in and remove animation styles when they're done
@@ -26,8 +25,11 @@ export function Post({ post }: { post: PostI }) {
     });
   }, []);
 
+  const [direction] = useDirection();
+  const { t } = useTranslation();
+
   return (
-    <StyledPost className="w-full p-8 md:w-1/2">
+    <div className="relative w-full p-4 md:p-8 lg:w-1/2">
       <Link href={`/posts/${post.id}`} passHref>
         <a>
           <div className="overflow-hidden ">
@@ -43,13 +45,13 @@ export function Post({ post }: { post: PostI }) {
       </Link>
 
       <div className="my-4">
-        <Time time={post.createdAt}></Time> &middot; by{' '}
+        <Time time={post.createdAt}></Time> &middot; {t('posts.by')}{' '}
         <strong>{post.author}</strong>
       </div>
 
       <Link href={`/posts/${post.id}`} passHref>
         <a>
-          <h2 className="mt-4 text-2xl font-bold capitalize">
+          <h2 className="mt-2 text-2xl font-bold capitalize md:mt-4">
             {post.title.toLowerCase()}
           </h2>
         </a>
@@ -59,15 +61,19 @@ export function Post({ post }: { post: PostI }) {
         {substring(post.content, 300)}
       </p>
 
-      <div className="my-8 font-medium uppercase">
+      <div className="my-4 font-medium uppercase md:my-8">
         <Link href={`/posts/${post.id}`} passHref>
           <a className="group flex items-center gap-4 underline-offset-8 transition-all hover:gap-8 hover:underline">
-            Read Article{' '}
-            <BsArrowRight className="opacity-0 transition-all group-hover:opacity-100" />
+            {t('readArticle')}{' '}
+            {direction === 'rtl' ? (
+              <BsArrowLeft className="opacity-0 transition-all group-hover:opacity-100" />
+            ) : (
+              <BsArrowRight className="opacity-0 transition-all group-hover:opacity-100" />
+            )}
           </a>
         </Link>
       </div>
-    </StyledPost>
+    </div>
   );
 }
 

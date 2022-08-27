@@ -26,6 +26,7 @@ NProgress.configure({ showSpinner: false });
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
+import { appWithTranslation } from 'next-i18next';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -39,5 +40,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
     </>
   );
 }
+import i18nextConfig from '../next-i18next.config';
+export default appWithTranslation(CustomApp, i18nextConfig);
 
-export default CustomApp;
+// export default CustomApp;

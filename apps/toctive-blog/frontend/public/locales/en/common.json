@@ -1,0 +1,34 @@
+{
+  "toctive": "Toctive",
+  "greeting": "Hello world!",
+  "showAllArticles": "Show All Articles",
+  "readArticle": "Read Article",
+  "latestArticles": {
+    "title": "The Latest Articles",
+    "subtitle": "Latest articles from our blog. Want to read more? Check out",
+    "postsPage": "posts page"
+  },
+  "slider": {
+    "next": "Next",
+    "previous": "Prev",
+    "by": "by"
+  },
+  "navbar": {
+    "brand": "Toctive Blog",
+    "categories": {
+      "development": "Development",
+      "freelancing": "Freelancing",
+      "design": "Design"
+    }
+  },
+  "footer": {
+    "copyright": "All rights reserved",
+    "termsOfService": "Terms of Service",
+    "privacyPolicy": "Privacy Policy",
+    "contactUs": "Contact Us"
+  },
+  "posts": {
+    "by": "by",
+    "published": "Published"
+  }
+}

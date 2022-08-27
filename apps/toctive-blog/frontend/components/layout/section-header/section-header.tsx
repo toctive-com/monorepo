@@ -56,20 +56,23 @@ export function SectionHeader(props: SectionHeaderProps) {
       ref={containerRef}
     >
       <div
-        className="overflow-hidden text-center text-5xl text-gray-800"
+        className="overflow-hidden py-2 text-center text-3xl text-gray-800 md:py-4 md:text-5xl"
         ref={titleRef}
       >
         <h3>{props.title}</h3>
       </div>
 
       <div
-        className="mt-4 overflow-hidden text-center text-lg text-gray-400"
+        className="mt-2 overflow-hidden text-center text-sm text-gray-400 md:mt-4 md:text-lg"
         ref={subtitleRef}
       >
         <h3>{props.children && props.children}</h3>
       </div>
 
-      <hr className="m-auto my-8 h-1 w-11/12 shadow-lg md:w-1/3" ref={hrRef} />
+      <hr
+        className="m-auto my-4 h-1 w-11/12 shadow-lg md:my-8 md:w-1/3"
+        ref={hrRef}
+      />
     </StyledSectionHeader>
   );
 }

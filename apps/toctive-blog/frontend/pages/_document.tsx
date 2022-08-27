@@ -2,6 +2,7 @@
 import { ReactElement } from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import { i18n } from 'next-i18next';
 
 export default class CustomDocument extends Document<{
   styleTags: ReactElement[];
@@ -20,7 +21,7 @@ export default class CustomDocument extends Document<{
 
   render() {
     return (
-      <Html lang="ar" dir="rtl">
+      <Html lang={i18n?.language} dir={pageDirection()}>
         <Head>
           {this.props.styleTags}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -43,3 +44,4 @@ export default class CustomDocument extends Document<{
   }
 }
 CustomDocument.getInitialProps = Document.getInitialProps;
+const pageDirection = () => (i18n?.language === 'ar' ? 'rtl' : 'ltr');

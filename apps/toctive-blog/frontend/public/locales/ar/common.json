@@ -1,0 +1,34 @@
+{
+  "toctive": "توكتيف",
+  "greeting": "أهلًا بالعالم",
+  "showAllArticles": "مشاهدة جميع المقالات",
+  "readArticle": "اقرأ المقال",
+  "latestArticles": {
+    "title": "آخر المقالات",
+    "subtitle": "هذه هي آخر المقالات التي قنا بنشرها، هل تريد قراءة المزيد؟ أذهب إلى",
+    "postsPage": "صفحة المقالات"
+  },
+  "slider": {
+    "next": "التالي",
+    "previous": "السابق",
+    "by": "بواسطة"
+  },
+  "navbar": {
+    "brand": "مدونة توكتيف",
+    "categories": {
+      "development": "برمجة",
+      "freelancing": "عمل حر",
+      "design": "تصميم"
+    }
+  },
+  "footer": {
+    "copyright": "جميع الحقوق محفوظة",
+    "termsOfService": "شروط الخدمة",
+    "privacyPolicy": "سياسة الخصوصية",
+    "contactUs": "اتصل بنا"
+  },
+  "posts": {
+    "by": "بواسطة",
+    "published": "نُشر"
+  }
+}

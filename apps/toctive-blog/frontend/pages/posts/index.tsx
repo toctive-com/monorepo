@@ -1,23 +1,28 @@
+import { useTranslation } from 'next-i18next';
+import { PostI } from '@toctive/toctive-blog';
+import { serverSideTranslationsWithNX } from '../../assets/js/serverSideTranslationsWithNX';
+
+// Components
 import Link from 'next/link';
-import styled from 'styled-components';
 import Footer from '../../components/layout/footer/footer';
 import Navbar from '../../components/layout/navbar/navbar';
 import Posts from '../../components/layout/posts/posts';
 import SectionHeader from '../../components/layout/section-header/section-header';
 import NavButton from '../../components/shared/nav-button/nav-button';
-import { PostI } from '@toctive/toctive-blog';
-import { getLatestPosts } from '../../data/getLatestPosts';
 
-/* eslint-disable-next-line */
+// Fetch Data
+import { getLatestPosts } from '../../data/getLatestPosts';
+import { GetServerSidePropsContext } from 'next/types';
+
 export interface IndexProps {
   latestPosts: PostI[];
 }
 
-const StyledIndex = styled.div``;
-
 export function Index({ latestPosts }: IndexProps) {
+  const { t } = useTranslation();
+
   return (
-    <StyledIndex>
+    <div>
       <div className="wrapper">
         <Navbar shadow />
 
@@ -28,27 +33,29 @@ export function Index({ latestPosts }: IndexProps) {
               <a>/categories</a>
             </Link>
             <br />
-            To read all articles go to{' '}
+            {t('latestArticleSubtitle')}{' '}
             <Link href={'/posts'} passHref>
-              <a>/posts</a>
+              <a dir="auto">/posts</a>
             </Link>
           </SectionHeader>
 
           <Posts posts={latestPosts} />
           <NavButton title="Show All Articles" href="/posts">
-            Show All Articles
+            {t('showAllArticles')}
           </NavButton>
         </div>
 
         <Footer />
       </div>
-    </StyledIndex>
+    </div>
   );
 }
 
 export default Index;
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({
+  locale,
+}: GetServerSidePropsContext) => {
   let latestPosts: PostI[] = [];
   await Promise.all([
     getLatestPosts({}).then((res) => {
@@ -59,6 +66,11 @@ export const getServerSideProps = async () => {
 
   return {
     props: {
+      ...(await serverSideTranslationsWithNX({
+        initialLocale: locale,
+        // namespacesRequired: ['common'],
+        configFilePage: '../../../../public/locales',
+      })()),
       latestPosts,
     },
   };

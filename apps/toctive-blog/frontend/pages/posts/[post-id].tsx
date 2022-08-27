@@ -4,6 +4,8 @@ import { serialize } from 'next-mdx-remote/serialize';
 import Head from 'next/head';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next/types';
 import styled from 'styled-components';
+import { serverSideTranslationsWithNX } from '../../assets/js/serverSideTranslationsWithNX';
+import { useTranslation } from 'next-i18next';
 
 import Footer from '../../components/layout/footer/footer';
 import Navbar from '../../components/layout/navbar/navbar';
@@ -44,6 +46,7 @@ const StyledCover = styled.div`
 `;
 
 export function PostId({ post, mdxSource }: PostIdProps) {
+  const { t } = useTranslation();
   return (
     <>
       <Head>
@@ -59,7 +62,7 @@ export function PostId({ post, mdxSource }: PostIdProps) {
 
           <div className="rtl:font-tajawal container mx-auto min-h-screen max-w-5xl px-2 font-sans text-xl !leading-loose sm:px-4 md:px-6">
             <div className="text-center text-sm md:text-lg">
-              Published <Time time={post.createdAt}></Time>
+              {t('posts.published')} <Time time={post.createdAt}></Time>
             </div>
             <h1 className="my-8 text-center text-2xl font-semibold md:text-4xl md:font-bold">
               {post.title}
@@ -97,10 +100,10 @@ export default PostId;
  * @param {GetServerSidePropsContext} context - GetServerSidePropsContext
  * @returns The post and mdxSource are being returned.
  */
-export const getServerSideProps: GetServerSideProps = async (
-  context: GetServerSidePropsContext
-) => {
-  const params = context.params;
+export const getServerSideProps: GetServerSideProps = async ({
+  locale,
+  params,
+}: GetServerSidePropsContext) => {
   if (!params) return { notFound: true };
 
   const postId = params['post-id'] as string;
@@ -116,6 +119,11 @@ export const getServerSideProps: GetServerSideProps = async (
 
   return {
     props: {
+      ...(await serverSideTranslationsWithNX({
+        initialLocale: locale,
+        // namespacesRequired: ['common', 'home'],
+        configFilePage: '../../../../public/locales',
+      })()),
       post,
       mdxSource,
     },

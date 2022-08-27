@@ -1,8 +1,12 @@
 import { useDirection } from '@toctive/react-utils';
 import { PostI } from '@toctive/toctive-blog';
-import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
 import { CgArrowLongLeft, CgArrowLongRight } from 'react-icons/cg';
-import styled from 'styled-components';
+
+import { serverSideTranslationsWithNX } from '../assets/js/serverSideTranslationsWithNX';
+
+// Home Page Components
+import Link from 'next/link';
 import Footer from '../components/layout/footer/footer';
 import Navbar from '../components/layout/navbar/navbar';
 import Posts from '../components/layout/posts/posts';
@@ -10,15 +14,18 @@ import SectionHeader from '../components/layout/section-header/section-header';
 import Slider from '../components/layout/slider/slider';
 import NavButton from '../components/shared/nav-button/nav-button';
 import Slide from '../components/shared/slide/slide';
-import { getLatestPosts } from '../data/getLatestPosts';
 
-const StyledPage = styled.div``;
+// Fetch Data
+import { getLatestPosts } from '../data/getLatestPosts';
+import Time from '../components/shared/time/time';
+import { GetServerSidePropsContext } from 'next/types';
 
 export function Index({ latestPosts }: { latestPosts: PostI[] }) {
   const [direction] = useDirection();
+  const { t } = useTranslation('common');
 
   return (
-    <StyledPage>
+    <div>
       <div className="wrapper">
         <div className="dark">
           <Navbar shadow />
@@ -41,10 +48,19 @@ export function Index({ latestPosts }: { latestPosts: PostI[] }) {
                 corrupti harum aspernatur eius labore ipsam deleniti nulla?
               </p>
               <div className="mt-4 flex justify-between text-xs text-gray-500 sm:text-sm">
-                <span>
-                  by <strong>Sameh Ashraf</strong> &middot;{' '}
-                  <time dateTime="2020-01-01">January 1, 2020</time>
-                </span>
+                <div className="flex justify-evenly">
+                  <span>
+                    {t('slider.by')} <strong>Sameh Ashraf</strong>{' '}
+                  </span>
+                  <span className="mx-2">&middot;</span>
+                  <Time
+                    time={
+                      new Date(
+                        'Sat Aug 27 2022 23:18:57 GMT+0200 (Eastern European Standard Time)'
+                      )
+                    }
+                  />
+                </div>
 
                 {direction === 'rtl' ? (
                   <CgArrowLongLeft className="h-8 w-10 cursor-pointer text-gray-400 transition-all hover:text-gray-900 ltr:pr-4 hover:ltr:pr-0 hover:ltr:pl-4 rtl:pl-4 hover:rtl:pl-0 hover:rtl:pr-4" />
@@ -64,21 +80,16 @@ export function Index({ latestPosts }: { latestPosts: PostI[] }) {
           {latestPosts && (
             <>
               <div className="mt-32">
-                <SectionHeader title="The Latest Posts">
-                  If you want to read articles from specific category got to{' '}
-                  <Link href={'/categories'} passHref>
-                    <a>/categories</a>
-                  </Link>
-                  <br />
-                  To read all articles go to{' '}
+                <SectionHeader title={t('latestArticles.title')}>
+                  {t('latestArticles.subtitle')}{' '}
                   <Link href={'/posts'} passHref>
-                    <a>/posts</a>
+                    <a dir="auto">{t('latestArticles.postsPage')}</a>
                   </Link>
                 </SectionHeader>
 
                 <Posts posts={latestPosts} />
-                <NavButton title="Show All Articles" href="/posts">
-                  Show All Articles
+                <NavButton title={t('showAllArticles')} href="/posts">
+                  {t('showAllArticles')}
                 </NavButton>
               </div>
             </>
@@ -98,21 +109,23 @@ export function Index({ latestPosts }: { latestPosts: PostI[] }) {
             </SectionHeader>
 
             <Posts posts={latestPosts} />
-            <NavButton title="Show All Articles" href="/posts">
-              Show All Articles
+            <NavButton title={t('showAllArticles')} href="/posts">
+              {t('showAllArticles')}
             </NavButton>
           </div>
 
           <Footer />
         </div>
       </div>
-    </StyledPage>
+    </div>
   );
 }
 
 export default Index;
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({
+  locale,
+}: GetServerSidePropsContext) => {
   let latestPosts: PostI[] = [];
   await Promise.all([
     getLatestPosts({}).then((res) => {
@@ -123,6 +136,11 @@ export const getServerSideProps = async () => {
 
   return {
     props: {
+      ...(await serverSideTranslationsWithNX({
+        initialLocale: locale,
+        // namespacesRequired: ['common', 'home'],
+        configFilePage: '../../../public/locales',
+      })()),
       latestPosts,
     },
   };

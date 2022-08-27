@@ -3,9 +3,7 @@ import Link from 'next/link';
 import { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import gsap from 'gsap';
-
-/* eslint-disable-next-line */
-export interface FooterProps {}
+import { useTranslation } from 'next-i18next';
 
 const StyledFooter = styled.div`
   display: flex;
@@ -18,7 +16,7 @@ const StyledFooter = styled.div`
   }
 `;
 
-export function Footer(props: FooterProps) {
+export function Footer() {
   // animate the links and copyright statement on scroll
   const linksRef = useRef<HTMLDivElement>(null);
   const footerRef = useRef<HTMLDivElement>(null);
@@ -44,6 +42,8 @@ export function Footer(props: FooterProps) {
     );
   }, []);
 
+  const { t } = useTranslation();
+
   return (
     <StyledFooter
       className="mt-8 bg-gray-300 p-4 text-center text-sm"
@@ -54,25 +54,21 @@ export function Footer(props: FooterProps) {
         ref={linksRef}
       >
         <Link href="http://toctive.com/legal/privacy-policy">
-          <a className="whitespace-nowrap hover:underline">Privacy Policy</a>
+          <a className="whitespace-nowrap hover:underline">
+            {t('footer.privacyPolicy')}
+          </a>
         </Link>
         <span className="mx-4 hidden text-gray-400 md:block"> &middot; </span>
         <Link href="http://toctive.com/legal/terms-of-service">
-          <a className="whitespace-nowrap hover:underline">Terms of Service</a>
-        </Link>
-        <span className="mx-4 hidden text-gray-400 md:block"> &middot; </span>
-        <Link href="http://toctive.com/legal/terms-of-service">
-          <a className="whitespace-nowrap hover:underline">Terms of Service</a>
-        </Link>
-        <span className="mx-4 hidden text-gray-400 md:block"> &middot; </span>
-        <Link href="http://toctive.com/legal/terms-of-service">
-          <a className="whitespace-nowrap hover:underline">Terms of Service</a>
+          <a className="whitespace-nowrap hover:underline">
+            {t('footer.termsOfService')}
+          </a>
         </Link>
       </div>
 
       <div ref={copyrightsRef}>
-        &copy; {new Date().getFullYear().toString()}{' '}
-        <a href="http://toctive.com">Toctive</a>. All rights reserved
+        {new Date().getFullYear().toString()} &copy;{' '}
+        <a href="http://toctive.com">{t('toctive')}</a>. {t('footer.copyright')}
       </div>
     </StyledFooter>
   );

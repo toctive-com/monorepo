@@ -1,4 +1,9 @@
 {
   "name": "@toctive/react-utils",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  }
 }

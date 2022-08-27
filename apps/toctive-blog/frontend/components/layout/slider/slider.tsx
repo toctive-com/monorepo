@@ -1,5 +1,6 @@
+import { useDirection } from '@toctive/react-utils';
 import gsap from 'gsap';
-import { isRTL, useDirection } from '@toctive/react-utils';
+import { useTranslation } from 'next-i18next';
 import React, { useEffect, useRef, useState } from 'react';
 import { CgArrowLongLeft, CgArrowLongRight } from 'react-icons/cg';
 import styled from 'styled-components';
@@ -23,6 +24,8 @@ const SlideContainer: any = styled.div`
 `;
 
 export function Slider(props: { children: React.PropsWithChildren }) {
+  const { t } = useTranslation();
+
   // set the default active slide the middle one (if there are three, choose the second one)
   const [currentSlide, setCurrentSlide] = useState<number>(
     Math.floor(React.Children.count(props.children) / 2)
@@ -146,7 +149,7 @@ export function Slider(props: { children: React.PropsWithChildren }) {
             ) : (
               <CgArrowLongRight className="h-6 w-10 pl-4 transition-all" />
             )}
-            Prev
+            {t('slider.previous')}
           </button>
           <button
             ref={nextButtonRef}
@@ -155,7 +158,7 @@ export function Slider(props: { children: React.PropsWithChildren }) {
             onClick={() => setCurrentSlide(currentSlide + 1)}
             disabled={currentSlide >= React.Children.count(props.children) - 1}
           >
-            Next
+            {t('slider.next')}
             {direction === 'ltr' ? (
               <CgArrowLongRight className="h-6 w-10 pl-4 transition-all" />
             ) : (

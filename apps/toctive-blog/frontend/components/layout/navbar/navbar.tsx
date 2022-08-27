@@ -1,7 +1,10 @@
-import Link from 'next/link';
-import styled from 'styled-components';
 import gsap from 'gsap';
+import { useTranslation } from 'next-i18next';
 import { useEffect, useRef } from 'react';
+import styled from 'styled-components';
+
+import Link from 'next/link';
+
 import { HTMLCollectionToArray } from '../../../assets/js/HTMLCollectionToArray';
 export interface NavbarProps {
   transparent?: boolean;
@@ -75,6 +78,7 @@ export function Navbar(props: NavbarProps) {
     );
   }, []);
 
+  const { t } = useTranslation('common');
   return (
     <div
       /* hide the shadow when the navbar is transparent*/
@@ -86,7 +90,7 @@ export function Navbar(props: NavbarProps) {
         <Row className="flex-col md:flex-row">
           <Link href="/" passHref>
             <Brand className="text-gray-900 dark:text-gray-50" ref={brandRef}>
-              Toctive Blog
+              {t('navbar.brand')}
             </Brand>
           </Link>
 
@@ -97,17 +101,17 @@ export function Navbar(props: NavbarProps) {
           >
             <Link href="/tags/development" passHref>
               <TagLink className="text-gray-900 dark:text-gray-50">
-                Development
+                {t('navbar.categories.development')}
               </TagLink>
             </Link>
             <Link href="/tags/freelancing" passHref>
               <TagLink className="text-gray-900 dark:text-gray-50">
-                Freelancing
+                {t('navbar.categories.freelancing')}
               </TagLink>
             </Link>
             <Link href="/tags/design" passHref>
               <TagLink className="text-gray-900 dark:text-gray-50">
-                Design
+                {t('navbar.categories.design')}
               </TagLink>
             </Link>
           </div>
