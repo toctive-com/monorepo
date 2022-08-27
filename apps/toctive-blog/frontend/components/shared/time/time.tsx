@@ -27,17 +27,25 @@ export function Time(props: TimeProps) {
   useEffect(() => {
     if (!timeRef.current) return;
 
-    gsap.from(timeRef.current, {
-      opacity: 0,
-      duration: 0.3,
-      ease: 'power2.inOut',
-    });
+    gsap.fromTo(
+      timeRef.current,
+      {
+        opacity: 0,
+        duration: 0.3,
+        ease: 'power2.inOut',
+      },
+      {
+        opacity: 1,
+        duration: 0.3,
+        ease: 'power2.inOut',
+      }
+    );
   }, [isClicked]);
 
   useEffect(() => {
     const newTime = !isClicked
       ? moment(props.time, 'YYYYMMDD').local(true).fromNow()
-      : moment(props.time, 'YYYYMMDD').local(true).format('MMMM Do YYYY');
+      : moment(props.time, 'YYYYMMDD').local(true).format('Do MMMM YYYY');
     setTime(newTime);
   }, [isClicked, props.time]);
 
