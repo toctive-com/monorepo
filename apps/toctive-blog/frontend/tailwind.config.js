@@ -10,9 +10,15 @@ module.exports = {
     ),
     ...createGlobPatternsForDependencies(__dirname),
   ],
+
   darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'saira': ['Saira', 'sans-serif'],
+        'tajawal': ['Tajawal', 'sans-serif']
+      },
+    },
   },
   plugins: [],
 };

@@ -20,8 +20,20 @@ export default class CustomDocument extends Document<{
 
   render() {
     return (
-      <Html lang="en">
-        <Head>{this.props.styleTags}</Head>
+      <Html lang="ar" dir="rtl">
+        <Head>
+          {this.props.styleTags}
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100;0,700;1,100;1,400;1,700&family=Tajawal:wght@400;700&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />
@@ -30,3 +42,4 @@ export default class CustomDocument extends Document<{
     );
   }
 }
+CustomDocument.getInitialProps = Document.getInitialProps;
