@@ -1,3 +1,4 @@
+import { useDirection } from '@toctive/react-utils';
 import gsap from 'gsap';
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
@@ -52,7 +53,8 @@ const SlideBackground = styled.div`
   height: 100%;
   background: rgb(48, 31, 9);
   background-image: linear-gradient(
-      90deg,
+      ${(props: StyledProps) =>
+        props.direction === 'rtl' ? '-90deg' : '90deg'},
       rgba(48, 31, 9, 0.75) 0%,
       rgba(222, 199, 154, 0.1) 100%
     ),
@@ -69,6 +71,8 @@ export function Slide({
   image,
   onClick,
 }: SlideProps) {
+  const [direction] = useDirection();
+
   const slideRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -164,7 +168,7 @@ export function Slide({
   return (
     <StyledSlide active={active} ref={slideRef} onClick={onClick && onClick}>
       <SlideContainer className={`sm:p-4 md:p-16`}>
-        <SlideBackground image={image} />
+        <SlideBackground image={image} direction={direction} />
         <div
           className="cursor-pointer overflow-hidden px-2 text-4xl backdrop-blur-sm sm:px-0 sm:text-5xl md:w-4/5 md:text-6xl lg:w-2/3 xl:w-1/2"
           ref={titleRef}
