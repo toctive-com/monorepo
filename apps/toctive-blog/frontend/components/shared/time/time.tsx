@@ -20,7 +20,7 @@ export function Time(props: TimeProps) {
   const [isClicked, setIsClicked] = useState<boolean>(true);
 
   // the time to display.
-  const [time, setTime] = useState<string | Date>('');
+  const [time, setTime] = useState<string>('');
 
   // animate changing the time format.
   const timeRef = useRef<HTMLTimeElement>(null);
@@ -47,11 +47,7 @@ export function Time(props: TimeProps) {
       dateTime={props.time.toString()}
       // The title attribute is used by screen readers and on hover the time element.
       // it should display the other time format.
-      title={
-        isClicked
-          ? moment(props.time, 'YYYYMMDD').fromNow()
-          : moment(props.time, 'YYYYMMDD').format('MMMM Do YYYY')
-      }
+      title={time}
       onClick={() => setIsClicked(!isClicked)}
       className="cursor-pointer select-none"
     >

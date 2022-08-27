@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { isRTL, useDirection } from '@toctive/react-utils';
 import React, { useEffect, useRef, useState } from 'react';
 import { CgArrowLongLeft, CgArrowLongRight } from 'react-icons/cg';
 import styled from 'styled-components';
@@ -10,12 +11,13 @@ const StyledSlider = styled.div`
   overflow: hidden;
 `;
 
-const SlideContainer = styled.div`
+const SlideContainer: any = styled.div`
   display: flex;
   width: 100%;
   transform: translateX(
-    ${(props: { currentSlide: number }) => {
-      return props.currentSlide * -100 + '%';
+    ${(props: { currentSlide: number; direction: string }) => {
+      const direction = props.direction === 'rtl' ? 1 : -1;
+      return props.currentSlide * 100 * direction + '%';
     }}
   );
 `;
@@ -63,24 +65,39 @@ export function Slider(props: { children: React.PropsWithChildren }) {
   }
 
   function handleTouchEnd() {
-    if (
-      touchStart - touchEnd > 150 &&
-      currentSlide < React.Children.count(props.children) - 1
-    ) {
-      setCurrentSlide(currentSlide + 1);
-    }
+    const pageIsRTL = direction === 'rtl' ? true : false;
+    const directionIsToRight = touchStart - touchEnd < -150;
+    const directionIsToLeft = touchStart - touchEnd > 150;
+    const currentSlideIsNotLast =
+      currentSlide < React.Children.count(props.children) - 1;
+    const currentSlideIsNotFirst = currentSlide > 0;
 
-    if (touchStart - touchEnd < -150 && currentSlide > 0) {
-      setCurrentSlide(currentSlide - 1);
+    if (pageIsRTL) {
+      if (directionIsToRight && currentSlideIsNotLast) {
+        setCurrentSlide(currentSlide + 1);
+      } else if (directionIsToLeft && currentSlideIsNotFirst) {
+        setCurrentSlide(currentSlide - 1);
+      }
+    } else {
+      if (directionIsToLeft && currentSlideIsNotLast) {
+        setCurrentSlide(currentSlide + 1);
+      } else if (directionIsToRight && currentSlideIsNotFirst) {
+        setCurrentSlide(currentSlide - 1);
+      }
     }
   }
+
+  const [direction] = useDirection();
 
   return (
     <StyledSlider>
       <div className="mx-auto w-11/12 md:w-5/6 lg:w-9/12 xl:w-8/12">
         <SlideContainer
-          onTouchStart={(touchStartEvent) => handleTouchStart(touchStartEvent)}
-          onTouchMove={(touchMoveEvent) => handleTouchMove(touchMoveEvent)}
+          direction={direction}
+          onTouchStart={(touchStartEvent: any) =>
+            handleTouchStart(touchStartEvent)
+          }
+          onTouchMove={(touchMoveEvent: any) => handleTouchMove(touchMoveEvent)}
           onTouchEnd={() => handleTouchEnd()}
           ref={slideContainerRef}
           currentSlide={currentSlide}
@@ -124,7 +141,11 @@ export function Slider(props: { children: React.PropsWithChildren }) {
             onClick={() => setCurrentSlide(currentSlide - 1)}
             disabled={currentSlide <= 0}
           >
-            <CgArrowLongLeft className="h-6 w-10 pr-4 transition-all" />
+            {direction === 'ltr' ? (
+              <CgArrowLongLeft className="h-6 w-10 pr-4 transition-all" />
+            ) : (
+              <CgArrowLongRight className="h-6 w-10 pl-4 transition-all" />
+            )}
             Prev
           </button>
           <button
@@ -135,7 +156,11 @@ export function Slider(props: { children: React.PropsWithChildren }) {
             disabled={currentSlide >= React.Children.count(props.children) - 1}
           >
             Next
-            <CgArrowLongRight className="h-6 w-10 pl-4 transition-all " />
+            {direction === 'ltr' ? (
+              <CgArrowLongRight className="h-6 w-10 pl-4 transition-all" />
+            ) : (
+              <CgArrowLongLeft className="h-6 w-10 pr-4 transition-all" />
+            )}
           </button>
         </div>
       </div>

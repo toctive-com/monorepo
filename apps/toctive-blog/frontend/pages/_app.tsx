@@ -9,9 +9,14 @@ gsap.registerPlugin(ScrollTrigger);
 import axios from 'axios';
 axios.defaults.baseURL = 'http://localhost:3333/api/v1/';
 
-// import moment from 'moment';
-// import 'moment/locale/ar'; // without this line it didn't work
-// moment.locale('ar');
+/* Localization for  moment.js */
+import moment from 'moment';
+import 'moment/locale/ar'; // without this line it didn't work
+import 'moment/locale/en-gb'; // without this line it didn't work
+typeof document !== 'undefined' &&
+  document.dir &&
+  document.dir.toLowerCase() === 'rtl' &&
+  moment.locale('ar');
 
 import Router from 'next/router';
 import NProgress from 'nprogress';

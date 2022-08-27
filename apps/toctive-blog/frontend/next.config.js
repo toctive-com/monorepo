@@ -1,6 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const withNx = require('@nrwl/next/plugins/with-nx');
-
 /**
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
  **/
@@ -14,10 +13,6 @@ const nextConfig = {
     // Enables the styled-components SWC transform
     styledComponents: true
   },
-  images: {
-    // domains: ['s3.envato.com', 'mir-s3-cdn-cf.behance.net'],
-    allowFutureImage: true,
-  }
 };
 
 module.exports = withNx(nextConfig);

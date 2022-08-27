@@ -20,7 +20,6 @@ interface StyledProps {
 
 const StyledSlide = styled.div`
   min-width: 100%;
-
   overflow: hidden;
 
   transform: scale(${(props: StyledProps) => (props.active ? '1' : '0.85')});
@@ -31,17 +30,26 @@ const SlideContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
 
   min-width: 100%;
   height: 800px;
   max-height: 80vh;
-  padding: 0.5rem /* 8px */;
 
   border-radius: 1rem /* 16px */;
   border-width: 1px;
 
   color: white;
+`;
 
+const SlideBackground = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* filter: blur(4px); */
+  width: 100%;
+  height: 100%;
   background: rgb(48, 31, 9);
   background-image: linear-gradient(
       90deg,
@@ -155,15 +163,16 @@ export function Slide({
 
   return (
     <StyledSlide active={active} ref={slideRef} onClick={onClick && onClick}>
-      <SlideContainer image={image} className={`sm:p-4 md:p-16`}>
+      <SlideContainer className={`sm:p-4 md:p-16`}>
+        <SlideBackground image={image} />
         <div
-          className="cursor-pointer overflow-hidden text-5xl sm:text-6xl md:w-4/5 md:text-7xl lg:w-2/3 xl:w-1/2"
+          className="cursor-pointer overflow-hidden px-2 text-4xl backdrop-blur-sm sm:px-0 sm:text-5xl md:w-4/5 md:text-6xl lg:w-2/3 xl:w-1/2"
           ref={titleRef}
         >
           <h1>{title}</h1>
         </div>
         <div
-          className="mt-8 inline-block cursor-default overflow-hidden rounded-lg bg-white p-6 text-black md:max-w-[500px]"
+          className="mt-8 inline-block cursor-default overflow-hidden rounded-lg  bg-white bg-opacity-70 p-6 text-sm text-black shadow-xl backdrop-blur-lg sm:text-base md:max-w-[500px]"
           ref={containerRef}
         >
           {children && children}

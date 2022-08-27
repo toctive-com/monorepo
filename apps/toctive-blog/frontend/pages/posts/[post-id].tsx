@@ -1,7 +1,6 @@
 import { PostI } from '@toctive/toctive-blog';
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
-import Image from 'next/future/image';
 import Head from 'next/head';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next/types';
 import styled from 'styled-components';
@@ -58,24 +57,29 @@ export function PostId({ post, mdxSource }: PostIdProps) {
             <StyledCover src={post.thumbnail || ''} />
           </div>
 
-          <div className="container mx-auto min-h-screen max-w-5xl">
-            <div className="text-center">
+          <div className="rtl:font-tajawal container mx-auto min-h-screen max-w-5xl px-2 font-sans text-xl !leading-loose sm:px-4 md:px-6">
+            <div className="text-center text-sm md:text-lg">
               Published <Time time={post.createdAt}></Time>
             </div>
-            <h1 className="my-8 text-center text-3xl font-semibold">
+            <h1 className="my-8 text-center text-2xl font-semibold md:text-4xl md:font-bold">
               {post.title}
             </h1>
             {post.summary && (
-              <div className="my-4 text-center">{post.summary}</div>
-            )}
-
-            {post.thumbnail && (
-              <div className="relative my-8 h-96 w-full rounded">
-                <Image src={post.thumbnail} alt={post.title} layout="fill" />
+              <div className="my-4 text-center text-base leading-relaxed md:text-lg md:leading-normal">
+                {post.summary}
               </div>
             )}
 
-            {mdxSource && <MDXRemote {...mdxSource} />}
+            {post.thumbnail && (
+              <div className="relative my-8 h-full w-full overflow-hidden rounded">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={post.thumbnail} alt={post.title} className="w-full" />
+              </div>
+            )}
+
+            <div className="text-base leading-loose md:text-xl md:leading-loose">
+              {mdxSource && <MDXRemote {...mdxSource} />}
+            </div>
           </div>
           <Footer />
         </div>
