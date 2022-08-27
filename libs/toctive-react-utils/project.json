@@ -1,0 +1,43 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/toctive-react-utils/src",
+  "projectType": "library",
+  "tags": ["react", "next.js", "frontend"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/toctive-react-utils",
+        "tsConfig": "libs/toctive-react-utils/tsconfig.lib.json",
+        "project": "libs/toctive-react-utils/package.json",
+        "entryFile": "libs/toctive-react-utils/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/toctive-react-utils/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/toctive-react-utils/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/toctive-react-utils"],
+      "options": {
+        "jestConfig": "libs/toctive-react-utils/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

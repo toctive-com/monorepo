@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@toctive/iam": ["libs/iam/src/index.ts"],
+      "@toctive/react-utils": ["libs/toctive-react-utils/src/index.ts"],
       "@toctive/toctive-blog": ["libs/toctive-blog/src/index.ts"]
     },
     "resolveJsonModule": true,
