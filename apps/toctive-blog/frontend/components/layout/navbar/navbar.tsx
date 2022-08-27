@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
 import { HTMLCollectionToArray } from '../../../assets/js/HTMLCollectionToArray';
-
 export interface NavbarProps {
   transparent?: boolean;
   shadow?: boolean;
@@ -115,7 +114,7 @@ export function Navbar(props: NavbarProps) {
         </Row>
 
         <div id="auth-links" className="hidden md:block" ref={authButtonsRef}>
-          <AuthLink href="/login" className="text-gray-900 dark:text-gray-50">
+          {/* <AuthLink href="/login" className="text-gray-900 dark:text-gray-50">
             Login
           </AuthLink>
           <AuthLink
@@ -123,7 +122,7 @@ export function Navbar(props: NavbarProps) {
             className="border text-gray-900 dark:border-white dark:text-gray-50"
           >
             Register
-          </AuthLink>
+          </AuthLink> */}
         </div>
       </StyledNavbar>
     </div>
