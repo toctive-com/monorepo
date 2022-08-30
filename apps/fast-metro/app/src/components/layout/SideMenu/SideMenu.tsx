@@ -84,7 +84,7 @@ export const SideMenu = ({ sideMenuIsOpened, setter }: Props) => {
         ref={overlayRef}
       ></div>
       <aside
-        className="absolute bottom-0 z-50 flex h-full w-full max-w-xs flex-col gap-3  bg-white p-4 opacity-0 shadow-lg"
+        className="absolute bottom-0 z-50 flex h-full w-full max-w-xs flex-col gap-3 bg-white p-4 opacity-0 shadow-lg dark:bg-gray-800"
         ref={sideMenuRef}
       >
         {menuLinks.map((item, index) => (

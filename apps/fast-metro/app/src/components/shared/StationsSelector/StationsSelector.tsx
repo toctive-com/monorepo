@@ -9,6 +9,7 @@ interface StationsSelectorI {
   onChange?: (fromStation: stationOptionI, toStation: stationOptionI) => void;
   defaultFromStation?: stationOptionI;
   defaultToStation?: stationOptionI;
+  placeholder?: string;
 }
 
 export interface stationOptionI {
@@ -17,7 +18,7 @@ export interface stationOptionI {
 }
 
 /* A custom style for the react-select component. */
-const customStyles: StylesConfig = {
+export const customStyles: StylesConfig = {
   container: (provided: any, state: any) => ({
     ...provided,
     border: '0px',
@@ -86,15 +87,10 @@ export function StationsSelector({
   onChange,
   defaultFromStation,
   defaultToStation,
+  placeholder = '',
 }: StationsSelectorI) {
   const emptyStation: stationOptionI = { label: null, value: null };
   const [fromStation, setFromStation] = useState<stationOptionI>(
-    defaultFromStation || emptyStation
-  );
-  console.log('🚀 ~ fromStation', fromStation);
-  console.log('🚀 ~ defaultFromStation', defaultFromStation);
-  console.log(
-    '🚀 ~ defaultFromStation || emptyStation',
     defaultFromStation || emptyStation
   );
 

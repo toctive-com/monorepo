@@ -16,11 +16,13 @@ export const ServicesByStation = () => {
 
   useEffect(() => {
     // TODO: store services in local storage using @toctive/fetchStorage Library
+
     axios
       .get('/api/v1/services', { params: { lang: i18next.language } })
       .then(({ data }) => {
         setServices(data);
-      });
+      })
+      .catch((err) => console.log(err));
   }, [station]);
 
   return (

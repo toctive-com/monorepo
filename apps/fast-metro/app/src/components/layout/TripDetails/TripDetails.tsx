@@ -41,7 +41,7 @@ export function TripDetails({ tripStations, className }: TripDetailsI) {
       <div className="station-number flex items-center justify-between">
         <span className="text-xl text-gray-500">
           {t('trip-details.number-of-stations')}:{' '}
-          <span className="text-xl font-bold text-black">
+          <span className="text-xl font-bold text-black dark:text-white">
             {tripStations.length}
           </span>
         </span>
@@ -56,15 +56,15 @@ export function TripDetails({ tripStations, className }: TripDetailsI) {
       </div>
 
       <div className="flex flex-row items-center justify-between">
-        <span className="ticket-price text-xl text-gray-500">
+        <span className="ticket-price text-xl text-gray-500 dark:text-gray-50">
           {t('trip-details.ticket-price')}:{' '}
-          <span className="text-xl font-bold text-red-400">
+          <span className="text-xl font-bold text-red-400 dark:text-red-500">
             {ticketDetails(tripStations.length).price} L.E
           </span>
         </span>
-        <span className="text-base text-gray-500">
+        <span className="text-base text-gray-500 dark:text-gray-50">
           {t('trip-details.for-elderly')}:{' '}
-          <span className="text-xl font-bold text-red-400">
+          <span className="text-xl font-bold text-red-400 dark:text-red-500">
             {ticketDetails(tripStations.length).priceForElderly} L.E{' '}
           </span>
         </span>
@@ -75,9 +75,12 @@ export function TripDetails({ tripStations, className }: TripDetailsI) {
         mainColor={ticketDetails(tripStations.length).color as TicketColor}
       />
 
-      <span className="trip-time self-center text-xl text-gray-500">
+      <span className="trip-time self-center text-xl text-gray-500 dark:text-gray-100">
         {t('trip-details.estimated-trip-time')}:{' '}
-        <span dir="auto" className="text-xl font-bold text-black">
+        <span
+          dir="auto"
+          className="text-xl font-bold text-black dark:text-white"
+        >
           {formatTime(tripStations.length * 60 * 6)}
         </span>
       </span>

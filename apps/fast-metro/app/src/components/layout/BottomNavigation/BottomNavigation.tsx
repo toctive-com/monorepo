@@ -55,10 +55,10 @@ export const BottomNavigation = ({ items }: { items: INavigationItem[] }) => {
 
   return (
     <>
-      <div className="fixed bottom-0 right-0 left-0 z-30 h-32 bg-gradient-to-t from-gray-400 to-transparent"></div>
+      <div className="fixed bottom-0 right-0 left-0 z-30 h-32 bg-gradient-to-t from-gray-400 to-transparent dark:from-gray-900"></div>
       <div
         ref={navRef}
-        className="fixed bottom-2 right-2 left-2 z-30 flex flex-row items-center justify-between overflow-y-hidden rounded-xl bg-white p-2 text-gray-700 shadow"
+        className="fixed bottom-2 right-2 left-2 z-30 flex flex-row items-center justify-between overflow-y-hidden rounded-xl bg-white p-2 text-gray-700 shadow dark:bg-gray-800 dark:text-gray-300"
       >
         {items.map((item, index) => (
           <NavigationItem

@@ -10,8 +10,9 @@ function MenuButton({ text, href = '/' }: MenuButtonI) {
     <Link to={href}>
       <div
         className={`cursor-pointer select-none rounded-md ${
-          location.pathname === href && 'border border-gray-200'
-        } bg-gray-50 p-3`}
+          location.pathname === href &&
+          'border border-gray-200 dark:border-gray-700'
+        } bg-gray-50 p-3 dark:bg-gray-800 dark:text-white`}
       >
         <span className={`capitalize`}>{text}</span>
       </div>

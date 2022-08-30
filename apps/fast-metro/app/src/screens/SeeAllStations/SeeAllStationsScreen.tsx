@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
+import Page from '../../components/layout/Page/Page';
 import LinesColors from '../../components/shared/LinesColors/LinesColors';
 import PageHeader from '../../components/shared/PageHeader/PageHeader';
 import Station from '../../components/shared/Station/Station';
@@ -41,9 +42,8 @@ export const SeeAllStations = () => {
   const [currentStation, setCurrentStation] = useState(0);
 
   return (
-    <div className="flex flex-col justify-center bg-gray-50 p-8">
+    <Page className="!p-8">
       <PageHeader text={t('see-all-stations-screen.title')} />
-
       <div className="body mt-6 flex flex-col gap-4">
         {tripStations.map((station, index) => (
           <Station
@@ -55,8 +55,7 @@ export const SeeAllStations = () => {
           />
         ))}
       </div>
-
       <LinesColors className="mt-8" />
-    </div>
+    </Page>
   );
 };

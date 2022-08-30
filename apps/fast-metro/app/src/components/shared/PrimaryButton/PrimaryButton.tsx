@@ -30,7 +30,7 @@ function PrimaryButton({
       select-none 
       rounded-md 
       bg-blue-500 
-      shadow-lg shadow-blue-200 hover:bg-blue-600 dark:bg-blue-400 dark:hover:bg-blue-500 
+      shadow-lg shadow-blue-200 hover:bg-blue-600 dark:bg-blue-400 dark:shadow-gray-800 dark:hover:bg-blue-500 
       ${buttonPadding[size]} ${className}`}
       onClick={onClick}
     >

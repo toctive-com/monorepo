@@ -48,10 +48,14 @@ pages. */
   useLayoutEffect(() => {
     let transition: gsap.core.Tween;
     if (pageRef.current) {
-      transition = gsap.from(pageRef.current, {
-        x: 30 * (isRTL() ? -1 : 1),
-        opacity: 0,
-      });
+      transition = gsap.fromTo(
+        pageRef.current,
+        {
+          x: 30 * (isRTL() ? -1 : 1),
+          opacity: 0,
+        },
+        { x: 0, opacity: 1 }
+      );
     }
     return () => {
       transition.kill();
@@ -85,59 +89,65 @@ pages. */
   const navigationLinks = navigationItems.map((item) => item.href);
 
   return (
-    <SideMenuContext.Provider value={toggleSideMenu}>
-      <SideMenu
-        sideMenuIsOpened={sideMenuIsOpened}
-        setter={setSideMenuIsOpened}
-      />
-      <main ref={pageRef} className="w-full overflow-x-hidden">
-        <Routes>
-          <Route path="/" element={<GetStartedScreen />} />
-          <Route path="/home" element={<HomeScreen />} />
-          <Route path="/map" element={<MapScreen />} />
-          <Route path="/settings" element={<SettingsScreen />} />
-          <Route path="/contact-metro" element={<ContactMetroScreen />} />
-          <Route path="/contact-us" element={<ContactUsScreen />} />
-          <Route path="/about-us" element={<AboutUsScreen />} />
-
-          <Route path="/start-trip">
-            <Route index element={<StartTripScreen />} />
-            <Route path="see-all-stations" element={<SeeAllStations />} />
-          </Route>
-
-          <Route path="/trip-stations" element={<TripStationsScreen />} />
-          <Route
-            path="/closest-transit-stations"
-            element={<ClosestTransitStationsScreen />}
-          />
-          <Route path="/metro-schedules" element={<MetroSchedulesScreen />} />
-          <Route
-            path="/safety-instructions"
-            element={<SafetyInstructionsScreen />}
-          />
-
-          <Route path="/station-services">
-            <Route index element={<StationServicesScreen />} />
-            <Route path="services-by-station" element={<ServicesByStation />} />
-            <Route path="search-for-services" element={<SearchForServices />} />
-          </Route>
-
-          <Route path="/subscription" element={<SubscriptionScreen />} />
-          <Route path="/transit-stations" element={<TransitStationsScreen />} />
-          <Route
-            path="/violations-and-fines"
-            element={<ViolationsAndFinsScreen />}
-          />
-          <Route path="*" element={<NotFoundScreen />} />
-        </Routes>
-      </main>
-
-      {/* Checking if the current location is included in the navigationLinks array. If it is, it will
-      render the BottomNavigation component. */}
-      {navigationLinks.includes(location.pathname) && (
-        <BottomNavigation items={navigationItems} />
-      )}
-    </SideMenuContext.Provider>
+    <div className="dark:bg-gray-900">
+      <SideMenuContext.Provider value={toggleSideMenu}>
+        <SideMenu
+          sideMenuIsOpened={sideMenuIsOpened}
+          setter={setSideMenuIsOpened}
+        />
+        <main ref={pageRef} className="w-full overflow-x-hidden">
+          <Routes>
+            <Route path="/" element={<GetStartedScreen />} />
+            <Route path="/home" element={<HomeScreen />} />
+            <Route path="/map" element={<MapScreen />} />
+            <Route path="/settings" element={<SettingsScreen />} />
+            <Route path="/contact-metro" element={<ContactMetroScreen />} />
+            <Route path="/contact-us" element={<ContactUsScreen />} />
+            <Route path="/about-us" element={<AboutUsScreen />} />
+            <Route path="/start-trip">
+              <Route index element={<StartTripScreen />} />
+              <Route path="see-all-stations" element={<SeeAllStations />} />
+            </Route>
+            <Route path="/trip-stations" element={<TripStationsScreen />} />
+            <Route
+              path="/closest-transit-stations"
+              element={<ClosestTransitStationsScreen />}
+            />
+            <Route path="/metro-schedules" element={<MetroSchedulesScreen />} />
+            <Route
+              path="/safety-instructions"
+              element={<SafetyInstructionsScreen />}
+            />
+            <Route path="/station-services">
+              <Route index element={<StationServicesScreen />} />
+              <Route
+                path="services-by-station"
+                element={<ServicesByStation />}
+              />
+              <Route
+                path="search-for-services"
+                element={<SearchForServices />}
+              />
+            </Route>
+            <Route path="/subscription" element={<SubscriptionScreen />} />
+            <Route
+              path="/transit-stations"
+              element={<TransitStationsScreen />}
+            />
+            <Route
+              path="/violations-and-fines"
+              element={<ViolationsAndFinsScreen />}
+            />
+            <Route path="*" element={<NotFoundScreen />} />
+          </Routes>
+        </main>
+        {/* Checking if the current location is included in the navigationLinks array. If it is, it will
+        render the BottomNavigation component. */}
+        {navigationLinks.includes(location.pathname) && (
+          <BottomNavigation items={navigationItems} />
+        )}
+      </SideMenuContext.Provider>
+    </div>
   );
 }
 

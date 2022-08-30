@@ -4,7 +4,7 @@ export function LinesColors({ className }: { className?: string }) {
   const { t } = useTranslation();
 
   return (
-    <div className={`flex flex-col gap-3 rounded-lg bg-gray-100 ${className}`}>
+    <div className={`flex flex-col gap-3 rounded-lg ${className}`}>
       <LineColor color="blue" text={t('lines-colors.line-1')} />
       <LineColor color="red" text={t('lines-colors.line-2')} />
       <LineColor color={'green'} text={t('lines-colors.line-3')} />

@@ -21,7 +21,7 @@ export function Alert({
         className="overlay fixed top-0 left-0 z-50 h-full w-full bg-black opacity-80"
         onClick={onCancel}
       ></div>
-      <div className="fixed top-1/3 left-2 right-2 z-50 m-auto mt-20 flex max-h-96 min-h-min -translate-y-1/2 flex-col items-center justify-center gap-4 rounded-lg bg-white px-8 py-10 shadow-lg">
+      <div className="fixed top-1/3 left-2 right-2 z-50 m-auto mt-20 flex max-h-96 min-h-min -translate-y-1/2 flex-col items-center justify-center gap-4 rounded-lg bg-white px-8 py-10 shadow-lg dark:bg-gray-700">
         <GrFormClose
           className="absolute top-2 right-2"
           size={32}

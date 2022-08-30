@@ -142,8 +142,10 @@ export default function LineDetails({ line }: { line: lineTitles }) {
 
   return (
     <div
-      className={`my-4 flex flex-col rounded-lg ${
-        clicked ? 'shadow-xl' : 'shadow-sm'
+      className={`my-4 flex flex-col rounded-lg border ${
+        clicked
+          ? 'border-gray-300 shadow-xl dark:border-gray-700'
+          : 'border-gray-200 shadow-sm dark:border-gray-800'
       }`}
       onClick={() => {
         setClicked(!clicked);
@@ -166,7 +168,7 @@ function LD(props: any) {
 
   return (
     <div className="flex flex-col ">
-      <span className="text-base text-gray-900">{title}</span>
+      <span className="text-base text-gray-900 dark:text-gray-50">{title}</span>
       <div className="flex gap-1 ">{children}</div>
     </div>
   );
@@ -180,7 +182,11 @@ const SmallText = ({
   isBold?: boolean;
 }) => {
   return (
-    <span className={`text-sm text-gray-500 ${isBold && 'font-bold'}`}>
+    <span
+      className={`text-sm text-gray-500 dark:text-gray-400 ${
+        isBold && 'font-bold'
+      }`}
+    >
       {children}
     </span>
   );

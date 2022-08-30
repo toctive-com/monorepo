@@ -11,7 +11,7 @@ export function LinkButton({
 }) {
   return (
     <Link to={to}>
-      <div className="flex w-full cursor-pointer items-center justify-between rounded-md bg-white px-8 py-4 shadow-sm hover:bg-gray-50">
+      <div className="flex w-full cursor-pointer items-center justify-between rounded-md bg-white px-8 py-4 shadow-sm hover:bg-gray-50 dark:bg-gray-900">
         <span className="text-xl">{text}</span>
         {isRTL() ? <IoIosArrowBack /> : <IoIosArrowForward />}
       </div>

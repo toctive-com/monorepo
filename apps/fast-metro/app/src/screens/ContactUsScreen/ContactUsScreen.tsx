@@ -49,7 +49,10 @@ function Form() {
         className="h-64 w-full"
         placeholder={t('contact-us-screen.contact-form.massage')}
       />
-      <Input type="submit" className="bg-blue-500 !py-4 text-white" />
+      <Input
+        type="submit"
+        className="mb-8 border-blue-800 !bg-blue-700 !py-4 text-white !shadow-blue-500"
+      />
     </form>
   );
 }
