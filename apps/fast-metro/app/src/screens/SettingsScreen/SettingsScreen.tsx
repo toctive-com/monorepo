@@ -15,7 +15,13 @@ import { useNavigate } from 'react-router-dom';
 import { Share } from '@capacitor/share';
 
 export const SettingsScreen = () => {
-  const [isDark, setIsDark] = useState(false);
+  const darkMode = localStorage.getItem('darkMode') === 'true' ? true : false;
+  const [isDark, setIsDark] = useState<boolean>(darkMode);
+
+  const saveDarkModeInLocalStorage = (isDark: boolean) => {
+    localStorage.setItem('darkMode', isDark.toString());
+  };
+
   useEffect(() => {
     handleDarkMode(isDark);
   }, [isDark]);
@@ -35,7 +41,10 @@ export const SettingsScreen = () => {
               title={t`settings-screen.dark-mode.title`}
               text={t`settings-screen.dark-mode.subtitle`}
             >
-              <Switch IsDark={setIsDark} />
+              <Switch
+                isSwitched={isDark}
+                onClick={saveDarkModeInLocalStorage}
+              />
             </SettingCard>
 
             <LanguageCard />
@@ -141,5 +150,5 @@ function LanguageCard() {
   );
 }
 function handleDarkMode(isDark: boolean) {
-  // TODO: dark mode handler Function not implemented.
+  localStorage.setItem('darkMode', isDark.toString());
 }

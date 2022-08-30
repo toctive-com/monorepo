@@ -1,21 +1,19 @@
 import { useEffect, useState } from 'react';
 
 interface Switch {
-  IsDark?: any;
+  isSwitched: boolean;
   className?: string;
+  onClick?: (isClicked: boolean) => void;
 }
 
-export default function Switch({ IsDark, className }: Switch) {
-  const [clicked, setClicked] = useState(false);
-
-  useEffect(() => {
-    IsDark(clicked);
-  }, [IsDark, clicked]);
+export default function Switch({ isSwitched, className, onClick }: Switch) {
+  const [clicked, setClicked] = useState(isSwitched);
 
   return (
     <div
       className={` ${className} `}
       onClick={() => {
+        onClick && onClick(!clicked);
         setClicked(!clicked);
       }}
     >

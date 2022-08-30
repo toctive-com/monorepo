@@ -38,6 +38,10 @@ i18n.use(initReactI18next).use(LanguageDetector).init({
 /* Setting the direction of the app to be either `rtl` or `ltr` based on the language. */
 setDirection(getDirection() as DirectionType);
 
+localStorage.getItem('darkMode') === 'true'
+  ? document.body.classList.add('dark')
+  : document.body.classList.remove('dark');
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
