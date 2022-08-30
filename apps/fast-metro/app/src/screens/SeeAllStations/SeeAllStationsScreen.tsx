@@ -14,6 +14,7 @@ import {
 
 export const SeeAllStations = () => {
   const { t, i18n } = useTranslation();
+  const currentLang = i18n.language?.split('-')[0];
 
   const [searchParams] = useSearchParams();
   const start = searchParams.get('start');
@@ -37,14 +38,18 @@ export const SeeAllStations = () => {
     handleStationChange();
   }, [start, end, handleStationChange]);
 
+  const [currentStation, setCurrentStation] = useState(0);
+
   return (
     <div className="flex flex-col justify-center bg-gray-50 p-8">
       <PageHeader text={t('see-all-stations-screen.title')} />
 
       <div className="body mt-6 flex flex-col gap-4">
-        {tripStations.map((station) => (
+        {tripStations.map((station, index) => (
           <Station
-            name={station.name[i18n.language as 'en' | 'ar']}
+            isActive={index <= currentStation}
+            onClick={() => setCurrentStation(index)}
+            name={station.name[currentLang as 'en' | 'ar']}
             key={station.name.en}
             lastStation={station === tripStations.at(-1)}
           />

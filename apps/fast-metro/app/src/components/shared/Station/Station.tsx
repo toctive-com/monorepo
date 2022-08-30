@@ -30,6 +30,8 @@ export interface StationI {
   name: string;
   lastStation?: boolean;
   className?: string;
+  isActive?: boolean;
+  onClick?: () => void;
 }
 
 /**
@@ -43,26 +45,28 @@ export function Station({
   name,
   lastStation = false,
   className = '',
+  isActive = false,
+  onClick,
 }: StationI) {
-  const [checked, setChecked] = useState(false);
+  // const [checked, setChecked] = useState(false);
 
   return (
-    <div className={`station-com flex flex-col ${className}`}>
+    <div
+      className={`station-com flex flex-col ${className}`}
+      onClick={() => onClick && onClick()}
+    >
       <div className="circle-name flex gap-5 ">
         <div
           className={`
          circle h-6 w-6 rounded-full
-         ${checked ? 'bg-blue-500' : ' border-4 border-blue-500'} 
+         ${isActive ? 'bg-blue-500' : ' border-4 border-blue-500'} 
           `}
-          onClick={() => {
-            setChecked(!checked);
-          }}
         ></div>
 
         <span className="name text-base">{name}</span>
       </div>
 
-      {!lastStation && <Dots className="m-2 self-start" checked={checked} />}
+      {!lastStation && <Dots className="m-2 self-start" checked={isActive} />}
     </div>
   );
 }
