@@ -3,18 +3,33 @@ import { useTranslation } from 'react-i18next';
 import Page from '../../components/layout/Page/Page';
 import TripDetails from '../../components/layout/TripDetails/TripDetails';
 import PageHeader from '../../components/shared/PageHeader/PageHeader';
-import StationsSelector from '../../components/shared/StationsSelector/StationsSelector';
+import StationsSelector, {
+  stationOptionI,
+} from '../../components/shared/StationsSelector/StationsSelector';
 import { allStations, makeTrip, shortestPath } from '../../data/Stations';
 
 export const ClosestTransitStationsScreen = () => {
-  const [startStation, setStartStation] = useState<any>(null);
+  const ClosestTransitStation = JSON.parse(
+    localStorage.getItem('ClosestTransitStation') || '{}'
+  );
+
+  const [startStation, setStartStation] = useState<any>(
+    ClosestTransitStation || null
+  );
   const [stations, setStations] = useState<any>([]);
+
+  const saveClosestTransitStationInLocalStorage = (
+    fromStation: stationOptionI
+  ) => {
+    localStorage.setItem('ClosestTransitStation', JSON.stringify(fromStation));
+  };
 
   /* A React Hook that is called when the component is mounted and when the startStation state changes. */
   useEffect(() => {
     if (!startStation) {
       return;
     }
+    saveClosestTransitStationInLocalStorage(startStation);
 
     const transitStations = allStations.filter(
       (station) => station.isTransitStation
@@ -50,6 +65,7 @@ export const ClosestTransitStationsScreen = () => {
         />
         <StationsSelector
           isFromTo={false}
+          defaultFromStation={startStation}
           onChange={(fromStation) => setStartStation(fromStation)}
         />
 

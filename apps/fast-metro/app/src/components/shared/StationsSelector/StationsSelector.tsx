@@ -7,6 +7,8 @@ interface StationsSelectorI {
   isFromTo: boolean;
   className?: string;
   onChange?: (fromStation: stationOptionI, toStation: stationOptionI) => void;
+  defaultFromStation?: stationOptionI;
+  defaultToStation?: stationOptionI;
 }
 
 export interface stationOptionI {
@@ -82,10 +84,23 @@ export function StationsSelector({
   isFromTo = true,
   className,
   onChange,
+  defaultFromStation,
+  defaultToStation,
 }: StationsSelectorI) {
   const emptyStation: stationOptionI = { label: null, value: null };
-  const [fromStation, setFromStation] = useState<stationOptionI>(emptyStation);
-  const [toStation, setToStation] = useState<stationOptionI>(emptyStation);
+  const [fromStation, setFromStation] = useState<stationOptionI>(
+    defaultFromStation || emptyStation
+  );
+  console.log('🚀 ~ fromStation', fromStation);
+  console.log('🚀 ~ defaultFromStation', defaultFromStation);
+  console.log(
+    '🚀 ~ defaultFromStation || emptyStation',
+    defaultFromStation || emptyStation
+  );
+
+  const [toStation, setToStation] = useState<stationOptionI>(
+    defaultToStation || emptyStation
+  );
 
   const { t, i18n } = useTranslation();
 
@@ -161,6 +176,7 @@ export function StationsSelector({
           options={stations}
           isClearable={true}
           styles={customStyles}
+          defaultValue={defaultFromStation}
           onChange={(
             option: OnChangeValue<unknown, boolean>,
             actionMeta: ActionMeta<unknown>
@@ -180,6 +196,7 @@ export function StationsSelector({
             placeholder={t('stations-selector.select-station')}
             options={stations}
             isClearable={true}
+            defaultValue={defaultToStation}
             styles={customStyles}
             onChange={(
               option: OnChangeValue<unknown, boolean>,

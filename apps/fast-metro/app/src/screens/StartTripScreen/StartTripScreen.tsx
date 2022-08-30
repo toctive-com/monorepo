@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Page from '../../components/layout/Page/Page';
 import TripDetails from '../../components/layout/TripDetails/TripDetails';
@@ -34,15 +34,39 @@ export const StartTripScreen = () => {
     setTripStations(shortestPath(makeTrip(startStation, targetStation)));
   };
 
+  const saveStationInLocalStorage = (
+    fromStation: stationOptionI,
+    toStation: stationOptionI
+  ) => {
+    localStorage.setItem('fromStation', JSON.stringify(fromStation));
+    localStorage.setItem('toStation', JSON.stringify(toStation));
+  };
+
+  const defaultFromStation = JSON.parse(
+    localStorage.getItem('fromStation') || '{}'
+  );
+  const defaultToStation = JSON.parse(
+    localStorage.getItem('toStation') || '{}'
+  );
+
+  useEffect(() => {
+    if (defaultFromStation.value && defaultToStation.value) {
+      startTrip(defaultFromStation, defaultToStation);
+    }
+  }, []);
+
   return (
     <Page>
       <div className="flex flex-col gap-10">
         <PageHeader isBack={true} text={t('start-trip-screen.title')} />
         <StationsSelector
           isFromTo={true}
-          onChange={(fromStation, toStation) =>
-            startTrip(fromStation, toStation)
-          }
+          defaultFromStation={defaultFromStation && defaultFromStation}
+          defaultToStation={defaultToStation && defaultToStation}
+          onChange={(fromStation, toStation) => {
+            saveStationInLocalStorage(fromStation, toStation);
+            startTrip(fromStation, toStation);
+          }}
         />
 
         {tripStations.length > 0 && <TripDetails tripStations={tripStations} />}
