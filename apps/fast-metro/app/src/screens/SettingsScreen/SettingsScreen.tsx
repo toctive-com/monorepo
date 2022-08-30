@@ -20,6 +20,9 @@ export const SettingsScreen = () => {
 
   const saveDarkModeInLocalStorage = (isDark: boolean) => {
     localStorage.setItem('darkMode', isDark.toString());
+    localStorage.getItem('darkMode') === 'true'
+      ? document.body.classList.add('dark')
+      : document.body.classList.remove('dark');
   };
 
   useEffect(() => {
