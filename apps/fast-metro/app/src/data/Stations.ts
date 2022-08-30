@@ -428,8 +428,10 @@ saad_zaghloul.nextStations = [al_sayeda_zeinab];
 sadat.prevStations = [nasser];
 sadat.nextStations = [saad_zaghloul, mohamed_naguib, opera];
 
-nasser.prevStations = [orabi, attaba];
-nasser.nextStations = [sadat, maspero];
+// nasser.prevStations = [orabi, attaba];
+nasser.prevStations = [orabi];
+// nasser.nextStations = [sadat, maspero];
+nasser.nextStations = [sadat];
 
 orabi.prevStations = [al_shohadaa];
 orabi.nextStations = [nasser];
@@ -537,13 +539,13 @@ shubra_el_kheima.nextStations = [kolleyyet_el_zeraa];
 /* 
 ====================== Line Three ======================
  */
-airport.prevStations = [];
-airport.nextStations = [ahmed_galal];
+// airport.prevStations = [];
+// airport.nextStations = [ahmed_galal];
+// ahmed_galal.prevStations = [airport];
+// ahmed_galal.nextStations = [adly_mansour];
+// adly_mansour.prevStations = [ahmed_galal];
 
-ahmed_galal.prevStations = [airport];
-ahmed_galal.nextStations = [adly_mansour];
-
-adly_mansour.prevStations = [ahmed_galal];
+adly_mansour.prevStations = [];
 adly_mansour.nextStations = [el_haykestep];
 
 el_haykestep.prevStations = [adly_mansour];
@@ -598,51 +600,53 @@ bab_el_shaaria.prevStations = [el_geish];
 bab_el_shaaria.nextStations = [attaba];
 
 attaba.prevStations = [bab_el_shaaria];
-attaba.nextStations = [nasser];
+// attaba.nextStations = [nasser];
+attaba.nextStations = [al_shohadaa, mohamed_naguib];
 
 // Nasser Station is between Attaba Station and Maspero Station
 
-maspero.prevStations = [nasser];
-maspero.nextStations = [zamalek];
+// maspero.prevStations = [nasser];
+// maspero.nextStations = [zamalek];
 
-zamalek.prevStations = [maspero];
-zamalek.nextStations = [kit_kat];
+// zamalek.prevStations = [maspero];
+// zamalek.nextStations = [kit_kat];
 
-kit_kat.prevStations = [zamalek];
-kit_kat.nextStations = [sudan_street, el_tawfikeya];
+// kit_kat.prevStations = [zamalek];
+// kit_kat.nextStations = [sudan_street, el_tawfikeya];
 
-sudan_street.prevStations = [kit_kat];
-sudan_street.nextStations = [imbaba];
+// sudan_street.prevStations = [kit_kat];
+// sudan_street.nextStations = [imbaba];
 
-imbaba.prevStations = [sudan_street];
-imbaba.nextStations = [el_bohy];
+// imbaba.prevStations = [sudan_street];
+// imbaba.nextStations = [el_bohy];
 
-el_bohy.prevStations = [imbaba];
-el_bohy.nextStations = [el_kawmeya_al_arabiya];
+// el_bohy.prevStations = [imbaba];
+// el_bohy.nextStations = [el_kawmeya_al_arabiya];
 
-el_kawmeya_al_arabiya.prevStations = [el_bohy];
-el_kawmeya_al_arabiya.nextStations = [ring_road];
+// el_kawmeya_al_arabiya.prevStations = [el_bohy];
+// el_kawmeya_al_arabiya.nextStations = [ring_road];
 
-ring_road.prevStations = [el_kawmeya_al_arabiya];
-ring_road.nextStations = [rod_el_farag_axis];
+// ring_road.prevStations = [el_kawmeya_al_arabiya];
+// ring_road.nextStations = [rod_el_farag_axis];
 
 // No Next Stations. Rod ek farag axis is the last station in the line.
 rod_el_farag_axis.prevStations = [ring_road];
-rod_el_farag_axis.nextStations = [];
+// rod_el_farag_axis.nextStations = [];
 
-el_tawfikeya.prevStations = [kit_kat];
-el_tawfikeya.nextStations = [wadi_el_nil];
+// el_tawfikeya.prevStations = [kit_kat];
+// el_tawfikeya.nextStations = [wadi_el_nil];
 
-wadi_el_nil.prevStations = [el_tawfikeya];
-wadi_el_nil.nextStations = [gamaat_el_dowal_al_arabiya];
+// wadi_el_nil.prevStations = [el_tawfikeya];
+// wadi_el_nil.nextStations = [gamaat_el_dowal_al_arabiya];
 
-gamaat_el_dowal_al_arabiya.prevStations = [wadi_el_nil];
-gamaat_el_dowal_al_arabiya.nextStations = [bulaq_el_dakroor];
+// gamaat_el_dowal_al_arabiya.prevStations = [wadi_el_nil];
+// gamaat_el_dowal_al_arabiya.nextStations = [bulaq_el_dakroor];
 
-bulaq_el_dakroor.prevStations = [gamaat_el_dowal_al_arabiya];
-bulaq_el_dakroor.nextStations = [cairo_university];
+// bulaq_el_dakroor.prevStations = [gamaat_el_dowal_al_arabiya];
+// bulaq_el_dakroor.nextStations = [cairo_university];
 
-cairo_university.prevStations = [bulaq_el_dakroor, el_bohoth];
+// cairo_university.prevStations = [bulaq_el_dakroor, el_bohoth];
+cairo_university.prevStations = [el_bohoth];
 cairo_university.nextStations = [faisal];
 
 export const allStations = [
@@ -697,8 +701,8 @@ export const allStations = [
   mezallat,
   kolleyyet_el_zeraa,
   shubra_el_kheima,
-  airport,
-  ahmed_galal,
+  // airport,
+  // ahmed_galal,
   adly_mansour,
   el_haykestep,
   omar_ibn_el_khattab,
@@ -718,19 +722,19 @@ export const allStations = [
   el_geish,
   bab_el_shaaria,
   attaba,
-  maspero,
-  zamalek,
-  kit_kat,
-  sudan_street,
-  imbaba,
-  el_bohy,
-  el_kawmeya_al_arabiya,
-  ring_road,
-  rod_el_farag_axis,
-  el_tawfikeya,
-  wadi_el_nil,
-  gamaat_el_dowal_al_arabiya,
-  bulaq_el_dakroor,
+  // maspero,
+  // zamalek,
+  // kit_kat,
+  // sudan_street,
+  // imbaba,
+  // el_bohy,
+  // el_kawmeya_al_arabiya,
+  // ring_road,
+  // rod_el_farag_axis,
+  // el_tawfikeya,
+  // wadi_el_nil,
+  // gamaat_el_dowal_al_arabiya,
+  // bulaq_el_dakroor,
   cairo_university,
 ];
 
