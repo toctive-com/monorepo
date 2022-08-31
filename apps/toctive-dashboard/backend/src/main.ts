@@ -3,7 +3,7 @@
  * This is only a minimal backend to get started.
  */
 
-import * as express from 'express';
+import express from 'express';
 
 const app = express();
 
