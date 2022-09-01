@@ -55,7 +55,7 @@ export function Index() {
               <a
                 href="https://nx.dev/getting-started/intro?utm_source=nx-project"
                 target="_blank"
-                rel="noreferrer"
+                rel="noreferrer noopener"
                 className="list-item-link"
               >
                 <svg
@@ -92,7 +92,7 @@ export function Index() {
               <a
                 href="https://blog.nrwl.io/?utm_source=nx-project"
                 target="_blank"
-                rel="noreferrer"
+                rel="noreferrer noopener"
                 className="list-item-link"
               >
                 <svg
@@ -129,7 +129,7 @@ export function Index() {
               <a
                 href="https://www.youtube.com/c/Nrwl_io/videos?utm_source=nx-project&sub_confirmation=1"
                 target="_blank"
-                rel="noreferrer"
+                rel="noreferrer noopener"
                 className="list-item-link"
               >
                 <svg
@@ -162,7 +162,7 @@ export function Index() {
               <a
                 href="https://nx.dev/tutorial/01-create-application?utm_source=nx-project"
                 target="_blank"
-                rel="noreferrer"
+                rel="noreferrer noopener"
                 className="list-item-link"
               >
                 <svg
@@ -199,7 +199,7 @@ export function Index() {
               <a
                 href="https://nxplaybook.com/?utm_source=nx-project"
                 target="_blank"
-                rel="noreferrer"
+                rel="noreferrer noopener"
                 className="list-item-link"
               >
                 <svg
@@ -242,7 +242,7 @@ export function Index() {
                 className="button-pill rounded shadow"
                 href="https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console&utm_source=nx-project"
                 target="_blank"
-                rel="noreferrer"
+                rel="noreferrer noopener"
               >
                 <svg
                   fill="currentColor"
@@ -287,7 +287,7 @@ export function Index() {
                 <a
                   href="https://nx.app/?utm_source=nx-project"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noreferrer noopener"
                 >
                   {' '}
                   What is Nx Cloud?{' '}
@@ -298,7 +298,7 @@ export function Index() {
                 className="button-pill rounded shadow"
                 href="https://github.com/nrwl/nx?utm_source=nx-project"
                 target="_blank"
-                rel="noreferrer"
+                rel="noreferrer noopener"
               >
                 <svg
                   fill="currentColor"
