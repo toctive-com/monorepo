@@ -139,7 +139,6 @@ export const getServerSideProps = async ({
       ...(await serverSideTranslationsWithNX({
         initialLocale: locale,
         // namespacesRequired: ['common', 'home'],
-        configFilePage: '../../../public/locales',
       })()),
       latestPosts,
     },

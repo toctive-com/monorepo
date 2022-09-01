@@ -122,7 +122,6 @@ export const getServerSideProps: GetServerSideProps = async ({
       ...(await serverSideTranslationsWithNX({
         initialLocale: locale,
         // namespacesRequired: ['common', 'home'],
-        configFilePage: '../../../../public/locales',
       })()),
       post,
       mdxSource,
