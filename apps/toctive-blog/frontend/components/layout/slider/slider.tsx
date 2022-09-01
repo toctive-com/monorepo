@@ -1,6 +1,5 @@
-import { useDirection } from '@toctive/react-utils';
 import gsap from 'gsap';
-import { useTranslation } from 'next-i18next';
+import { i18n, useTranslation } from 'next-i18next';
 import React, { useEffect, useRef, useState } from 'react';
 import { CgArrowLongLeft, CgArrowLongRight } from 'react-icons/cg';
 import styled from 'styled-components';
@@ -90,7 +89,7 @@ export function Slider(props: { children: React.PropsWithChildren }) {
     }
   }
 
-  const [direction] = useDirection();
+  const direction = i18n?.language === 'ar' ? 'rtl' : 'ltr';
 
   return (
     <StyledSlider>
