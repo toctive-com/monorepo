@@ -11,3 +11,17 @@
 .nav-shadow {
   box-shadow: rgb(0 0 0 / 50%) 0px -5px 23px -15px;
 }
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
