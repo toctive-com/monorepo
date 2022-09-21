@@ -5,6 +5,7 @@ import Page from '../../components/layout/Page/Page';
 import LinesColors from '../../components/shared/LinesColors/LinesColors';
 import PageHeader from '../../components/shared/PageHeader/PageHeader';
 import Station from '../../components/shared/Station/Station';
+import TransitAlert from '../../components/shared/TransitAlert/TransitAlert';
 
 import {
   allStations,
@@ -41,21 +42,46 @@ export const SeeAllStations = () => {
 
   const [currentStation, setCurrentStation] = useState(0);
 
+  type colorI = 'red' | 'blue' | 'green' | 'black';
+  let stationColor: colorI = 'blue';
+
   return (
-    <Page className="!p-8">
+    <Page className="!px-8">
       <PageHeader text={t('see-all-stations-screen.title')} />
       <div className="body mt-6 flex flex-col gap-4">
-        {tripStations.map((station, index) => (
-          <Station
-            isActive={index <= currentStation}
-            onClick={() => setCurrentStation(index)}
-            name={station.name[currentLang as 'en' | 'ar']}
-            key={station.name.en}
-            lastStation={station === tripStations.at(-1)}
-          />
-        ))}
+        {tripStations.map((station, index) => {
+          if (station.lines.length > 1) stationColor = 'black';
+          else if (station.lines[0].lineNumber === 1) {
+            stationColor = 'blue';
+          } else if (station.lines[0].lineNumber === 2) {
+            stationColor = 'red';
+          } else if (station.lines[0].lineNumber === 3) {
+            stationColor = 'green';
+          } else {
+            stationColor = 'blue';
+          }
+
+          return (
+            <>
+              <Station
+                isActive={index <= currentStation}
+                onClick={() => setCurrentStation(index)}
+                name={station.name[currentLang as 'en' | 'ar']}
+                key={station.name.en}
+                lastStation={station === tripStations.at(-1)}
+                color={stationColor}
+              />
+              {station.isTransitStation && station !== tripStations.at(-1) && (
+                <TransitAlert
+                  line={station.lines[0].lineNumber}
+                  // direction={tripStations.at(-1)?.name.en || ''}
+                />
+              )}
+            </>
+          );
+        })}
       </div>
-      <LinesColors className="mt-8" />
+      <LinesColors />
     </Page>
   );
 };

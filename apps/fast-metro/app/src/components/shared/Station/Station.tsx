@@ -1,9 +1,20 @@
-import { useState } from 'react';
-
 interface dotI {
   className?: string;
   checked: boolean;
+  color: 'blue' | 'red' | 'green' | 'black';
 }
+const colors = {
+  red: 'bg-red-500',
+  blue: 'bg-blue-500',
+  green: 'bg-green-500',
+  black: 'bg-black',
+};
+const borderColors = {
+  red: 'border-red-500',
+  blue: 'border-blue-500',
+  green: 'border-green-500',
+  black: 'border-black',
+};
 
 /**
  * It creates a component that renders 5 dots.
@@ -11,14 +22,16 @@ interface dotI {
  * @param {dotI}  - dotI
  * @returns A div with 5 dots inside of it.
  */
-const Dots = ({ checked, className }: dotI) => {
+const Dots = ({ checked, color = 'blue', className }: dotI) => {
+  console.log(borderColors[color]);
+
   return (
     <div className={`${className} flex flex-col gap-2`}>
       {Array.from({ length: 5 }, (v, index) => (
         <span
           key={'dot' + index}
           className={`h-2 w-2 rounded-full
-       ${checked ? 'bg-blue-500' : 'bg-gray-300 '}
+       ${checked ? colors[color] : 'bg-gray-300 '}
        `}
         ></span>
       ))}
@@ -32,6 +45,7 @@ export interface StationI {
   className?: string;
   isActive?: boolean;
   onClick?: () => void;
+  color?: 'red' | 'blue' | 'green' | 'black';
 }
 
 /**
@@ -47,9 +61,8 @@ export function Station({
   className = '',
   isActive = false,
   onClick,
+  color = 'blue',
 }: StationI) {
-  // const [checked, setChecked] = useState(false);
-
   return (
     <div
       className={`station-com flex flex-col ${className}`}
@@ -57,16 +70,18 @@ export function Station({
     >
       <div className="circle-name flex gap-5 ">
         <div
-          className={`
-         circle h-6 w-6 rounded-full
-         ${isActive ? 'bg-blue-500' : ' border-4 border-blue-500'} 
+          className={`circle h-6 w-6 rounded-full ${
+            isActive ? colors[color] : ' border-4 ' + borderColors[color]
+          } 
           `}
         ></div>
 
         <span className="name text-base">{name}</span>
       </div>
 
-      {!lastStation && <Dots className="m-2 self-start" checked={isActive} />}
+      {!lastStation && (
+        <Dots className="m-2 self-start" checked={isActive} color={color} />
+      )}
     </div>
   );
 }
