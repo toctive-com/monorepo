@@ -39,11 +39,11 @@ export const HomeScreen = () => {
       icon: <BiTrip size="96" />,
       href: '/start-trip',
     },
-    {
-      label: t`home-screen.station-services`,
-      icon: <MdMiscellaneousServices size="96" />,
-      href: '/station-services',
-    },
+    // {
+    //   label: t`home-screen.station-services`,
+    //   icon: <MdMiscellaneousServices size="96" />,
+    //   href: '/station-services',
+    // },
     {
       label: t`home-screen.transit-stations`,
       icon: <MdOutlineDirectionsTransitFilled size="96" />,
