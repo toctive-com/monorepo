@@ -7,3 +7,7 @@
   -webkit-tap-highlight-color: transparent;
   -moz-tap-highlight-color: transparent;
 }
+
+.nav-shadow {
+  box-shadow: rgb(0 0 0 / 50%) 0px -5px 23px -15px;
+}
