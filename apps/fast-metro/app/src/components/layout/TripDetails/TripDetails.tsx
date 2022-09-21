@@ -38,13 +38,14 @@ export function TripDetails({ tripStations, className }: TripDetailsI) {
 
   return (
     <div className={`flex flex-col gap-10 ${className}`}>
-      <div className="station-number flex items-center justify-between">
+      <div className="station-number xs:flex-row xs:gap-0 flex flex-col items-center justify-between gap-2">
         <span className="text-xl text-gray-500">
           {t('trip-details.number-of-stations')}:{' '}
           <span className="text-xl font-bold text-black dark:text-white">
             {tripStations.length}
           </span>
         </span>
+
         <Link
           // we must use english name of stations as identifiers
           to={`/start-trip/see-all-stations?start=${
@@ -55,7 +56,7 @@ export function TripDetails({ tripStations, className }: TripDetailsI) {
         </Link>
       </div>
 
-      <div className="flex flex-row items-center justify-between">
+      <div className="xs:flex-row xs:gap-0 flex flex-col items-center justify-between gap-2">
         <span className="ticket-price text-xl text-gray-500 dark:text-gray-50">
           {t('trip-details.ticket-price')}:{' '}
           <span className="text-xl font-bold text-red-400 dark:text-red-500">
@@ -75,7 +76,7 @@ export function TripDetails({ tripStations, className }: TripDetailsI) {
         mainColor={ticketDetails(tripStations.length).color as TicketColor}
       />
 
-      <span className="trip-time self-center text-xl text-gray-500 dark:text-gray-100">
+      {/* <span className="trip-time self-center text-xl text-gray-500 dark:text-gray-100">
         {t('trip-details.estimated-trip-time')}:{' '}
         <span
           dir="auto"
@@ -83,7 +84,7 @@ export function TripDetails({ tripStations, className }: TripDetailsI) {
         >
           {formatTime(tripStations.length * 60 * 6)}
         </span>
-      </span>
+      </span> */}
     </div>
   );
 }
