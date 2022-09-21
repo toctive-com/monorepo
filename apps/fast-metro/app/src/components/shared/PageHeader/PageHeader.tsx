@@ -16,7 +16,7 @@ export function PageHeader({ className, text, isBack = true }: PageHeaderI) {
 
   return (
     <div
-      className={`flex w-full items-center gap-5 rounded-xl px-8 py-3 shadow-sm ${className}`}
+      className={`absolute top-0 left-0 z-50 flex w-full items-center gap-5 rounded-xl bg-white px-8 py-4 shadow-lg ${className}`}
     >
       {isBack ? (
         isRTL() ? (

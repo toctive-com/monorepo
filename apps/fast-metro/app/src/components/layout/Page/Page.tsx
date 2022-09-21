@@ -16,7 +16,7 @@ export const Page = ({
 }) => {
   return (
     <div
-      className={`max-w-screen h-screen overflow-x-hidden bg-gray-50 p-4 pb-28 dark:bg-gray-900 dark:text-white ${className}`}
+      className={`max-w-screen h-screen overflow-x-hidden bg-gray-50 p-4 pt-20 pb-28 dark:bg-gray-900 dark:text-white ${className}`}
     >
       {children}
     </div>
