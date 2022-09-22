@@ -18,12 +18,14 @@ export function Card({ className, image, text, to = '/home' }: Card) {
   return (
     <Link to={to}>
       <div
-        className={`flex h-full w-full flex-col flex-wrap items-center gap-2 rounded-xl pb-4 shadow-md ${className}`}
+        className={`flex h-full w-full flex-col items-center justify-center gap-2 rounded-xl border p-4 text-center shadow-md dark:border-gray-700 ${className}`}
       >
-        <div className="flex h-40 w-40 items-center justify-center rounded-3xl border border-gray-100 text-gray-600 dark:border-gray-800">
+        <div className="flex h-40 w-40 items-center justify-center rounded-3xl text-gray-600 dark:border-gray-800 dark:text-gray-300">
           {image}
         </div>
-        <span className="text-center text-lg">{text}</span>
+        <span className="text-center text-xl font-bold dark:text-gray-300">
+          {text}
+        </span>
       </div>
     </Link>
   );

@@ -11,7 +11,7 @@ export function SettingCard(props: any) {
   const { className, title, text, onClick }: ISettingCard = props;
   return (
     <div
-      className={`rounded-sm bg-gray-100 p-4 dark:bg-gray-800 ${className} flex justify-between`}
+      className={`cursor-pointer rounded-sm bg-gray-100 p-4 dark:bg-gray-800 ${className} flex justify-between`}
       onClick={onClick}
     >
       <div className={`flex flex-col `}>

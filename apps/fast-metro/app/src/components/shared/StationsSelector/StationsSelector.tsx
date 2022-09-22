@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import Select, { OnChangeValue, ActionMeta, StylesConfig } from 'react-select';
 import { allStations } from '../../../data/Stations';
@@ -21,13 +21,13 @@ export interface stationOptionI {
 export const customStyles: StylesConfig = {
   container: (provided: any, state: any) => ({
     ...provided,
-    border: '0px',
+    border: '1px',
   }),
 
   control: (provided: any, state: any) => ({
     ...provided,
     background: '#60a5fa', // blue background
-    border: '0px',
+    border: '2px solid rgb(255 255 255 / 25%)',
   }),
 
   valueContainer: (provided: any, state: any) => ({
@@ -54,9 +54,11 @@ export const customStyles: StylesConfig = {
 
   groupHeading: (provided: any, state: any) => ({
     ...provided,
-    color: 'black',
+    color: 'white',
+    background: '#696969',
     fontWeight: 'bold',
     fontSize: '1rem',
+    padding: '0.6rem',
   }),
 
   clearIndicator: (provided: any, state: any) => ({
@@ -155,18 +157,28 @@ export function StationsSelector({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fromStation, toStation]);
 
+  const [fromStationMenuIsOpened, setFromStationMenuIsOpened] = useState(false);
+  const [toStationMenuIsOpened, setToStationMenuIsOpened] = useState(false);
+
   return (
     <div className={`flex flex-col justify-center ${className}`}>
       <div
         className={`flex justify-evenly rounded-xl bg-[#60a5fa] p-5 ${
           isFromTo ? 'rounded-b-none' : ''
         } `}
+        onClick={() => {
+          setFromStationMenuIsOpened(!fromStationMenuIsOpened);
+          setToStationMenuIsOpened(false);
+        }}
       >
         <span className="w-1/4 self-center text-xl text-white">
           {t('stations-selector.from')}
         </span>
 
         <Select
+          onInputChange={() =>
+            setFromStationMenuIsOpened(!fromStationMenuIsOpened)
+          }
           className="w-3/4"
           placeholder={t('stations-selector.select-station')}
           options={stations}
@@ -183,11 +195,18 @@ export function StationsSelector({
       {isFromTo && (
         <div
           className={`flex justify-evenly rounded-xl rounded-t-none bg-[#60a5fa] p-5`}
+          onClick={() => {
+            setFromStationMenuIsOpened(false);
+            setToStationMenuIsOpened(!toStationMenuIsOpened);
+          }}
         >
           <span className="w-1/4 self-center text-xl text-white">
             {t('stations-selector.to')}
           </span>
           <Select
+            onInputChange={() =>
+              setToStationMenuIsOpened(!toStationMenuIsOpened)
+            }
             className="w-3/4"
             placeholder={t('stations-selector.select-station')}
             options={stations}
