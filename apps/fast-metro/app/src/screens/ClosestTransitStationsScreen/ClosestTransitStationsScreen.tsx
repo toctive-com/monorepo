@@ -6,11 +6,12 @@ import PageHeader from '../../components/shared/PageHeader/PageHeader';
 import StationsSelector, {
   stationOptionI,
 } from '../../components/shared/StationsSelector/StationsSelector';
+import TransitAlert from '../../components/shared/TransitAlert/TransitAlert';
 import { allStations, makeTrip, shortestPath } from '../../data/Stations';
 
 export const ClosestTransitStationsScreen = () => {
   const ClosestTransitStation = JSON.parse(
-    localStorage.getItem('ClosestTransitStation') || '{}'
+    localStorage.getItem('ClosestTransitStation') || 'null'
   );
 
   const [startStation, setStartStation] = useState<any>(
@@ -37,9 +38,9 @@ export const ClosestTransitStationsScreen = () => {
 
     const allStationsBetweenStartAndTransit = [];
     for (const transitStation of transitStations) {
-      const startStationAsStationI = allStations.filter(
-        (station) => station.name.en === startStation.value
-      )[0];
+      const startStationAsStationI = allStations.filter((station) => {
+        return station.name.en === startStation.value;
+      })[0];
 
       allStationsBetweenStartAndTransit.push(
         shortestPath(makeTrip(startStationAsStationI, transitStation))
@@ -70,15 +71,17 @@ export const ClosestTransitStationsScreen = () => {
         />
 
         {stations.length > 0 && (
-          <p>
+          <TransitAlert>
             {t('closest-transit-screen.closest-transit-station-is')}:{' '}
-            {t(
-              `stations.${stations
-                .at(-1)
-                .name.en.toLowerCase()
-                .replace(' ', '-')}`
-            )}
-          </p>
+            <strong>
+              {t(
+                `stations.${stations
+                  .at(-1)
+                  .name.en.toLowerCase()
+                  .replace(' ', '-')}`
+              )}
+            </strong>
+          </TransitAlert>
         )}
         {stations.length > 0 && <TripDetails tripStations={stations} />}
         {/* <TimerController time={735} /> */}
