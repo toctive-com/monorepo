@@ -131,8 +131,8 @@ export const saad_zaghloul = new Station(
   [lineOne]
 );
 export const sadat = new Station({ ar: 'السادات', en: 'Sadat' }, [
-  lineTwo,
   lineOne,
+  lineTwo,
 ]);
 export const nasser = new Station({ ar: 'جمال عبدالناصر', en: 'Nasser' }, [
   lineOne,
@@ -361,7 +361,8 @@ export const bulaq_el_dakroor = new Station(
 );
 export const cairo_university = new Station(
   { ar: 'جامعة القاهرة', en: 'Cairo University' },
-  [lineTwo, lineThree]
+  [lineTwo]
+  // [lineTwo, lineThree]
 );
 
 /**
