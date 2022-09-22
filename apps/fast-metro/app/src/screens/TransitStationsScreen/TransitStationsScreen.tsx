@@ -33,6 +33,7 @@ export const TransitStationsScreen = () => {
         <div className="flex flex-col gap-4" ref={transitRef}>
           {transitStations.map((station) => (
             <Header
+              key={station.name.en}
               text={station.lines
                 .map(
                   (line) =>
@@ -51,10 +52,11 @@ export const TransitStationsScreen = () => {
 };
 
 // TODO: make this component collapsible
-// TODO: Write the correct data instead of this dummy data
 function Header({ title, text }: { title: string; text: string }) {
   return (
-    <div className={`flex w-full flex-col justify-center p-4 shadow-sm`}>
+    <div
+      className={`flex w-full flex-col justify-center rounded p-4 shadow-md`}
+    >
       <div className="flex items-center justify-between">
         <span className="text-xl">{title}</span>
         <span className="text-xs text-gray-500">{text}</span>

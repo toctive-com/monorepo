@@ -72,10 +72,9 @@ export const SeeAllStations = () => {
                 color={stationColor}
               />
               {station.isTransitStation && station !== tripStations.at(-1) && (
-                <TransitAlert
-                  line={station.lines[0].lineNumber}
-                  // direction={tripStations.at(-1)?.name.en || ''}
-                />
+                <TransitAlert>
+                  Change to the other line {station.lines[0].lineNumber}
+                </TransitAlert>
               )}
             </>
           );

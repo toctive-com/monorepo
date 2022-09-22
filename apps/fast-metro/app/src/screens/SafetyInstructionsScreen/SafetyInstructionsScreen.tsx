@@ -12,6 +12,7 @@ export const SafetyInstructionsScreen = () => {
     <Page>
       <div className="flex flex-col gap-8">
         <PageHeader text={t('safety-instructions-screen.title')} />
+
         <CollapseBox
           title={t('safety-instructions-screen.do.title')}
           subtitle={t('safety-instructions-screen.do.subtitle')}
@@ -29,6 +30,7 @@ export const SafetyInstructionsScreen = () => {
             ))}
           </ul>
         </CollapseBox>
+
         <CollapseBox
           title={t('safety-instructions-screen.dont.title')}
           subtitle={t('safety-instructions-screen.dont.subtitle')}

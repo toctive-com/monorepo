@@ -62,9 +62,9 @@ export const ViolationsAndFinsScreen = () => {
       <div className="flex flex-col gap-10">
         <PageHeader text={t('violations-fins-screen.title')} />
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 py-8">
           {options.map((option, index) => (
-            <div className="flex gap-2" key={`${index}-${optionId}`}>
+            <div className="flex gap-2 px-8" key={`${index}-${optionId}`}>
               <Option
                 text={option.label}
                 value={option.value}
