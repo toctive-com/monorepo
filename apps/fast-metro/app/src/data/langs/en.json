@@ -33,6 +33,9 @@
   },
   "settings-screen": {
     "title": "Settings",
+    "yes": "Yes",
+    "reset-confirmation-message": "Are you sure you want to reset the application?",
+    "clear-settings-confirmation-message": "Are you sure you want to clear all settings?",
     "languages": {
       "title": "Language",
       "subtitle": "Change app language",

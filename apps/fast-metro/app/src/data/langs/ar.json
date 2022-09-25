@@ -30,6 +30,9 @@
   },
   "settings-screen": {
     "title": "الإعدادات",
+    "yes": "نعم",
+    "reset-confirmation-message": "هل أنت متأكد من أنك تريد حذف كل بيانات التطبيق؟",
+    "clear-settings-confirmation-message": "هل أنت متأكد من أنك تريد حذف كل الإعدادات الموجودة؟",
     "languages": {
       "title": "اللغة",
       "subtitle": "غير لغة التطبيق",

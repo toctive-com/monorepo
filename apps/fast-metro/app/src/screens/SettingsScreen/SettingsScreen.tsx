@@ -54,14 +54,8 @@ export const SettingsScreen = () => {
           </SettingsSection>
 
           <SettingsSection title={t`settings-screen.cache.title`}>
-            <SettingCard
-              title={t`settings-screen.reset-settings.title`}
-              text={t`settings-screen.reset-settings.subtitle`}
-            />
-            <SettingCard
-              title={t`settings-screen.clear-cache.title`}
-              text={t`settings-screen.clear-cache.subtitle`}
-            />
+            <ClearSettingsCard />
+            <ClearCacheCard />
           </SettingsSection>
 
           <SettingsSection title={t`settings-screen.other.title`}>
@@ -154,4 +148,82 @@ function LanguageCard() {
 }
 function handleDarkMode(isDark: boolean) {
   localStorage.setItem('darkMode', isDark.toString());
+}
+
+/* A function that is used to remove all settings and cached data of the app. */
+function ClearCacheCard() {
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
+  const { t } = useTranslation();
+
+  return (
+    <>
+      <SettingCard
+        title={t`settings-screen.clear-cache.title`}
+        text={t`settings-screen.clear-cache.subtitle`}
+        onClick={() => {
+          setIsAlertVisible(true);
+        }}
+      />
+      {isAlertVisible && (
+        <Alert
+          onSave={() => {
+            // Clear Cache
+            for (const key in localStorage) {
+              if (Object.prototype.hasOwnProperty.call(localStorage, key)) {
+                localStorage.removeItem(key);
+              }
+            }
+
+            window.location.reload();
+            setIsAlertVisible(false);
+          }}
+          onCancel={() => setIsAlertVisible(false)}
+          saveButton={t`settings-screen.yes`}
+        >
+          <div className="my-4 text-center text-xl">
+            {t`settings-screen.reset-confirmation-message`}
+          </div>
+        </Alert>
+      )}
+    </>
+  );
+}
+
+/* A function that is used to remove all settings and cached data of the app. */
+function ClearSettingsCard() {
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
+  const { t } = useTranslation();
+
+  return (
+    <>
+      <SettingCard
+        title={t`settings-screen.reset-settings.title`}
+        text={t`settings-screen.reset-settings.subtitle`}
+        onClick={() => {
+          setIsAlertVisible(true);
+        }}
+      />
+      {isAlertVisible && (
+        <Alert
+          onSave={() => {
+            // Clear Cached Settings
+            const settingsKeys = ['darkMode', 'i18nextLng', 'dir'];
+
+            for (const key of settingsKeys) {
+              localStorage.removeItem(key);
+            }
+
+            window.location.reload();
+            setIsAlertVisible(false);
+          }}
+          onCancel={() => setIsAlertVisible(false)}
+          saveButton={t`settings-screen.yes`}
+        >
+          <div className="my-4 text-center text-xl">
+            {t`settings-screen.clear-settings-confirmation-message`}
+          </div>
+        </Alert>
+      )}
+    </>
+  );
 }

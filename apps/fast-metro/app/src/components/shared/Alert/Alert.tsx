@@ -10,10 +10,12 @@ export function Alert({
   onSave,
   onCancel,
   children,
+  saveButton = 'Done',
 }: {
   onSave: () => void;
   onCancel?: () => void;
   children?: React.ReactNode;
+  saveButton?: string;
 }) {
   return (
     <>
@@ -29,7 +31,7 @@ export function Alert({
         />
         <div className="options flex flex-col gap-3 self-start">{children}</div>
         <PrimaryButton
-          text="Done"
+          text={saveButton}
           className="w-full px-20 text-center"
           onClick={() => onSave()}
         />
