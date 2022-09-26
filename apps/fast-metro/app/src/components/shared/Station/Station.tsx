@@ -23,8 +23,6 @@ const borderColors = {
  * @returns A div with 5 dots inside of it.
  */
 const Dots = ({ checked, color = 'blue', className }: dotI) => {
-  console.log(borderColors[color]);
-
   return (
     <div className={`${className} flex flex-col gap-2`}>
       {Array.from({ length: 5 }, (v, index) => (

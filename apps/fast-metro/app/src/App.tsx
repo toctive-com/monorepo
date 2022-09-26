@@ -34,6 +34,8 @@ import {
 import { SubscriptionScreen } from './screens/SubscriptionScreen';
 import { TransitStationsScreen } from './screens/TransitStationsScreen';
 import { ViolationsAndFinsScreen } from './screens/ViolationsAndFinsScreen';
+import { TicketsPricesScreen } from './screens/SubscriptionScreen/TicketsPricesScreen';
+import { SubscriptionPricesScreen } from './screens/SubscriptionScreen/SubscriptionPricesScreen';
 
 export function App() {
   const pageRef = useRef(null);
@@ -129,7 +131,16 @@ pages. */
                 element={<SearchForServices />}
               />
             </Route>
-            <Route path="/subscription" element={<SubscriptionScreen />} />
+
+            <Route path="/subscription">
+              <Route index element={<SubscriptionScreen />} />
+              <Route path="tickets-prices" element={<TicketsPricesScreen />} />
+              <Route
+                path="subscription-prices"
+                element={<SubscriptionPricesScreen />}
+              />
+            </Route>
+
             <Route
               path="/transit-stations"
               element={<TransitStationsScreen />}

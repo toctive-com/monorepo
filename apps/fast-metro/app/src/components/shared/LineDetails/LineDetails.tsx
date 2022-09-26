@@ -142,7 +142,7 @@ export default function LineDetails({ line }: { line: lineTitles }) {
 
   return (
     <div
-      className={`my-4 flex flex-col rounded-lg border ${
+      className={`mb-4 flex flex-col rounded-lg border ${
         clicked
           ? 'border-gray-300 shadow-xl dark:border-gray-700'
           : 'border-gray-200 shadow-sm dark:border-gray-800'

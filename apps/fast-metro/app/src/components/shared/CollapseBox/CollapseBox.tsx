@@ -24,15 +24,18 @@ export default function CollapseBox({
       } ${className}`}
       onClick={() => setClicked(!clicked)}
     >
-      <div className="flex justify-between">
+      <div className="flex items-center justify-between">
         <span className="text-xl">{title}</span>
         {clicked ? (
-          <div className="rotate-270 transition-all">
+          <div className="rotate-270 flex h-fit justify-center transition-all">
             <MdKeyboardArrowDown size={28} className="text-gray-700" />
           </div>
         ) : (
-          <div className="rotate-90 transition-all">
-            <MdKeyboardArrowDown size={28} className="text-gray-700" />
+          <div className="flex h-fit rotate-90 justify-center transition-all">
+            <MdKeyboardArrowDown
+              size={28}
+              className="self-start text-gray-700"
+            />
           </div>
         )}
       </div>

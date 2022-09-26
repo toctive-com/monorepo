@@ -274,6 +274,126 @@
       "The metro is a civilized project which is yours. Preserve it."
     ]
   },
+  "subscriptions-screen": {
+    "title": "Subscription Prices",
+    "prices": "Prices",
+    "subscription-offices": "Subscription Offices"
+  },
+  "tickets-prices-screen": {
+    "title": "Tickets Prices",
+    "lower-that-4": {
+      "title": "Children (Under 4 Years)",
+      "prices": [
+        "Free"
+      ]
+    },
+    "special-needs": {
+      "title": "Special Needs",
+      "prices": [
+        "0.5 EGP (39 Stations Ticket)"
+      ]
+    },
+    "public": {
+      "title": "Public (4 Years to 60 Years)",
+      "prices": [
+        "5 EGP (9 Stations Ticket)",
+        "7 EGP (16 Stations Ticket)",
+        "10 EGP (39 Stations Ticket)"
+      ]
+    },
+    "students": {
+      "title": "Students (11 Years to 18 Years)",
+      "prices": [
+        "5 EGP (9 Stations Ticket)",
+        "7 EGP (16 Stations Ticket)",
+        "10 EGP (39 Stations Ticket)"
+      ]
+    },
+    "elderly-from-60": {
+      "title": "Elderly (60 Years to 65 Years)",
+      "prices": [
+        "2.5 EGP (9 Stations Ticket)",
+        "3.5 EGP (16 Stations Ticket)",
+        "5 EGP (39 Stations Ticket)"
+      ]
+    },
+    "elderly-older-than-70": {
+      "title": "Elderly (Older than 70 Years)",
+      "prices": [
+        "2.5 EGP (9 Stations Ticket)",
+        "3.5 EGP (16 Stations Ticket)",
+        "5 EGP (39 Stations Ticket)"
+      ]
+    }
+  },
+  "subscription-prices-screen": {
+    "title": "Subscription Prices",
+    "special-needs": {
+      "title": "Special Needs",
+      "prices": [
+        {
+          "subscription-type": "3 Months Subscription",
+          "price": "22 EGP (valid for 180 trips)"
+        }
+      ]
+    },
+    "public": {
+      "title": "Public (4 Years to 60 Years)",
+      "prices": [
+        {
+          "subscription-type": "1 Month Subscription",
+          "price": "185 EGP (valid for 60 trips)"
+        },
+        {
+          "subscription-type": "3 Months Subscription",
+          "price": "500 EGP (valid for 180 trips)"
+        },
+        {
+          "subscription-type": "Annual Subscription (2 Lines)",
+          "price": "3500 EGP (valid for 730 trips)"
+        },
+        {
+          "subscription-type": "Annual Subscription (3 Lines)",
+          "price": "4400 EGP (valid for 730 trips)"
+        }
+      ]
+    },
+    "students": {
+      "title": "Students (11 Years to 18 Years)",
+      "prices": [
+        {
+          "subscription-type": "3 Months Subscription",
+          "price": "33 EGP (valid for 180 trips)"
+        },
+        {
+          "subscription-type": "Annual Subscription (2 Lines)",
+          "price": "3500 EGP (valid for 730 trips)"
+        }
+      ]
+    },
+    "elderly-from-60": {
+      "title": "Elderly (60 Years to 65 Years)",
+      "prices": [
+        {
+          "subscription-type": "1 Month Subscription",
+          "price": "150 EGP (valid for 60 trips)"
+        },
+        {
+          "subscription-type": "3 Months Subscription",
+          "price": "450 EGP (valid for 180 trips)"
+        }
+      ]
+    },
+    "elderly-older-than-70": {
+      "title": "Elderly (Older than 70 Years)",
+      "prices": [
+        {
+          "subscription-type": "3 Months Subscription",
+          "price": "Free (valid for 180 trips)"
+        }
+      ]
+    }
+  },
   "stations": {
     "ain shams": "Ain Shams",
     "helwan": "Helwan",
