@@ -5,7 +5,7 @@ export function LinesColors({ className }: { className?: string }) {
 
   return (
     <div
-      className={`nav-shadow absolute bottom-0 left-0 right-0 flex justify-around rounded-lg border-t border-gray-200 bg-white p-4 ${className}`}
+      className={`nav-shadow absolute bottom-0 left-0 right-0 flex justify-around rounded-t-lg border-t border-gray-200 bg-white p-4 dark:border-gray-900 dark:bg-gray-800 ${className}`}
     >
       <LineColor color="blue" text={t('lines-colors.line-1')} />
       <LineColor color="red" text={t('lines-colors.line-2')} />
