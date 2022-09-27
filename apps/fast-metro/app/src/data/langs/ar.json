@@ -94,7 +94,8 @@
     "title": "أبدأ الرحلة",
     "stations-number": "عدد المحطات {{number}}",
     "ticket-price": "سعر التذكرة : {{number}} جنية",
-    "elderly": "كبار السن : {{number}} جنية"
+    "elderly": "كبار السن : {{number}} جنية",
+    "egp": "جنية"
   },
   "stations-selector": {
     "from": "من",
@@ -188,7 +189,8 @@
     "title": "أبحث بواسطة المحطة"
   },
   "see-all-stations-screen": {
-    "title": "محطات الرحلة"
+    "title": "محطات الرحلة",
+    "change-to-line": "بدل إلى الخط"
   },
   "transit-stations-screen": {
     "title": " المحطات التبادلية",
@@ -281,17 +283,214 @@
       "لمترو مشروع حضارى ملك لك فحافظ عليه"
     ]
   },
+  "subscriptions-screen": {
+    "title": "معلومات الإشتراك",
+    "prices": "الأسعار",
+    "subscription-offices": "مكاتب الإشتراكات",
+    "quarterly-subscription-offices": "مكاتب الإشتراكات الربع سنوية",
+    "annual-subscription-offices": "مكاتب الإشتراكات السنوية"
+  },
+  "tickets-prices-screen": {
+    "title": "أسعار التذاكر",
+    "lower-that-4": {
+      "title": "الأطفال (أقل من 4 سنوات)",
+      "prices": [
+        "مجانًا"
+      ]
+    },
+    "special-needs": {
+      "title": "ذوي الإحتياجات الخاصة",
+      "prices": [
+        "0.5 جنية (تذكرة لـ 39 محطة)"
+      ]
+    },
+    "public": {
+      "title": "العامة (4 سنوات إلى 60 سنة)",
+      "prices": [
+        "5 جنية (تذكرة لـ 9 محطات)",
+        "7 جنية (تذكرة لـ 16 محطة)",
+        "10 جنية (تذكرة لـ 39 محطة)"
+      ]
+    },
+    "students": {
+      "title": "الطلاب (11 سنة إلى 18 سنة)",
+      "prices": [
+        "5 جنية (تذكرة لـ 9 محطات)",
+        "7 جنية (تذكرة لـ 16 محطة)",
+        "10 جنية (تذكرة لـ 39 محطة)"
+      ]
+    },
+    "elderly-from-60": {
+      "title": "كبار السن (60 سنة إلى 65 سنة)",
+      "prices": [
+        "2.5 جنية (تذكرة لـ 9 محطات)",
+        "3.5 جنية (تذكرة لـ 16 محطة)",
+        "5 جنية (تذكرة لـ 39 محطة)"
+      ]
+    },
+    "elderly-older-than-70": {
+      "title": "كبار السن (أكبر من 70 سنة)",
+      "prices": [
+        "2.5 جنية (تذكرة لـ 9 محطات)",
+        "3.5 جنية (تذكرة لـ 16 محطة)",
+        "5 جنية (تذكرة لـ 39 محطة)"
+      ]
+    }
+  },
+  "subscription-prices-screen": {
+    "title": "أسعار الإشتراكات",
+    "special-needs": {
+      "title": "ذوي الإحتياجات الخاصة",
+      "prices": [
+        {
+          "subscription-type": "إشتراك لـ 3 شهور",
+          "price": "22 جنية (صالحة لـ 180 رحلة)"
+        }
+      ]
+    },
+    "public": {
+      "title": "العامة (4 سنة إلى 60 سنوات)",
+      "prices": [
+        {
+          "subscription-type": "إشتراك شهر واحد",
+          "price": "185 جنية (صالحة لـ 60 رحلة)"
+        },
+        {
+          "subscription-type": "إشتراك لـ 3 شهور",
+          "price": "500 جنية (صالحة لـ 180 رحلة)"
+        },
+        {
+          "subscription-type": "إشتراك سنوي (خطين فقط)",
+          "price": "3500 جنية (صالحة لـ 730 رحلة)"
+        },
+        {
+          "subscription-type": "إشتراك سنوي (3 خطوط)",
+          "price": "4400 جنية (صالحة لـ 730 رحلة)"
+        }
+      ]
+    },
+    "students": {
+      "title": "الطلاب (11 سنة إلى 18 سنة)",
+      "prices": [
+        {
+          "subscription-type": "إشتراك لـ 3 شهور",
+          "price": "33 جنية (صالحة لـ 180 رحلة)"
+        },
+        {
+          "subscription-type": "إشتراك سنوي (خطين فقط)",
+          "price": "3500 جنية (صالحة لـ 730 رحلة)"
+        }
+      ]
+    },
+    "elderly-from-60": {
+      "title": "كبار السن (60 سنة إلى 65 سنة)",
+      "prices": [
+        {
+          "subscription-type": "إشتراك شهر واحد",
+          "price": "150 جنية (صالحة لـ 60 رحلة)"
+        },
+        {
+          "subscription-type": "إشتراك لـ 3 شهور",
+          "price": "450 جنية (صالحة لـ 180 رحلة)"
+        }
+      ]
+    },
+    "elderly-older-than-70": {
+      "title": "كبار السن (أكبر من 70 سنة)",
+      "prices": [
+        {
+          "subscription-type": "إشتراك لـ 3 شهور",
+          "price": "مجانًا (صالحة لـ 180 رحلة)"
+        }
+      ]
+    }
+  },
   "stations": {
-    "ain shams": "عين شمس",
     "helwan": "حلوان",
-    "el-marg": "المرج",
+    "ain-helwan": "عين حلوان",
+    "helwan-university": "جامعة حلوان",
+    "wadi-hof": "وادي حوف",
+    "hadayek-helwan": "حدائق حلوان",
+    "el-maasara": "المعصرة",
+    "tora-el-asmant": "طره الاسمنت",
+    "kozzika": "كوزيكا",
+    "tora-el-balad": "طره البلد",
+    "sakanat-el-maadi": "سكنات المعادى",
+    "maadi": "المعادى",
+    "hadayek-el-maadi": "حدائق المعادى",
+    "dar-el-salam": "دار السلام",
+    "el-zahraa": "الزهراء",
+    "mar-girgis": "مار جرجس",
+    "el-malek-el-saleh": "الملك الصالح",
+    "al-sayeda-zeinab": "السيدة زينب",
+    "saad-zaghloul": "سعد زغلول",
     "sadat": "السادات",
-    "nasser": "جمال عبد الناصر",
+    "nasser": "ناصر",
+    "orabi": "عرابي",
     "al-shohadaa": "الشهداء",
-    "attaba": "العتبة",
-    "shubra-el-kheima": "شبرا الخيمة",
+    "ghamra": "غمرة",
+    "el-demerdash": "الدمرداش",
+    "manshiet-el-sadr": "منشية الصدر",
+    "kobri-el-qobba": "كوبري القبة",
+    "hammamat-el-qobba": "حمامات القبة",
+    "saray-el-qobba": "سراى القبة",
+    "hadayeq-el-zaitoun": "حدائق الزيتون",
+    "helmeyet-el-zaitoun": "حلمية الزيتون",
+    "el-matareyya": "المطرية",
+    "ain-shams": "عين شمس",
+    "ezbet-el-nakhl": "عزبة النخل",
+    "el-marg": "المرج",
+    "new-el-marg": "نيو المرج",
     "el-mounib": "المنيب",
-    "adly_mansour": "عدلي منصور",
+    "sakiat-mekky": "ساقية مكي",
+    "omm-el-masryeen": "ام المصريين",
+    "el-giza": "الجيزة",
+    "faisal": "فيصل",
+    "el-bohoth": "البحوث",
+    "dokki": "الدقي",
+    "opera": "أوبرا",
+    "mohamed-naguib": "محمد نجيب",
+    "masarra": "مسرة",
+    "road-el-farag": "روض الفرج",
+    "st-teresa": "القديسة تريزا",
+    "khalafawy": "الخلفاوي",
+    "mezallat": "مزلات",
+    "kolleyyet-el-zeraa": "كلية الزراعة",
+    "shubra-el-kheima": "شبرا الخيمة",
+    "airport": "مطار",
+    "ahmed-galal": "احمد جلال",
+    "adly-mansour": "عدلي منصور",
+    "el-haykestep": "الهايكستب",
+    "omar-ibn-el-khattab": "عمر بن الخطاب",
+    "qobaa": "قباء",
+    "hesham-barakat": "هشام بركات",
+    "el-nozha": "النزهة",
+    "nadi-el-shams": "نادي الشمس",
+    "alf-maskan": "ألف مسكن",
+    "heliopolis": "مصر الجديدة",
+    "haroun": "هارون",
+    "al-ahram": "الاهرام",
+    "koleyet-el-banat": "كلية البنات",
+    "stadium": "ملعب",
+    "fair-zone": "منطقة عادلة",
+    "abbassia": "عباسية",
+    "abdou-pasha": "عبده باشا",
+    "el-geish": "الجيش",
+    "bab-el-shaaria": "باب الشعرية",
+    "attaba": "العتبة",
+    "maspero": "ماسبيرو",
+    "zamalek": "الزمالك",
+    "kit-kat": "كت كات",
+    "sudan-street": "شارع السودان",
+    "imbaba": "إمبابة",
+    "el-bohy": "البوحي",
+    "el-kawmeya-al-arabiya": "القومية العربية",
+    "ring-road": "الطريق الدائري",
+    "rod-el-farag-axis": "محور روض الفرج",
+    "el-tawfikeya": "التوفيقية",
+    "wadi-el-nil": "وادي النيل",
+    "gamaat-el-dowal-al-arabiya": "جامعة الدول العربية",
+    "bulaq-el-dakroor": "بولاق الدكرور",
     "cairo-university": "جامعة القاهرة"
   }
 }

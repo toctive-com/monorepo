@@ -1,9 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { formatTime } from '../../../utils/formatTime';
 import PrimaryButton from '../../shared/PrimaryButton/PrimaryButton';
-import Ticket from '../../shared/Ticket/Ticket';
-import { TicketColor } from '../../shared/Ticket/Ticket';
+import Ticket, { TicketColor } from '../../shared/Ticket/Ticket';
 
 interface TripDetailsI {
   tripStations: any[];
@@ -60,13 +58,15 @@ export function TripDetails({ tripStations, className }: TripDetailsI) {
         <span className="ticket-price text-xl text-gray-500 dark:text-gray-50">
           {t('trip-details.ticket-price')}:{' '}
           <span className="text-xl font-bold text-red-400 dark:text-red-500">
-            {ticketDetails(tripStations.length).price} L.E
+            {ticketDetails(tripStations.length).price}{' '}
+            {t`start-trip-screen.egp`}
           </span>
         </span>
         <span className="text-base text-gray-500 dark:text-gray-50">
           {t('trip-details.for-elderly')}:{' '}
           <span className="text-xl font-bold text-red-400 dark:text-red-500">
-            {ticketDetails(tripStations.length).priceForElderly} L.E{' '}
+            {ticketDetails(tripStations.length).priceForElderly}{' '}
+            {t`start-trip-screen.egp`}
           </span>
         </span>
       </div>

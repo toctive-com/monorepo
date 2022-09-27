@@ -73,7 +73,8 @@ export const SeeAllStations = () => {
               />
               {station.isTransitStation && station !== tripStations.at(-1) && (
                 <TransitAlert>
-                  Change to the other line {station.lines[0].lineNumber}
+                  {t('see-all-stations-screen.change-to-line')}{' '}
+                  {station.lines[0].lineNumber}
                 </TransitAlert>
               )}
             </>

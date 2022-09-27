@@ -53,6 +53,8 @@ export const StartTripScreen = () => {
     if (defaultFromStation.value && defaultToStation.value) {
       startTrip(defaultFromStation, defaultToStation);
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

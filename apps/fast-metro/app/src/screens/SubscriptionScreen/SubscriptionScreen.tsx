@@ -8,6 +8,49 @@ import PageHeader from '../../components/shared/PageHeader/PageHeader';
 
 export const SubscriptionScreen = () => {
   const { t } = useTranslation();
+
+  const quarterlySubscriptionOffices = {
+    lineOne: [
+      'helwan',
+      'ain-helwan',
+      'helwan-university',
+      'maadi',
+      'dar-el-salam',
+      'el-zahraa',
+      'al-shohadaa',
+      'hadayeq-el-zaitoun',
+      'ain-shams',
+      'ezbet-el-nakhl',
+      'el-marg',
+      'new-el-marg',
+    ],
+    lineTwo: [
+      'kolleyyet-el-zeraa',
+      'mezallat',
+      'road-el-farag',
+      'masarra',
+      'al-shohadaa',
+      'attaba',
+      'dokki',
+      'cairo-university',
+      'el-giza',
+      'el-mounib',
+    ],
+    lineThree: ['attaba', 'abbassia', 'heliopolis', 'adly-mansour'],
+  };
+
+  const annualSubscriptionOffices = {
+    lineOne: ['helwan', 'maadi', 'ain-shams'],
+    lineTwo: [
+      'kolleyyet-el-zeraa',
+      'road-el-farag',
+      'al-shohadaa',
+      'attaba',
+      'cairo-university',
+    ],
+    lineThree: ['heliopolis', 'adly-mansour'],
+  };
+
   return (
     <Page>
       <div className="flex flex-col gap-8">
@@ -18,64 +61,48 @@ export const SubscriptionScreen = () => {
         </h2>
 
         <CollapseBox
-          title="Offices of Quarterly Subscriptions"
+          title={t`subscriptions-screen.quarterly-subscription-offices`}
           isExpanded={false}
         >
           <h3 className="mt-8 text-lg font-semibold">Line 1</h3>
           <ul className="list-disc px-8 text-gray-500">
-            <li>Helwan</li>
-            <li>Ain Helwan</li>
-            <li>Helwan uni.</li>
-            <li>Maadi</li>
-            <li>Dar el-Salaam</li>
-            <li>El-Zahra</li>
-            <li>Al-Shohadaa</li>
-            <li>Hadayeq El-Zaitoun</li>
-            <li>Ain Shams</li>
-            <li>Ezbet El Nakhl</li>
-            <li>El-Marg</li>
-            <li>new El-Marg</li>
+            {quarterlySubscriptionOffices.lineOne.map((office) => (
+              <li key={office}>{t(`stations.${office}`)}</li>
+            ))}
           </ul>
           <h3 className="mt-8 text-lg font-semibold">Line 2</h3>
           <ul className="list-disc px-8 text-gray-500">
-            <li>Kolleyyet El-Zeraa</li>
-            <li>Mezallat</li>
-            <li>Rod El-Farag</li>
-            <li>Masarra</li>
-            <li>Al-Shohadaa</li>
-            <li>Attaba</li>
-            <li>Dokki</li>
-            <li>University of Cairo</li>
-            <li>Giza</li>
-            <li>El-Mounib</li>
+            {quarterlySubscriptionOffices.lineTwo.map((office) => (
+              <li key={office}>{t(`stations.${office}`)}</li>
+            ))}
           </ul>
           <h3 className="mt-8 text-lg font-semibold">Line 3</h3>
           <ul className="list-disc px-8 text-gray-500">
-            <li>Attaba</li>
-            <li>El Abassiya</li>
-            <li>Heliopolis</li>
-            <li>Adly Mansour</li>
+            {quarterlySubscriptionOffices.lineThree.map((office) => (
+              <li key={office}>{t(`stations.${office}`)}</li>
+            ))}
           </ul>
         </CollapseBox>
-        <CollapseBox title="Offices of Annual Subscription">
+        <CollapseBox
+          title={t`subscriptions-screen.annual-subscription-offices`}
+        >
           <h3 className="mt-8 text-lg font-semibold">Line 1</h3>
           <ul className="list-disc px-8 text-gray-500">
-            <li>Helwan</li>
-            <li>Maadi</li>
-            <li>Ain Shams</li>
+            {annualSubscriptionOffices.lineOne.map((office) => (
+              <li key={office}>{t(`stations.${office}`)}</li>
+            ))}
           </ul>
           <h3 className="mt-8 text-lg font-semibold">Line 2</h3>
           <ul className="list-disc px-8 text-gray-500">
-            <li>Kolleyyet El-Zeraa</li>
-            <li>Rod El-Farag</li>
-            <li>Al-Shohadaa</li>
-            <li>Attaba</li>
-            <li>University of Cairo</li>
+            {annualSubscriptionOffices.lineTwo.map((office) => (
+              <li key={office}>{t(`stations.${office}`)}</li>
+            ))}
           </ul>
           <h3 className="mt-8 text-lg font-semibold">Line 3</h3>
           <ul className="list-disc px-8 text-gray-500">
-            <li>Heliopolis</li>
-            <li>Adly Mansour</li>
+            {annualSubscriptionOffices.lineThree.map((office) => (
+              <li key={office}>{t(`stations.${office}`)}</li>
+            ))}
           </ul>
         </CollapseBox>
 

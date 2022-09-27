@@ -32,7 +32,7 @@ export default function LineDetails({ line }: { line: lineTitles }) {
     'line 3': {
       title: t(`metro-schedules-screen.line-3`),
       totalTime: '37',
-      lines: `${t('stations.adly_mansour')} - ${t('stations.attaba')}`,
+      lines: `${t('stations.adly-mansour')} - ${t('stations.attaba')}`,
       startsFrom: '05:00 AM',
       endsAt: '00:00 AM',
       timeBetweenStations: { peakTime: 300, nonPeakTime: 420 },
