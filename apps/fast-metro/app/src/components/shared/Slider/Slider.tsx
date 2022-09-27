@@ -11,7 +11,11 @@ import { Pagination } from 'swiper';
 import PrimaryButton from '../PrimaryButton/PrimaryButton';
 
 export default function Slider() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language.split('-')[0];
+  const isDarkMode = document.body.classList.contains('dark')
+    ? 'dark'
+    : 'light';
 
   return (
     <>
@@ -28,8 +32,11 @@ export default function Slider() {
               text={t(`get-started-screen.slide-${index + 1}`)}
               image={
                 <img
+                  className="mx-auto !h-[400px] object-contain"
                   alt={t(`get-started-screen.slide-${index + 1}`)}
-                  src={`./assets/images/${index + 1}.jpg`}
+                  src={`./assets/images/get-started/${
+                    index + 1
+                  }-${currentLanguage}-${isDarkMode}.png`}
                 />
               }
             />
@@ -62,7 +69,7 @@ interface Slide {
  */
 function Slide({ text, image, children }: Slide) {
   return (
-    <div className="mt-20 flex flex-col items-center gap-10">
+    <div className="flex h-full flex-col items-center gap-10">
       <div className="w-full">{image}</div>
       <span className="text-center text-xl">{text}</span>
       {children && children}
