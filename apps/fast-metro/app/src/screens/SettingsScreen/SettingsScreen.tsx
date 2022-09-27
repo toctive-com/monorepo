@@ -1,22 +1,22 @@
 import i18next from 'i18next';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Page from '../../components/layout/Page/Page';
 import SettingsSection from '../../components/layout/SettingsSection/SettingsSection';
 
+import { Share } from '@capacitor/share';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import { DirectionType, setDirection } from '../../assets/js/appDirection';
+import { Alert } from '../../components/shared/Alert/Alert';
+import { Option } from '../../components/shared/Alert/Option';
 import PageHeader from '../../components/shared/PageHeader/PageHeader';
 import { SettingCard } from '../../components/shared/SettingCard/SettingCard';
 import Switch from '../../components/shared/Switch/Switch';
-import { Alert } from '../../components/shared/Alert/Alert';
-import { Option } from '../../components/shared/Alert/Option';
-import { useTranslation } from 'react-i18next';
-import { setDirection, DirectionType } from '../../assets/js/appDirection';
-import { useNavigate } from 'react-router-dom';
-import { Share } from '@capacitor/share';
 
 export const SettingsScreen = () => {
   const darkMode = localStorage.getItem('darkMode') === 'true' ? true : false;
-  const [isDark, setIsDark] = useState<boolean>(darkMode);
+  const [isDark] = useState<boolean>(darkMode);
 
   const saveDarkModeInLocalStorage = (isDark: boolean) => {
     localStorage.setItem('darkMode', isDark.toString());

@@ -38,9 +38,18 @@ i18n.use(initReactI18next).use(LanguageDetector).init({
 /* Setting the direction of the app to be either `rtl` or `ltr` based on the language. */
 setDirection(getDirection() as DirectionType);
 
-localStorage.getItem('darkMode') === 'true'
-  ? document.body.classList.add('dark')
-  : document.body.classList.remove('dark');
+// Change the dark mode if the user has set it in the browser (or his system)
+if (localStorage.getItem('darkMode') === null) {
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+  prefersDark.matches
+    ? document.body.classList.add('dark')
+    : document.body.classList.remove('dark');
+  localStorage.setItem('darkMode', prefersDark.matches.toString());
+} else {
+  localStorage.getItem('darkMode') === 'true'
+    ? document.body.classList.add('dark')
+    : document.body.classList.remove('dark');
+}
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
