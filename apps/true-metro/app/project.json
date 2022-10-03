@@ -1,25 +1,29 @@
 {
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/fast-metro/app/src",
+  "sourceRoot": "apps/true-metro/app/src",
   "projectType": "application",
   "targets": {
     "build": {
       "executor": "@nrwl/web:webpack",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/apps/fast-metro/app",
-        "index": "apps/fast-metro/app/src/index.html",
+        "outputPath": "dist/apps/true-metro/app",
+        "index": "apps/true-metro/app/src/index.html",
         "baseHref": "/",
-        "main": "apps/fast-metro/app/src/main.tsx",
-        "polyfills": "apps/fast-metro/app/src/polyfills.ts",
-        "tsConfig": "apps/fast-metro/app/tsconfig.app.json",
+        "main": "apps/true-metro/app/src/main.tsx",
+        "polyfills": "apps/true-metro/app/src/polyfills.ts",
+        "tsConfig": "apps/true-metro/app/tsconfig.app.json",
         "assets": [
-          "apps/fast-metro/app/src/favicon.ico",
-          "apps/fast-metro/app/src/assets"
+          "apps/true-metro/app/src/favicon.ico",
+          "apps/true-metro/app/src/assets"
         ],
-        "styles": ["apps/fast-metro/app/src/styles.css"],
+        "styles": [
+          "apps/true-metro/app/src/styles.css"
+        ],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"
       },
@@ -33,8 +37,8 @@
         "production": {
           "fileReplacements": [
             {
-              "replace": "apps/fast-metro/app/src/environments/environment.ts",
-              "with": "apps/fast-metro/app/src/environments/environment.prod.ts"
+              "replace": "apps/true-metro/app/src/environments/environment.ts",
+              "with": "apps/true-metro/app/src/environments/environment.prod.ts"
             }
           ],
           "optimization": true,
@@ -50,32 +54,38 @@
       "executor": "@nrwl/web:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "fast-metro-app:build",
+        "buildTarget": "true-metro-app:build",
         "hmr": true,
-        "proxyConfig": "apps/fast-metro/app/proxy.conf.json"
+        "proxyConfig": "apps/true-metro/app/proxy.conf.json"
       },
       "configurations": {
         "development": {
-          "buildTarget": "fast-metro-app:build:development"
+          "buildTarget": "true-metro-app:build:development"
         },
         "production": {
-          "buildTarget": "fast-metro-app:build:production",
+          "buildTarget": "true-metro-app:build:production",
           "hmr": false
         }
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/fast-metro/app/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "apps/true-metro/app/**/*.{ts,tsx,js,jsx}"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/fast-metro/app"],
+      "outputs": [
+        "coverage/apps/true-metro/app"
+      ],
       "options": {
-        "jestConfig": "apps/fast-metro/app/jest.config.ts",
+        "jestConfig": "apps/true-metro/app/jest.config.ts",
         "passWithNoTests": true
       }
     }

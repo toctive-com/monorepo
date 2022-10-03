@@ -1,9 +1,9 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.toctive.fastmetro',
+  appId: 'com.toctive.truemetro',
   appName: 'Fast Metro',
-  webDir: './dist/apps/fast-metro/app',
+  webDir: './dist/apps/true-metro/app',
   bundledWebRuntime: false,
 };
 

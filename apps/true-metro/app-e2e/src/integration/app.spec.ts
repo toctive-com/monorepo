@@ -1,6 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
-describe('fast-metro-app', () => {
+describe('true-metro-app', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {
@@ -8,6 +8,6 @@ describe('fast-metro-app', () => {
     cy.login('my-email@something.com', 'myPassword');
 
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome fast-metro-app');
+    getGreeting().contains('Welcome true-metro-app');
   });
 });
