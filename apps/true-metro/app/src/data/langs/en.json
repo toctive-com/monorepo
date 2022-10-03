@@ -485,5 +485,10 @@
     "gamaat-el-dowal-al-arabiya": "Gamaat El Dowal Al Arabiya",
     "bulaq-el-dakroor": "Bulaq El Dakroor",
     "cairo-university": "Cairo University"
+  },
+  "update-alert":{
+    "message": "There is a new version has updated data, Do you want download it",
+    "btn":"Update"
   }
+
 }
