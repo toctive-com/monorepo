@@ -142,9 +142,9 @@
     }
   },
   "get-started-screen": {
-    "slide-1": "this is a test slide component test slide component test slide component test slide component test slide component",
-    "slide-2": "this is a test slide component test slide component test slide component test slide component test slide component",
-    "slide-3": "this is a test slide component test slide component test slide component test slide component test slide component",
+    "slide-1": "Tools that help in your trip, such as knowing the nearest transit station, subscription offices, and many more features",
+    "slide-2": "Select your trip destination to know the number of stations and ticket price",
+    "slide-3": "Know your itinerary and transit stations on your trip",
     "finish-button": "Get Started"
   },
   "closest-transit-screen": {
