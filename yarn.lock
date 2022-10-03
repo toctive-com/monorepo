@@ -1840,6 +1840,13 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@capacitor-community/admob@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@capacitor-community/admob/-/admob-4.0.0.tgz#cc5cb0464e196d4e92ae68eceb74a91d6dddb8ff"
+  integrity sha512-XwEX9HGXxawuGevR2Crob37gbFjheCH7jN96ovY7jp/DhfMBGK6aBt5Dn5ZJchdlVdSLSeH6m0vA6Wz6nKb2ww==
+  dependencies:
+    "@capacitor/core" "^4.0.0"
+
 "@capacitor/android@3.5.0":
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/@capacitor/android/-/android-3.5.0.tgz#fc80297512cd66690a000edf22e8cd9177f05459"
@@ -1881,6 +1888,13 @@
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/@capacitor/core/-/core-3.5.0.tgz#1b508e42b263816603e986557d6b9c5d64876164"
   integrity sha512-+CFSG+CztpFIir9gGqNEtAYuf6OWryQ8dojXoeozAkoz3mKvyFfcEfvLVPo/pw/B4zHIlNnJLHne6vbjAFbDKQ==
+  dependencies:
+    tslib "^2.1.0"
+
+"@capacitor/core@^4.0.0":
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/@capacitor/core/-/core-4.3.0.tgz#3f769b5b3791ce51903b0965f9af587d8db7977e"
+  integrity sha512-zb225feaiHYcttHqw7SnKVj9gjOh3yoM2ol0Efky4kd80qZvqPHt7nRI1XZmGUKid5j3AVggULd5rRke5OEOXQ==
   dependencies:
     tslib "^2.1.0"
 
