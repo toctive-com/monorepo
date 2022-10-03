@@ -4,6 +4,13 @@ import { initReactI18next } from 'react-i18next';
 import { BrowserRouter } from 'react-router-dom';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
+// AdMob Ads >> banner
+import initializeAdmob from './admob/init';
+import { banner } from './admob/banner';
+initializeAdmob().then(() => {
+  banner();
+});
+
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 

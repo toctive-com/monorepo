@@ -2,6 +2,7 @@ import { gsap } from 'gsap';
 import { home, map, settings } from 'ionicons/icons';
 import { useLayoutEffect, useRef, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
+import { AdMob } from '@capacitor-community/admob';
 
 import { SideMenuContext } from './hooks/SideMenuContext';
 
