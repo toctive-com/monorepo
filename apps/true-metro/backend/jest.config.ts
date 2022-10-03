@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'fast-metro-backend',
+  displayName: 'true-metro-backend',
   preset: '../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -12,5 +12,5 @@ export default {
     '^.+\\.[tj]s$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../../coverage/apps/fast-metro/backend',
+  coverageDirectory: '../../../coverage/apps/true-metro/backend',
 };
