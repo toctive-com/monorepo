@@ -29,7 +29,7 @@ export function Alert({
           size={32}
           onClick={() => onCancel && onCancel()}
         />
-        <div className="options flex flex-col gap-3 self-start">{children}</div>
+        <div className="options flex flex-col gap-3 self-start whitespace-normal">{children}</div>
         <PrimaryButton
           text={saveButton}
           className="w-full px-20 text-center"
