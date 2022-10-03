@@ -13,7 +13,7 @@ export function TransitAlert({
 }: TransitAlertComponentI) {
   return (
     <div
-      className={`mb-4 flex flex-col rounded-md bg-red-500 px-4 py-4 shadow-xl shadow-red-300 ${className}`}
+      className={`mb-4 flex flex-col rounded-md bg-red-500 dark:shadow-red-900 px-4 py-4 shadow-md shadow-red-300 ${className}`}
     >
       <span className="text-xl  text-white">
         {/* Change line to: */}

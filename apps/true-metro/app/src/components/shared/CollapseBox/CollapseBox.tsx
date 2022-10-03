@@ -19,7 +19,7 @@ export default function CollapseBox({
 
   return (
     <div
-      className={`flex cursor-pointer select-none flex-col rounded-md bg-white p-6 dark:bg-gray-900 ${
+      className={`flex cursor-pointer select-none flex-col rounded-md bg-white p-6 dark:bg-gray-900 dark:shadow-[rgb(0,0,0,0.4)]  ${
         clicked ? 'shadow-lg' : 'shadow-md'
       } ${className}`}
       onClick={() => setClicked(!clicked)}
