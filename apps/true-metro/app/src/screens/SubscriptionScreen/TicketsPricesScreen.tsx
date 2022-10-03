@@ -96,7 +96,9 @@ export const TicketsPricesScreen = () => {
           <div className="mt-8">
             {selectedOption &&
               prices[selectedOption]?.map((price: string, index: number) => (
-                <TextBox key={'price-' + index}>{price}</TextBox>
+                <TextBox className="my-4" key={'price-' + index}>
+                  {price}
+                </TextBox>
               ))}
           </div>
         </div>
