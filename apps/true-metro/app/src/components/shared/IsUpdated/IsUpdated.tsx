@@ -4,13 +4,15 @@ import Alert from '../Alert/Alert';
 import axios from 'axios';
 import { Browser } from '@capacitor/browser';
 import { useTranslation } from 'react-i18next';
+import {environment} from '../../../environments/environment.prod'
 
 export default function IsUpdated(props: any) {
-  const [Clicked, setClicked] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+  const [isLastVersion, setIsLastVersion] = useState(true);
   const { t } = useTranslation();
 
   function showPopup() {
-    setClicked(!Clicked);
+    setIsClicked(!isClicked);
   }
 
   const openAppPageOnGooglePlay = async () => {
@@ -21,20 +23,24 @@ export default function IsUpdated(props: any) {
 
   const getLatestVersion = async () => {
     const res = await axios.get('/api/v1/latest-version');
-    console.log(res.data)
+    if(res.data.version !== environment.version) {
+      setIsLastVersion(false);
+    }
+    return res.data.version;
   }
+  
   useEffect(() => {
-    getLatestVersion();
+    getLatestVersion().catch(console.error);
   }, [])
   
 
   return (
     <div onClick={showPopup}>
-      <button onClick={showPopup}>
+      {!isLastVersion && <button onClick={showPopup}>
         <GoAlert className="text-2xl" />
-      </button>
+      </button>}
 
-      {Clicked && (
+      {isClicked && (
         <Alert
           onSave={openAppPageOnGooglePlay}
           saveButton={t`update-alert.btn`}

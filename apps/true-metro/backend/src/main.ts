@@ -4,11 +4,11 @@
  */
 
 import * as express from 'express';
-import feedbackRoutes from './app/routes/feedback';
-import servicesRoutes from './app/routes/services';
-import mongoose from 'mongoose';
+// import feedbackRoutes from './app/routes/feedback';
+// import servicesRoutes from './app/routes/services';
+// import mongoose from 'mongoose';
 
-mongoose.connect(process.env.MONGODB_URL);
+// mongoose.connect(process.env.MONGODB_URL);
 
 const app = express.default();
 app.use(express.json());
@@ -17,8 +17,8 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to backend!' });
 });
-app.use('/api/v1/services', servicesRoutes);
-app.use('/api/v1/feedback', feedbackRoutes);
+// app.use('/api/v1/services', servicesRoutes);
+// app.use('/api/v1/feedback', feedbackRoutes);
 
 // It is used by the app to check if the app needs to be updated
 // When the user opens the app, the app will check if the version

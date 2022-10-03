@@ -55,7 +55,7 @@ export const TransitStationsScreen = () => {
 function Header({ title, text }: { title: string; text: string }) {
   return (
     <div
-      className={`flex w-full flex-col justify-center rounded p-4 shadow-md`}
+      className={`flex w-full flex-col justify-center rounded p-4 shadow-md dark:shadow-[rgb(0,0,0,0.4)]`}
     >
       <div className="flex items-center justify-between">
         <span className="text-xl">{title}</span>

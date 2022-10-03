@@ -64,7 +64,7 @@ export const SettingsScreen = () => {
               text={t`settings-screen.share.subtitle`}
               onClick={() => {
                 Share.share({
-                  title: 'Fast Metro App',
+                  title: 'True Metro App',
                   text: 'Really awesome thing you need to see right now',
                   url: 'http://toctive.com/',
                   dialogTitle: 'Share with buddies',

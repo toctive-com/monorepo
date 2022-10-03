@@ -153,7 +153,7 @@
   },
   "contact-us-screen": {
     "title": "Contact us",
-    "app-name": "Fast Metro App",
+    "app-name": "True Metro App",
     "contact-form": {
       "name": "Your Name",
       "email": "example@mail.com",
@@ -162,7 +162,7 @@
   },
   "about-us-screen": {
     "title": "About us",
-    "app-name": "Fast Metro App",
+    "app-name": "True Metro App",
     "version": "Version"
   },
   "contact-metro-screen": {
