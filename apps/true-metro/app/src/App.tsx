@@ -2,7 +2,6 @@ import { gsap } from 'gsap';
 import { home, map, settings } from 'ionicons/icons';
 import { useLayoutEffect, useRef, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import { AdMob } from '@capacitor-community/admob';
 
 import { SideMenuContext } from './hooks/SideMenuContext';
 
@@ -37,6 +36,7 @@ import { TransitStationsScreen } from './screens/TransitStationsScreen';
 import { ViolationsAndFinsScreen } from './screens/ViolationsAndFinsScreen';
 import { TicketsPricesScreen } from './screens/SubscriptionScreen/TicketsPricesScreen';
 import { SubscriptionPricesScreen } from './screens/SubscriptionScreen/SubscriptionPricesScreen';
+import { AdMob } from '@capacitor-community/admob';
 
 export function App() {
   const pageRef = useRef(null);
@@ -90,6 +90,13 @@ pages. */
   ];
 
   const navigationLinks = navigationItems.map((item) => item.href);
+
+  // Hide the ads banner on main screens or if the menu is opened
+  if (navigationLinks.includes(location.pathname) || sideMenuIsOpened) {
+    AdMob.hideBanner();
+  } else {
+    AdMob.resumeBanner();
+  }
 
   return (
     <div className="dark:bg-gray-900">

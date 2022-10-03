@@ -8,7 +8,7 @@
     "metro-schedules": "جدول المترو",
     "violations-and-fines": "المخالفات والغرامات",
     "closest-transit": "أقرب محطة تبادلية",
-    "subscription-information": "معلومات الإشتراك"
+    "subscription-information": "الإشتراكات والأسعار"
   },
   "bottom-nav": {
     "map": "الخريطة",
@@ -284,7 +284,7 @@
     ]
   },
   "subscriptions-screen": {
-    "title": "معلومات الإشتراك",
+    "title": "الإشتراكات والأسعار",
     "prices": "الأسعار",
     "subscription-offices": "مكاتب الإشتراكات",
     "quarterly-subscription-offices": "مكاتب الإشتراكات الربع سنوية",

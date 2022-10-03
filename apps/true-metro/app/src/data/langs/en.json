@@ -8,7 +8,7 @@
     "metro-schedules": "Metro Schedules",
     "violations-and-fines": "Violations And Fines",
     "closest-transit": "Closest Transit",
-    "subscription-information": "Subscription Information"
+    "subscription-information": "Subscription & Prices"
   },
   "bottom-nav": {
     "map": "map",
@@ -277,7 +277,7 @@
     ]
   },
   "subscriptions-screen": {
-    "title": "Subscription Information",
+    "title": "Subscription & Prices",
     "prices": "Prices",
     "subscription-offices": "Subscription Offices",
     "quarterly-subscription-offices": "Quarterly Subscription Offices",
