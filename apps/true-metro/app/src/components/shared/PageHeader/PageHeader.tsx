@@ -19,7 +19,7 @@ export function PageHeader({ className, text, isBack = true }: PageHeaderI) {
     <div
       className={`absolute top-0 left-0 z-50  w-full  truncate rounded-b-xl bg-white px-8 py-4 shadow-lg dark:bg-gray-800 ${className}`}
     >
-      <div className='flex justify-between'>
+      <div className='flex justify-between items-center'>
         <div className="flex items-center gap-5">
           {isBack ? (
             isRTL() ? (
