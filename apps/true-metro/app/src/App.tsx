@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
 import { home, map, settings } from 'ionicons/icons';
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 
 import { SideMenuContext } from './hooks/SideMenuContext';
@@ -19,6 +19,7 @@ import { SeeAllStations } from './screens/SeeAllStations';
 import { StartTripScreen } from './screens/StartTripScreen';
 import { TripStationsScreen } from './screens/TripStationsScreen';
 
+import { AdMob } from '@capacitor-community/admob';
 import { useTranslation } from 'react-i18next';
 import { isRTL } from './assets/js/appDirection';
 import { BottomNavigation } from './components/layout/BottomNavigation/BottomNavigation';
@@ -32,11 +33,10 @@ import {
   StationServicesScreen,
 } from './screens/StationServicesScreen';
 import { SubscriptionScreen } from './screens/SubscriptionScreen';
+import { SubscriptionPricesScreen } from './screens/SubscriptionScreen/SubscriptionPricesScreen';
+import { TicketsPricesScreen } from './screens/SubscriptionScreen/TicketsPricesScreen';
 import { TransitStationsScreen } from './screens/TransitStationsScreen';
 import { ViolationsAndFinsScreen } from './screens/ViolationsAndFinsScreen';
-import { TicketsPricesScreen } from './screens/SubscriptionScreen/TicketsPricesScreen';
-import { SubscriptionPricesScreen } from './screens/SubscriptionScreen/SubscriptionPricesScreen';
-import { AdMob } from '@capacitor-community/admob';
 
 export function App() {
   const pageRef = useRef(null);
@@ -92,11 +92,18 @@ pages. */
   const navigationLinks = navigationItems.map((item) => item.href);
 
   // Hide the ads banner on main screens or if the menu is opened
-  if (navigationLinks.includes(location.pathname) || sideMenuIsOpened) {
-    AdMob.hideBanner();
-  } else {
-    AdMob.resumeBanner();
-  }
+  useEffect(() => {
+    if (
+      navigationLinks.includes(location.pathname) ||
+      sideMenuIsOpened ||
+      location.pathname === '/'
+    ) {
+      AdMob.hideBanner();
+      console.log('hide the ad banner on: ', location.pathname);
+    } else {
+      AdMob.resumeBanner();
+    }
+  }, [location.pathname, navigationLinks, sideMenuIsOpened]);
 
   return (
     <div className="dark:bg-gray-900">
