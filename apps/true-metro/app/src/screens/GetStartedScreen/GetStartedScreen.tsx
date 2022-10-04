@@ -10,8 +10,8 @@ export const GetStartedScreen = () => {
   } else {
     localStorage.setItem('firstTime', 'false');
     return (
-      <Page>
-        <div className="flex h-full flex-col items-center justify-center self-center">
+      <Page className='!p-0'>
+        <div className="flex h-full flex-col items-center justify-center self-center gap-4">
           <Slider />
         </div>
       </Page>

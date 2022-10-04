@@ -20,7 +20,8 @@ export default function Slider() {
   return (
     <>
       <Swiper
-        className="h-full w-full"
+      //!static
+        className="h-full w-full  flex flex-col  "
         modules={[Pagination]}
         pagination={{
           clickable: true,
@@ -32,7 +33,7 @@ export default function Slider() {
               text={t(`get-started-screen.slide-${index + 1}`)}
               image={
                 <img
-                  className="mx-auto !h-[400px] object-contain"
+                  className="mx-auto object-contain !max-w-[90%]"
                   alt={t(`get-started-screen.slide-${index + 1}`)}
                   src={`./assets/images/get-started/${
                     index + 1
@@ -48,7 +49,7 @@ export default function Slider() {
         <PrimaryButton
           size="md"
           text={t('get-started-screen.finish-button')}
-          className="w-full text-center"
+          className="w-full text-center mb-2"
         />
       </Link>
     </>
@@ -69,10 +70,11 @@ interface Slide {
  */
 function Slide({ text, image, children }: Slide) {
   return (
-    <div className="flex h-full flex-col items-center gap-10">
+    <div className="flex h-full flex-col items-center ">
       <div className="w-full">{image}</div>
       <span className="text-center text-xl">{text}</span>
       {children && children}
     </div>
   );
 }
+
