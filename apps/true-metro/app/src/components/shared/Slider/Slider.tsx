@@ -22,10 +22,10 @@ export default function Slider() {
       <Swiper
       //!static
         className="h-full w-full  flex flex-col  "
-        modules={[Pagination]}
-        pagination={{
-          clickable: true,
-        }}
+        // modules={[Pagination]}
+        // pagination={{
+        //   clickable: true,
+        // }}
       >
         {Array.from({ length: 3 }).map((_, index) => (
           <SwiperSlide key={'slide-' + index + 1}>
