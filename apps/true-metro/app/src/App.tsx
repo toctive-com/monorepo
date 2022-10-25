@@ -96,8 +96,11 @@ pages. */
     if (
       navigationLinks.includes(location.pathname) ||
       sideMenuIsOpened ||
-      location.pathname === '/'
+      location.pathname === '/' || 
+      location.pathname === '/start-trip/see-all-stations'
     ) {
+      // console.log('here hiden ');
+      
       AdMob.hideBanner();
       console.log('hide the ad banner on: ', location.pathname);
     } else {
