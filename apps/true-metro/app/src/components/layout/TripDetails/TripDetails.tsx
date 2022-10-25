@@ -21,11 +21,11 @@ const ticketDetails = (stationsNumber: number) => {
   } else if (stationsNumber <= 16) {
     details.price = 7;
     details.priceForElderly = 3.5;
-    details.color = 'red';
+    details.color = 'green';
   } else {
     details.price = 10;
     details.priceForElderly = 5;
-    details.color = 'green';
+    details.color = 'red';
   }
 
   return details;
