@@ -114,10 +114,10 @@ export const SubscriptionScreen = () => {
           text={t('tickets-prices-screen.title')}
           to="/subscription/tickets-prices"
         />
-        <LinkButton
+        {/* <LinkButton
           text={t('subscription-prices-screen.title')}
           to="/subscription/subscription-prices"
-        />
+        /> */}
       </div>
     </Page>
   );
