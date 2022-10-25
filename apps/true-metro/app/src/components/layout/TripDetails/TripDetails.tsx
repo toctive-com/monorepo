@@ -36,7 +36,8 @@ export function TripDetails({ tripStations, className }: TripDetailsI) {
 
   return (
     <div className={`flex flex-col gap-10 ${className}`}>
-      <div className="station-number xs:flex-row xs:gap-0 flex flex-col items-center justify-between gap-2">
+      <div className="station-number xs:gap-4 flex flex-col items-center justify-between gap-2">
+
         <span className="text-xl text-gray-500">
           {t('trip-details.number-of-stations')}:{' '}
           <span className="text-xl font-bold text-black dark:text-white">
@@ -44,27 +45,34 @@ export function TripDetails({ tripStations, className }: TripDetailsI) {
           </span>
         </span>
 
+          {/* see all stations btn */}
         <Link
           // we must use english name of stations as identifiers
           to={`/start-trip/see-all-stations?start=${
             tripStations[0].name.en
           }&end=${tripStations.at(-1).name.en}`}
         >
-          <PrimaryButton size="sm" text={t('trip-details.see-all-stations')} />
+          <PrimaryButton  size="md" text={t('trip-details.see-all-stations')} />
         </Link>
+
       </div>
 
-      <div className="xs:flex-row xs:gap-0 flex flex-col items-center justify-between gap-2">
+      <div className="xs:gap-4 flex flex-col items-center justify-between gap-2">
+          {/* ticket price for public */}
         <span className="ticket-price text-xl text-gray-500 dark:text-gray-50">
           {t('trip-details.ticket-price')}:{' '}
-          <span className="text-xl font-bold text-red-400 dark:text-red-500">
+
+          {/* path length */}
+          <span className="text-xl font-bold text-blue-400 dark:text-blue-500">
             {ticketDetails(tripStations.length).price}{' '}
             {t`start-trip-screen.egp`}
           </span>
+
         </span>
+
         <span className="text-base text-gray-500 dark:text-gray-50">
           {t('trip-details.for-elderly')}:{' '}
-          <span className="text-xl font-bold text-red-400 dark:text-red-500">
+          <span className="text-xl font-bold text-blue-400 dark:text-blue-500">
             {ticketDetails(tripStations.length).priceForElderly}{' '}
             {t`start-trip-screen.egp`}
           </span>
