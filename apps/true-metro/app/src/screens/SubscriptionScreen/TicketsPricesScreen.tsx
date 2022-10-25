@@ -22,18 +22,14 @@ export const TicketsPricesScreen = () => {
       label: t('tickets-prices-screen.public.title'),
       value: 'public',
     },
-    {
-      label: t('tickets-prices-screen.students.title'),
-      value: 'students',
-    },
+    // {
+    //   label: t('tickets-prices-screen.students.title'),
+    //   value: 'students',
+    // },
     {
       label: t('tickets-prices-screen.elderly-from-60.title'),
       value: 'elderly-from-60',
-    },
-    {
-      label: t('tickets-prices-screen.elderly-older-than-70.title'),
-      value: 'elderly-older-than-70',
-    },
+    }
   ];
 
   const prices: any = {
@@ -52,11 +48,11 @@ export const TicketsPricesScreen = () => {
         returnObjects: true,
       })
     ),
-    students: Array.from(
-      t('tickets-prices-screen.students.prices', {
-        returnObjects: true,
-      })
-    ),
+    // students: Array.from(
+    //   t('tickets-prices-screen.students.prices', {
+    //     returnObjects: true,
+    //   })
+    // ),
     'elderly-from-60': Array.from(
       t('tickets-prices-screen.elderly-from-60.prices', {
         returnObjects: true,
