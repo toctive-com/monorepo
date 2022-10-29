@@ -190,7 +190,8 @@
   },
   "see-all-stations-screen": {
     "title": "محطات الرحلة",
-    "change-to-line": "بدل إلى الخط"
+    "change-to-line-1": "بدل إلي الخط",
+    "change-to-line-2": "و أتجه إلي المحطة التالية"
   },
   "transit-stations-screen": {
     "title": " المحطات التبادلية",

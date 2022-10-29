@@ -183,7 +183,8 @@
   },
   "see-all-stations-screen": {
     "title": "Trip Stations",
-    "change-to-line": "Change to Line"
+    "change-to-line-1": "Change to Line",
+    "change-to-line-2": "and go to next station"
   },
   "transit-stations-screen": {
     "title": " Transit Stations",
