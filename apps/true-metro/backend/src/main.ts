@@ -25,7 +25,7 @@ app.get('/api', (req, res) => {
 // is the same as the one in the database and if not,
 // it will update the app
 app.use('/api/v1/latest-version', (req, res) => {
-  res.send({ version: '2.0.0' });
+  res.send({ version: '4.0.0' });
 });
 
 const port = process.env.port || 3333;

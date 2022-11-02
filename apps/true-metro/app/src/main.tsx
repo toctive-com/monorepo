@@ -1,3 +1,4 @@
+import axios from 'axios';
 import i18n from 'i18next';
 import * as ReactDOM from 'react-dom/client';
 import { initReactI18next } from 'react-i18next';
@@ -61,6 +62,8 @@ if (localStorage.getItem('darkMode') === null) {
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+axios.defaults.baseURL = 'https://metro.toctive.com';
+
 root.render(
   <BrowserRouter>
     <App />
