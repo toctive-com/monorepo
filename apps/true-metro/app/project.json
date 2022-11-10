@@ -1,0 +1,94 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/true-metro/app/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/true-metro/app",
+        "index": "apps/true-metro/app/src/index.html",
+        "baseHref": "/",
+        "main": "apps/true-metro/app/src/main.tsx",
+        "polyfills": "apps/true-metro/app/src/polyfills.ts",
+        "tsConfig": "apps/true-metro/app/tsconfig.app.json",
+        "assets": [
+          "apps/true-metro/app/src/favicon.ico",
+          "apps/true-metro/app/src/assets"
+        ],
+        "styles": [
+          "apps/true-metro/app/src/styles.css"
+        ],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/true-metro/app/src/environments/environment.ts",
+              "with": "apps/true-metro/app/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "true-metro-app:build",
+        "hmr": true,
+        "proxyConfig": "apps/true-metro/app/proxy.conf.json"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "true-metro-app:build:development"
+        },
+        "production": {
+          "buildTarget": "true-metro-app:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/true-metro/app/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/apps/true-metro/app"
+      ],
+      "options": {
+        "jestConfig": "apps/true-metro/app/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

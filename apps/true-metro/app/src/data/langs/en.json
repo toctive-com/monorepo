@@ -1,0 +1,495 @@
+{
+  "home-screen": {
+    "title": "Home",
+    "start-trip": "Start Trip",
+    "station-services": "Station Services",
+    "transit-stations": "Transit Stations",
+    "safety-instructions": "Safety Instructions",
+    "metro-schedules": "Metro Schedules",
+    "violations-and-fines": "Violations And Fines",
+    "closest-transit": "Closest Transit",
+    "subscription-information": "Subscription & Prices"
+  },
+  "bottom-nav": {
+    "map": "map",
+    "home": "home",
+    "settings": "settings"
+  },
+  "side-menu": {
+    "home": "Home",
+    "settings": "Settings",
+    "map": "Map",
+    "contact-metro": "Contact Metro",
+    "contact-us": "Contact Us",
+    "about-us": "About Us"
+  },
+  "map-screen": {
+    "title": "Map"
+  },
+  "lines-colors": {
+    "line-1": "For line 1",
+    "line-2": "For line 2",
+    "line-3": "For line 3"
+  },
+  "settings-screen": {
+    "title": "Settings",
+    "yes": "Yes",
+    "reset-confirmation-message": "Are you sure you want to reset the application?",
+    "clear-settings-confirmation-message": "Are you sure you want to clear all settings?",
+    "languages": {
+      "title": "Language",
+      "subtitle": "Change app language",
+      "arabic": "Arabic",
+      "english": "English"
+    },
+    "appearance": {
+      "title": "Appearance",
+      "subtitle": ""
+    },
+    "dark-mode": {
+      "title": "Dark Mode",
+      "subtitle": "Change app theme to dark or light theme"
+    },
+    "font-size": {
+      "title": "Font Size",
+      "subtitle": "increase or decrease font size"
+    },
+    "cache": {
+      "title": "Cache",
+      "subtitle": ""
+    },
+    "reset-settings": {
+      "title": "Reset Settings",
+      "subtitle": "Reset all settings"
+    },
+    "clear-cache": {
+      "title": "Clear Cache",
+      "subtitle": "Remove all Cache"
+    },
+    "other": {
+      "title": "Other",
+      "subtitle": ""
+    },
+    "share": {
+      "title": "Share This App",
+      "subtitle": "Share this app with your friends"
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "subtitle": "Delimit The scope of rights"
+    },
+    "about": {
+      "title": "About",
+      "subtitle": "Our social media and technical"
+    }
+  },
+  "error-screen": {
+    "not-found-screen": {
+      "title": "Page Not Found",
+      "subtitle": "Are you lost?",
+      "content": "You found our error page 404. This is not your fault. It is just a little bit mistakes. But don't worry, you can go back right now!"
+    }
+  },
+  "start-trip-screen": {
+    "title": "start trip",
+    "egp": "EGP"
+  },
+  "stations-selector": {
+    "from": "From",
+    "to": "To",
+    "select-station": "Select a Station",
+    "line-one": "Line One",
+    "line-two": "Line Two",
+    "line-three": "Line Three"
+  },
+  "trip-details": {
+    "number-of-stations": "Number of Stations",
+    "see-all-stations": "See All Stations",
+    "for-elderly": "For Elderly",
+    "estimated-trip-time": "Estimated trip time",
+    "ticket-price": "Ticket Price"
+  },
+  "metro-schedules-screen": {
+    "title": "Metro Schedules",
+    "line-1": "Line 1",
+    "line-2": "Line 2",
+    "line-3": "Line 3",
+    "header": {
+      "total-time": "Total Time",
+      "minute": "Minutes"
+    },
+    "body": {
+      "first-transfer": {
+        "title": "First Transfer"
+      },
+      "last-transfer": {
+        "title": "Last Transfer"
+      },
+      "time-between-stations-peek-time": {
+        "title": "Time between stations (Peek time)"
+      },
+      "time-between-stations-non-peek-time": {
+        "title": "Time between stations (Non-Peek time)"
+      },
+      "number-trains": {
+        "title": "Number Trains",
+        "regular-ventilation": "Regular Ventilation",
+        "air-conditioned": "Air Conditioned"
+      },
+      "starts-from": "Starts from",
+      "ends-from": "Ends at",
+      "second": "sec"
+    }
+  },
+  "get-started-screen": {
+    "slide-1": "Lots of tools to help your journey on the metro.",
+    "slide-2": "Select your trip destination to know the number of stations and ticket price",
+    "slide-3": "Know your itinerary and transit stations on your trip",
+    "finish-button": "START YOUR TRIP"
+  },
+  "closest-transit-screen": {
+    "title": "Closet Transit",
+    "closest-transit-station-is": "closest transit station is"
+  },
+  "contact-us-screen": {
+    "title": "Contact us",
+    "app-name": "True Metro App",
+    "contact-form": {
+      "name": "Your Name",
+      "email": "example@mail.com",
+      "massage": "I want to ..."
+    }
+  },
+  "about-us-screen": {
+    "title": "About us",
+    "app-name": "True Metro App",
+    "version": "Version"
+  },
+  "contact-metro-screen": {
+    "title": "Contact Metro",
+    "cairo-metro": "Cairo Metro"
+  },
+  "station-services-screen": {
+    "title": "Station Services",
+    "services-by-station": "Services by Station",
+    "search-for-services": "Search for Services"
+  },
+  "search-for-services-screen": {
+    "title": "Search for Services",
+    "select-station": "Select a Station"
+  },
+  "services-by-station-screen": {
+    "title": "Services by Station"
+  },
+  "see-all-stations-screen": {
+    "title": "Trip Stations",
+    "change-to-line-1": "Change to Line",
+    "change-to-line-2": "and go to next station"
+  },
+  "transit-stations-screen": {
+    "title": " Transit Stations",
+    "line": "Line"
+  },
+  "safety-instructions-screen": {
+    "title": "Safety Instructions",
+    "do": {
+      "title": "Do",
+      "subtitle": "What should you do on Metro",
+      "content": [
+        "Follow the signs and pay attention to hear notices and alerts from public address.",
+        "Take care and assisting the elderly, women, children and people with special needs (allowing them to pass first through the ticket gates, escalators, elevators, entering in the train and giving them priority to sit).",
+        " Keep the stations and the trains clean and throwing trash into rubbish bins.",
+        " In case of suspicion of anything at the station or train, please call the officials",
+        "Notify the station official of any observations, whether in the station or in the train.",
+        " Using safety and emergency equipment (fire extinguishers or emergency buttons inside the train) only in emergency in order to not be subjected to legal accountability",
+        " Use the ticket or contactless card during crossing the ticket gates.",
+        "Calling the officials when you face any faults in ticket gates",
+        "When using escalators please hold the handrail and stand on the ladder in the direction of going up or down.",
+        " Stand behind the yellow line while waiting the train on the platform.",
+        "Allow passengers to get off first from the train and then enter.",
+        "Stay away from the doors after getting in the train"
+      ]
+    },
+    "dont": {
+      "title": "Don't",
+      "subtitle": "What should you Not do on Metro",
+      "content": [
+        "Smoking inside the metro.",
+        "Carrying flammable or dangerous chemicals.",
+        "Taking the animals within the metro.",
+        "Tampering or trying to sabotage the station or train or ticket gates in order to not expose yourself to legal accountability.",
+        "Jumping over ticket gates to cross in order to not expose yourself to fine.",
+        "Crossing by force or in groups the ticket gates.",
+        "Running, sitting or playing while going upstairs or downstairs on escalators.",
+        "Allowing children to use escalators alone.",
+        "Scrambling, playing or running on the train platform.",
+        "Crossing the rails to pick up property that falls on the train track, immediately go to the station officials for help.",
+        "Opening or closing the train door with your hand.",
+        "entering the train after starting the door closing alert.",
+        "Sitting on the train floor."
+      ]
+    }
+  },
+  "violations-fins-screen": {
+    "title": "Violations and Fines",
+    "30-egp-class": {
+      "title": "30 Egp Fins",
+      "who-can-collect-fins": "A police fine issued by metro police.",
+      "violations": [
+        "Smoking into stations and trains",
+        "Existence men into women’ cars",
+        "Throwing wastes inside stations and trains"
+      ]
+    },
+    "50-egp-class": {
+      "title": "50 Egp Fins",
+      "who-can-collect-fins": "Passenger fine which issued by members of metro company: supervisors & inspectors.",
+      "violations": [
+        "Riding without ticket",
+        "Not using the ticket during passing the gates",
+        "Using a secondhand ticket",
+        "Using undeserved discount ticket",
+        "Passing the subscription zone"
+      ]
+    },
+    "other-fins": {
+      "title": "Other Fins",
+      "who-can-collect-fins": "Passenger fine which issued by members of metro company: supervisors & inspectors.",
+      "violations": [
+        "Selling at stations and trains without a permission",
+        "Begging at stations and trains",
+        "Posting advertisements or posters in stations and trains without permission",
+        "Crossing metro tracks",
+        "Abusing and tampering with tools, equipment and devices of stations and trains",
+        "misusing any tools or equipment",
+        "Do not obstruct the train doors during closing"
+      ]
+    },
+    "fine-delaying-trains": {
+      "title": "Fine of delaying trains",
+      "violations": [
+        "A fine of delaying train because of violating a passenger is estimated by LE 300 per minute. This fine is considered as a means of deterring the offending passenger and not to repeat the violation that leads to delay of trains.",
+        "A fine for delaying train because of violating a company is estimated by LE 400 per minute. In addition to the damages caused by the delay of trains."
+      ]
+    },
+    "notes": [
+      "That’s all in order to not be subjected to the prescribed fine for each item",
+      "The metro is a civilized project which is yours. Preserve it."
+    ]
+  },
+  "subscriptions-screen": {
+    "title": "Subscription & Prices",
+    "prices": "Prices",
+    "subscription-offices": "Subscription Offices",
+    "quarterly-subscription-offices": "Quarterly Subscription Offices",
+    "annual-subscription-offices": "Annual Subscription Offices"
+  },
+  "tickets-prices-screen": {
+    "title": "Tickets Prices",
+    "lower-that-4": {
+      "title": "Children (Under 4 Years)",
+      "prices": [
+        "Free"
+      ]
+    },
+    "special-needs": {
+      "title": "Special Needs",
+      "prices": [
+        "0.5 EGP (39 Stations Ticket)"
+      ]
+    },
+    "public": {
+      "title": "Public (4 Years to 60 Years)",
+      "prices": [
+        "5 EGP (9 Stations Ticket)",
+        "7 EGP (16 Stations Ticket)",
+        "10 EGP (39 Stations Ticket)"
+      ]
+    },
+    "students": {
+      "title": "Students (11 Years to 18 Years)",
+      "prices": [
+        "5 EGP (9 Stations Ticket)",
+        "7 EGP (16 Stations Ticket)",
+        "10 EGP (39 Stations Ticket)"
+      ]
+    },
+    "elderly-from-60": {
+      "title": "Elderly (From 60 Years)",
+      "prices": [
+        "2.5 EGP (9 Stations Ticket)",
+        "3.5 EGP (16 Stations Ticket)",
+        "5 EGP (39 Stations Ticket)"
+      ]
+    },
+    "elderly-older-than-70": {
+      "title": "Elderly (Older than 70 Years)",
+      "prices": [
+        "2.5 EGP (9 Stations Ticket)",
+        "3.5 EGP (16 Stations Ticket)",
+        "5 EGP (39 Stations Ticket)"
+      ]
+    }
+  },
+  "subscription-prices-screen": {
+    "title": "Subscription Prices",
+    "special-needs": {
+      "title": "Special Needs",
+      "prices": [
+        {
+          "subscription-type": "3 Months Subscription",
+          "price": "22 EGP (valid for 180 trips)"
+        }
+      ]
+    },
+    "public": {
+      "title": "Public (4 Years to 60 Years)",
+      "prices": [
+        {
+          "subscription-type": "1 Month Subscription",
+          "price": "185 EGP (valid for 60 trips)"
+        },
+        {
+          "subscription-type": "3 Months Subscription",
+          "price": "500 EGP (valid for 180 trips)"
+        },
+        {
+          "subscription-type": "Annual Subscription (2 Lines)",
+          "price": "3500 EGP (valid for 730 trips)"
+        },
+        {
+          "subscription-type": "Annual Subscription (3 Lines)",
+          "price": "4400 EGP (valid for 730 trips)"
+        }
+      ]
+    },
+    "students": {
+      "title": "Students (11 Years to 18 Years)",
+      "prices": [
+        {
+          "subscription-type": "3 Months Subscription",
+          "price": "33 EGP (valid for 180 trips)"
+        },
+        {
+          "subscription-type": "Annual Subscription (2 Lines)",
+          "price": "3500 EGP (valid for 730 trips)"
+        }
+      ]
+    },
+    "elderly-from-60": {
+      "title": "Elderly (60 Years to 65 Years)",
+      "prices": [
+        {
+          "subscription-type": "1 Month Subscription",
+          "price": "150 EGP (valid for 60 trips)"
+        },
+        {
+          "subscription-type": "3 Months Subscription",
+          "price": "450 EGP (valid for 180 trips)"
+        }
+      ]
+    },
+    "elderly-older-than-70": {
+      "title": "Elderly (Older than 70 Years)",
+      "prices": [
+        {
+          "subscription-type": "3 Months Subscription",
+          "price": "Free (valid for 180 trips)"
+        }
+      ]
+    }
+  },
+  "stations": {
+    "helwan": "Helwan",
+    "ain-helwan": "Ain Helwan",
+    "helwan-university": "Helwan University",
+    "wadi-hof": "Wadi Hof",
+    "hadayek-helwan": "Hadayek Helwan",
+    "el-maasara": "El Maasara",
+    "tora-el-asmant": "Tora El Asmant",
+    "kozzika": "Kozzika",
+    "tora-el-balad": "Tora El Balad",
+    "sakanat-el-maadi": "Sakanat El Maadi",
+    "maadi": "Maadi",
+    "hadayek-el-maadi": "Hadayek El Maadi",
+    "dar-el-salam": "Dar El Salam",
+    "el-zahraa": "El Zahraa",
+    "mar-girgis": "Mar Girgis",
+    "el-malek-el-saleh": "El Malek El Saleh",
+    "al-sayeda-zeinab": "Al Sayeda Zeinab",
+    "saad-zaghloul": "Saad Zaghloul",
+    "sadat": "Sadat",
+    "nasser": "Nasser",
+    "orabi": "Orabi",
+    "al-shohadaa": "Al Shohadaa",
+    "ghamra": "Ghamra",
+    "el-demerdash": "El Demerdash",
+    "manshiet-el-sadr": "Manshiet El Sadr",
+    "kobri-el-qobba": "Kobri El Qobba",
+    "hammamat-el-qobba": "Hammamat El Qobba",
+    "saray-el-qobba": "Saray El Qobba",
+    "hadayeq-el-zaitoun": "Hadayeq El Zaitoun",
+    "helmeyet-el-zaitoun": "Helmeyet El Zaitoun",
+    "el-matareyya": "El Matareyya",
+    "ain-shams": "Ain Shams",
+    "ezbet-el-nakhl": "Ezbet El Nakhl",
+    "el-marg": "El Marg",
+    "new-el-marg": "New El Marg",
+    "el-mounib": "El Mounib",
+    "sakiat-mekky": "Sakiat Mekky",
+    "omm-el-masryeen": "Omm El Masryeen",
+    "el-giza": "El Giza",
+    "faisal": "Faisal",
+    "el-bohoth": "El Bohoth",
+    "dokki": "Dokki",
+    "opera": "Opera",
+    "mohamed-naguib": "Mohamed Naguib",
+    "masarra": "Masarra",
+    "road-el-farag": "Road El Farag",
+    "st-teresa": "St Teresa",
+    "khalafawy": "Khalafawy",
+    "mezallat": "Mezallat",
+    "kolleyyet-el-zeraa": "Kolleyyet El Zeraa",
+    "shubra-el-kheima": "Shubra El Kheima",
+    "airport": "Airport",
+    "ahmed-galal": "Ahmed Galal",
+    "adly-mansour": "Adly Mansour",
+    "el-haykestep": "El Haykestep",
+    "omar-ibn-el-khattab": "Omar Ibn El Khattab",
+    "qobaa": "Qobaa",
+    "hesham-barakat": "Hesham Barakat",
+    "el-nozha": "El Nozha",
+    "nadi-el-shams": "Nadi El Shams",
+    "alf-maskan": "Alf Maskan",
+    "heliopolis": "Heliopolis",
+    "haroun": "Haroun",
+    "al-ahram": "Al Ahram",
+    "koleyet-el-banat": "Koleyet El Banat",
+    "stadium": "Stadium",
+    "fair-zone": "Fair Zone",
+    "abbassia": "Abbassia",
+    "abdou-pasha": "Abdou Pasha",
+    "el-geish": "El Geish",
+    "bab-el-shaaria": "Bab El Shaaria",
+    "attaba": "Attaba",
+    "maspero": "Maspero",
+    "zamalek": "Zamalek",
+    "kit-kat": "Kit Kat",
+    "sudan-street": "Sudan Street",
+    "imbaba": "Imbaba",
+    "el-bohy": "El Bohy",
+    "el-kawmeya-al-arabiya": "El Kawmeya Al Arabiya",
+    "ring-road": "Ring Road",
+    "rod-el-farag-axis": "Rod El Farag Axis",
+    "el-tawfikeya": "El Tawfikeya",
+    "wadi-el-nil": "Wadi El Nil",
+    "gamaat-el-dowal-al-arabiya": "Gamaat El Dowal Al Arabiya",
+    "bulaq-el-dakroor": "Bulaq El Dakroor",
+    "cairo-university": "Cairo University"
+  },
+  "update-alert":{
+    "message": "There is a new version has updated data, Do you want download it",
+    "btn":"Update"
+  }
+
+}
