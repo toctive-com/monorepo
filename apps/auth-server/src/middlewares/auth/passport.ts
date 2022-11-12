@@ -1,7 +1,6 @@
 import passport from 'passport';
 import { ExtractJwt, Strategy as JWTStrategy } from 'passport-jwt';
-import { User } from '../../models/user';
-import { UserI } from '../../interfaces/user';
+import { getUserById } from '../../db';
 
 const opts = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -13,9 +12,9 @@ const opts = {
 passport.use(
   new JWTStrategy(opts, (jwt_payload, done) => {
     // find user by id
-    User.findOne({ _id: jwt_payload.sub }, (err: Error, user: UserI) => {
-      if (err) {
-        return done(err, false);
+    getUserById(jwt_payload._id).then((user) => {
+      if (!user) {
+        return done(new Error("User doesn't exist"), false);
       }
 
       // if user exists, return user
