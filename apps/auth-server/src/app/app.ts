@@ -4,6 +4,7 @@ import express, { NextFunction, Request, Response } from 'express';
 import { HttpError } from 'http-errors';
 import handleErrors from '../middlewares/errors/handle-errors';
 
+// init passport strategies
 import '../middlewares/auth/passport';
 
 // Routes
@@ -21,13 +22,7 @@ app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to auth-server!' });
 });
 
-app.get('/error', (req, res, next) => {
-  const error = {
-    message: "Something went wrong! This a test page. You shouldn't be here.",
-  };
-  next(error);
-});
-
+// auth routes (login, register, logout, etc)
 app.use('/auth', AuthRouter);
 
 // error handling middleware
@@ -36,6 +31,8 @@ app.use(function (
   err: HttpError,
   req: Request,
   res: Response,
+  // we need to add next function to the error handler middleware to
+  // tell express that this is an error handler middleware
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _next: NextFunction
 ) {
