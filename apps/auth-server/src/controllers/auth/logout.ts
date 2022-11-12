@@ -1,6 +1,11 @@
-import { User } from '../../models/user';
 import { NextFunction, Request, Response } from 'express';
+import { getAllUserByRefreshToken } from '../../db';
+import User from '../../models/user';
 
+/**
+ * It logs the user out by removing the refresh token from the user document in
+ * the database
+ */
 export const logout = async (
   req: Request,
   res: Response,
@@ -11,9 +16,7 @@ export const logout = async (
 
   // get the user from the database and remove the refresh token and access
   // token from the user document in the database
-  const users = await User.find({
-    refresh_tokens: { $elemMatch: { token: refreshToken } },
-  });
+  const users = await getAllUserByRefreshToken(refreshToken);
 
   if (!users) {
     return next(new Error('User not found'));
@@ -28,7 +31,7 @@ export const logout = async (
       (token) => token.token !== accessToken
     );
 
-    user.save();
+    User.updateOne({ _id: user._id }, user);
   });
 
   // remove the refresh token and access token from the cookies
