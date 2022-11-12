@@ -17,7 +17,7 @@ app.use(cookieParser());
 app.use(express.json());
 
 // routes middlewares
-app.get('/api', (req, res, next) => {
+app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to auth-server!' });
 });
 
