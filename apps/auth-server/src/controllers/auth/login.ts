@@ -1,8 +1,12 @@
 import bcrypt from 'bcrypt';
 import generateTokens from '../../utils/auth/generate-token';
-import { User } from '../../models/user';
 import { NextFunction, Request, Response } from 'express';
+import getUserByEmailOrUsername from '../../db/get-user-by-email-or-username';
 
+/**
+ * Generate a new access token and refresh token for the user
+ * email and password or username and password are required in request body
+ */
 export const login = async (
   req: Request,
   res: Response,
@@ -16,7 +20,8 @@ export const login = async (
     return next(new Error('You must enter a password'));
   }
 
-  const user = await User.findOne({ $or: [{ email }, { username }] });
+  // get the user from database
+  const user = await getUserByEmailOrUsername(email, username);
 
   // check if user exists
   if (!user) {
@@ -24,14 +29,15 @@ export const login = async (
   }
 
   // check if the password is correct
-  const correctPassword = await bcrypt.compare(password, user.password);
-  if (!correctPassword) {
+  const isPasswordCorrect = await bcrypt.compare(password, user.password);
+  if (!isPasswordCorrect) {
     return next(new Error('Email, username or password is not correct'));
   }
 
-  // generate tokens
+  // generate access and refresh tokens
   const tokens = await generateTokens(user);
 
+  // store refresh token in http-only cookie
   res.cookie('refreshToken', tokens.refreshToken, {
     maxAge: 1000 * 60 * 60 * 24 * 30, // 1 month in milliseconds
     httpOnly: true,

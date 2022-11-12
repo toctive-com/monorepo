@@ -6,10 +6,19 @@ import User from '../../models/user';
 // Load environment variables at apps/auth-server/.env
 dotenv.config();
 
+/**
+ * It generates a new access token and a new refresh token, adds them to the user
+ * document in the database, and returns them
+ *
+ * @param {UserI} user - UserI - the user object that we get from the database
+ * @returns An object with two properties: accessToken and refreshToken.
+ */
 export const generateTokens = async (user: UserI) => {
   try {
+    // payload to will be stored in the tokens
     const payload = { _id: user._id, roles: user.roles };
 
+    // generate new tokens
     const newAccessToken = jwt.sign(
       payload,
       process.env.ACCESS_TOKEN_PRIVATE_KEY || 'ACCESS',
