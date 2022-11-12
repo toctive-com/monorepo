@@ -1,15 +1,13 @@
 import { Router } from 'express';
-import passport from 'passport';
 import validateEmail from '../middlewares/auth/validators/email';
 import validatePassword from '../middlewares/auth/validators/password';
 import validateUsername from '../middlewares/auth/validators/username';
 
 // auth controllers
-import { login, register } from '../controllers/auth';
-import { verifyRefreshToken } from '../utils/auth';
+import { login, logout, refresh, register } from '../controllers/auth';
+import requireToken from '../middlewares/auth/require-token';
 
 export const router = Router();
-router.post('/login', login);
 
 router.post(
   '/register',
@@ -19,34 +17,20 @@ router.post(
   register
 );
 
-router.post('/logout', (req, res) => {
-  res.send({ message: 'Login Route' });
-});
-
-router.get('/search/:id', async (req, res, next) => {
-  verifyRefreshToken(req.params.id)
-    .then((payload) => {
-      res.send({ message: payload });
-    })
-    .catch((err) => next(new Error(err)));
-});
+router.post('/login', login);
+router.post('/logout', logout);
 
 // get new token using refresh token
-router.post('/refresh', (req, res) => {
-  res.send({ message: 'Login Route' });
-});
+router.post('/refresh', refresh);
 
 // activate the user account using the activation token sent to the user email
 router.get('/activate/:token', (req, res) => {
-  res.send({ message: 'Login Route' });
+  res.status(501).send({ message: 'Not Implemented Yet' });
 });
 
-router.post(
-  '/profile',
-  passport.authenticate('jwt', { session: false }),
-  (req, res) => {
-    res.send('welcome to your profile');
-  }
-);
+router.get('/profile', requireToken, (req, res) => {
+  console.log(res.locals.user);
+  res.send('welcome to your profile');
+});
 
 export default router;
