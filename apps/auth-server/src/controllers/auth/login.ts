@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import generateTokens from '../../middlewares/auth/generate-token';
+import generateTokens from '../../utils/auth/generate-token';
 import { User } from '../../models/user';
 import { NextFunction, Request, Response } from 'express';
 
@@ -31,6 +31,13 @@ export const login = async (
 
   // generate tokens
   const tokens = await generateTokens(user);
+
+  res.cookie('refreshToken', tokens.refreshToken, {
+    maxAge: 1000 * 60 * 60 * 24 * 30, // 1 month in milliseconds
+    httpOnly: true,
+    domain: 'toctive.com',
+  });
+
   return res.status(200).json(tokens);
 };
 
